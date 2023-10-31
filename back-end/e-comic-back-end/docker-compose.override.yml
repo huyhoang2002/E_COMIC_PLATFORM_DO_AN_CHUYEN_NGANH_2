@@ -1,0 +1,17 @@
+version: '3.4'
+
+services:
+  authdb:
+    container_name: auth-db
+    ports:
+      - "1433:1433"
+    environment:
+      - ACCEPT_EULA=Y
+      - MSSQL_SA_PASSWORD=Huy2002109@
+  auth.api:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+    ports:
+      - "5064:80"
+    depends_on:
+      - authdb

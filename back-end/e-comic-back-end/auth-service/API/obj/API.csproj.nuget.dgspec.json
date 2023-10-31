@@ -1,0 +1,312 @@
+{
+  "format": 1,
+  "restore": {
+    "D:\\E_COMIC_PLATFORM_DO_AN_CHUYEN_NGANH_2\\back-end\\e-comic-back-end\\auth-service\\API\\API.csproj": {}
+  },
+  "projects": {
+    "D:\\E_COMIC_PLATFORM_DO_AN_CHUYEN_NGANH_2\\back-end\\e-comic-back-end\\auth-service\\API\\API.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\E_COMIC_PLATFORM_DO_AN_CHUYEN_NGANH_2\\back-end\\e-comic-back-end\\auth-service\\API\\API.csproj",
+        "projectName": "API",
+        "projectPath": "D:\\E_COMIC_PLATFORM_DO_AN_CHUYEN_NGANH_2\\back-end\\e-comic-back-end\\auth-service\\API\\API.csproj",
+        "packagesPath": "C:\\Users\\huy.hoang\\.nuget\\packages\\",
+        "outputPath": "D:\\E_COMIC_PLATFORM_DO_AN_CHUYEN_NGANH_2\\back-end\\e-comic-back-end\\auth-service\\API\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\huy.hoang\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {},
+          "https://nuget.pkg.github.com/plentiau/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "D:\\E_COMIC_PLATFORM_DO_AN_CHUYEN_NGANH_2\\back-end\\e-comic-back-end\\auth-service\\AuthService.Application\\AuthService.Application.csproj": {
+                "projectPath": "D:\\E_COMIC_PLATFORM_DO_AN_CHUYEN_NGANH_2\\back-end\\e-comic-back-end\\auth-service\\AuthService.Application\\AuthService.Application.csproj"
+              },
+              "D:\\E_COMIC_PLATFORM_DO_AN_CHUYEN_NGANH_2\\back-end\\e-comic-back-end\\auth-service\\AuthService.Infrastructure\\AuthService.Infrastructure.csproj": {
+                "projectPath": "D:\\E_COMIC_PLATFORM_DO_AN_CHUYEN_NGANH_2\\back-end\\e-comic-back-end\\auth-service\\AuthService.Infrastructure\\AuthService.Infrastructure.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[6.0.14, )"
+            },
+            "Microsoft.VisualStudio.Azure.Containers.Tools.Targets": {
+              "target": "Package",
+              "version": "[1.15.1, )"
+            },
+            "Swashbuckle.AspNetCore": {
+              "target": "Package",
+              "version": "[6.2.3, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.300\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "D:\\E_COMIC_PLATFORM_DO_AN_CHUYEN_NGANH_2\\back-end\\e-comic-back-end\\auth-service\\AuthService.Application\\AuthService.Application.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\E_COMIC_PLATFORM_DO_AN_CHUYEN_NGANH_2\\back-end\\e-comic-back-end\\auth-service\\AuthService.Application\\AuthService.Application.csproj",
+        "projectName": "AuthService.Application",
+        "projectPath": "D:\\E_COMIC_PLATFORM_DO_AN_CHUYEN_NGANH_2\\back-end\\e-comic-back-end\\auth-service\\AuthService.Application\\AuthService.Application.csproj",
+        "packagesPath": "C:\\Users\\huy.hoang\\.nuget\\packages\\",
+        "outputPath": "D:\\E_COMIC_PLATFORM_DO_AN_CHUYEN_NGANH_2\\back-end\\e-comic-back-end\\auth-service\\AuthService.Application\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\huy.hoang\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {},
+          "https://nuget.pkg.github.com/plentiau/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "D:\\E_COMIC_PLATFORM_DO_AN_CHUYEN_NGANH_2\\back-end\\e-comic-back-end\\auth-service\\AuthService.Infrastructure\\AuthService.Infrastructure.csproj": {
+                "projectPath": "D:\\E_COMIC_PLATFORM_DO_AN_CHUYEN_NGANH_2\\back-end\\e-comic-back-end\\auth-service\\AuthService.Infrastructure\\AuthService.Infrastructure.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "Microsoft.AspNetCore.Identity": {
+              "target": "Package",
+              "version": "[2.2.0, )"
+            },
+            "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[6.0.14, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.300\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "D:\\E_COMIC_PLATFORM_DO_AN_CHUYEN_NGANH_2\\back-end\\e-comic-back-end\\auth-service\\AuthService.Domain\\AuthService.Domain.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\E_COMIC_PLATFORM_DO_AN_CHUYEN_NGANH_2\\back-end\\e-comic-back-end\\auth-service\\AuthService.Domain\\AuthService.Domain.csproj",
+        "projectName": "AuthService.Domain",
+        "projectPath": "D:\\E_COMIC_PLATFORM_DO_AN_CHUYEN_NGANH_2\\back-end\\e-comic-back-end\\auth-service\\AuthService.Domain\\AuthService.Domain.csproj",
+        "packagesPath": "C:\\Users\\huy.hoang\\.nuget\\packages\\",
+        "outputPath": "D:\\E_COMIC_PLATFORM_DO_AN_CHUYEN_NGANH_2\\back-end\\e-comic-back-end\\auth-service\\AuthService.Domain\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\huy.hoang\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {},
+          "https://nuget.pkg.github.com/plentiau/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[6.0.14, )"
+            },
+            "System.IdentityModel.Tokens.Jwt": {
+              "target": "Package",
+              "version": "[6.14.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.300\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "D:\\E_COMIC_PLATFORM_DO_AN_CHUYEN_NGANH_2\\back-end\\e-comic-back-end\\auth-service\\AuthService.Infrastructure\\AuthService.Infrastructure.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\E_COMIC_PLATFORM_DO_AN_CHUYEN_NGANH_2\\back-end\\e-comic-back-end\\auth-service\\AuthService.Infrastructure\\AuthService.Infrastructure.csproj",
+        "projectName": "AuthService.Infrastructure",
+        "projectPath": "D:\\E_COMIC_PLATFORM_DO_AN_CHUYEN_NGANH_2\\back-end\\e-comic-back-end\\auth-service\\AuthService.Infrastructure\\AuthService.Infrastructure.csproj",
+        "packagesPath": "C:\\Users\\huy.hoang\\.nuget\\packages\\",
+        "outputPath": "D:\\E_COMIC_PLATFORM_DO_AN_CHUYEN_NGANH_2\\back-end\\e-comic-back-end\\auth-service\\AuthService.Infrastructure\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\huy.hoang\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {},
+          "https://nuget.pkg.github.com/plentiau/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "D:\\E_COMIC_PLATFORM_DO_AN_CHUYEN_NGANH_2\\back-end\\e-comic-back-end\\auth-service\\AuthService.Domain\\AuthService.Domain.csproj": {
+                "projectPath": "D:\\E_COMIC_PLATFORM_DO_AN_CHUYEN_NGANH_2\\back-end\\e-comic-back-end\\auth-service\\AuthService.Domain\\AuthService.Domain.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "MediatR.Extensions.Microsoft.DependencyInjection": {
+              "target": "Package",
+              "version": "[11.1.0, )"
+            },
+            "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[6.0.14, )"
+            },
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[6.0.14, )"
+            },
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[6.0.14, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[6.0.14, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[6.0.14, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.300\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,17 @@
+D:\E_COMIC_PLATFORM_DO_AN_CHUYEN_NGANH_2\back-end\e-comic-back-end\auth-service\AuthService.Infrastructure\bin\Debug\net6.0\AuthService.Infrastructure.deps.json
+D:\E_COMIC_PLATFORM_DO_AN_CHUYEN_NGANH_2\back-end\e-comic-back-end\auth-service\AuthService.Infrastructure\bin\Debug\net6.0\AuthService.Infrastructure.runtimeconfig.json
+D:\E_COMIC_PLATFORM_DO_AN_CHUYEN_NGANH_2\back-end\e-comic-back-end\auth-service\AuthService.Infrastructure\bin\Debug\net6.0\AuthService.Infrastructure.dll
+D:\E_COMIC_PLATFORM_DO_AN_CHUYEN_NGANH_2\back-end\e-comic-back-end\auth-service\AuthService.Infrastructure\bin\Debug\net6.0\AuthService.Infrastructure.pdb
+D:\E_COMIC_PLATFORM_DO_AN_CHUYEN_NGANH_2\back-end\e-comic-back-end\auth-service\AuthService.Infrastructure\bin\Debug\net6.0\AuthService.Domain.dll
+D:\E_COMIC_PLATFORM_DO_AN_CHUYEN_NGANH_2\back-end\e-comic-back-end\auth-service\AuthService.Infrastructure\bin\Debug\net6.0\AuthService.Domain.pdb
+D:\E_COMIC_PLATFORM_DO_AN_CHUYEN_NGANH_2\back-end\e-comic-back-end\auth-service\AuthService.Infrastructure\obj\Debug\net6.0\AuthService.Infrastructure.csproj.AssemblyReference.cache
+D:\E_COMIC_PLATFORM_DO_AN_CHUYEN_NGANH_2\back-end\e-comic-back-end\auth-service\AuthService.Infrastructure\obj\Debug\net6.0\AuthService.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+D:\E_COMIC_PLATFORM_DO_AN_CHUYEN_NGANH_2\back-end\e-comic-back-end\auth-service\AuthService.Infrastructure\obj\Debug\net6.0\AuthService.Infrastructure.AssemblyInfoInputs.cache
+D:\E_COMIC_PLATFORM_DO_AN_CHUYEN_NGANH_2\back-end\e-comic-back-end\auth-service\AuthService.Infrastructure\obj\Debug\net6.0\AuthService.Infrastructure.AssemblyInfo.cs
+D:\E_COMIC_PLATFORM_DO_AN_CHUYEN_NGANH_2\back-end\e-comic-back-end\auth-service\AuthService.Infrastructure\obj\Debug\net6.0\AuthService.Infrastructure.csproj.CoreCompileInputs.cache
+D:\E_COMIC_PLATFORM_DO_AN_CHUYEN_NGANH_2\back-end\e-comic-back-end\auth-service\AuthService.Infrastructure\obj\Debug\net6.0\AuthService.Infrastructure.csproj.CopyComplete
+D:\E_COMIC_PLATFORM_DO_AN_CHUYEN_NGANH_2\back-end\e-comic-back-end\auth-service\AuthService.Infrastructure\obj\Debug\net6.0\AuthService.Infrastructure.dll
+D:\E_COMIC_PLATFORM_DO_AN_CHUYEN_NGANH_2\back-end\e-comic-back-end\auth-service\AuthService.Infrastructure\obj\Debug\net6.0\refint\AuthService.Infrastructure.dll
+D:\E_COMIC_PLATFORM_DO_AN_CHUYEN_NGANH_2\back-end\e-comic-back-end\auth-service\AuthService.Infrastructure\obj\Debug\net6.0\AuthService.Infrastructure.pdb
+D:\E_COMIC_PLATFORM_DO_AN_CHUYEN_NGANH_2\back-end\e-comic-back-end\auth-service\AuthService.Infrastructure\obj\Debug\net6.0\AuthService.Infrastructure.genruntimeconfig.cache
+D:\E_COMIC_PLATFORM_DO_AN_CHUYEN_NGANH_2\back-end\e-comic-back-end\auth-service\AuthService.Infrastructure\obj\Debug\net6.0\ref\AuthService.Infrastructure.dll

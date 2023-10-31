@@ -1,0 +1,12 @@
+D:\E_COMIC_PLATFORM_DO_AN_CHUYEN_NGANH_2\back-end\e-comic-back-end\auth-service\AuthService.Domain\bin\Debug\net6.0\AuthService.Domain.deps.json
+D:\E_COMIC_PLATFORM_DO_AN_CHUYEN_NGANH_2\back-end\e-comic-back-end\auth-service\AuthService.Domain\bin\Debug\net6.0\AuthService.Domain.dll
+D:\E_COMIC_PLATFORM_DO_AN_CHUYEN_NGANH_2\back-end\e-comic-back-end\auth-service\AuthService.Domain\bin\Debug\net6.0\AuthService.Domain.pdb
+D:\E_COMIC_PLATFORM_DO_AN_CHUYEN_NGANH_2\back-end\e-comic-back-end\auth-service\AuthService.Domain\obj\Debug\net6.0\AuthService.Domain.csproj.AssemblyReference.cache
+D:\E_COMIC_PLATFORM_DO_AN_CHUYEN_NGANH_2\back-end\e-comic-back-end\auth-service\AuthService.Domain\obj\Debug\net6.0\AuthService.Domain.GeneratedMSBuildEditorConfig.editorconfig
+D:\E_COMIC_PLATFORM_DO_AN_CHUYEN_NGANH_2\back-end\e-comic-back-end\auth-service\AuthService.Domain\obj\Debug\net6.0\AuthService.Domain.AssemblyInfoInputs.cache
+D:\E_COMIC_PLATFORM_DO_AN_CHUYEN_NGANH_2\back-end\e-comic-back-end\auth-service\AuthService.Domain\obj\Debug\net6.0\AuthService.Domain.AssemblyInfo.cs
+D:\E_COMIC_PLATFORM_DO_AN_CHUYEN_NGANH_2\back-end\e-comic-back-end\auth-service\AuthService.Domain\obj\Debug\net6.0\AuthService.Domain.csproj.CoreCompileInputs.cache
+D:\E_COMIC_PLATFORM_DO_AN_CHUYEN_NGANH_2\back-end\e-comic-back-end\auth-service\AuthService.Domain\obj\Debug\net6.0\AuthService.Domain.dll
+D:\E_COMIC_PLATFORM_DO_AN_CHUYEN_NGANH_2\back-end\e-comic-back-end\auth-service\AuthService.Domain\obj\Debug\net6.0\refint\AuthService.Domain.dll
+D:\E_COMIC_PLATFORM_DO_AN_CHUYEN_NGANH_2\back-end\e-comic-back-end\auth-service\AuthService.Domain\obj\Debug\net6.0\AuthService.Domain.pdb
+D:\E_COMIC_PLATFORM_DO_AN_CHUYEN_NGANH_2\back-end\e-comic-back-end\auth-service\AuthService.Domain\obj\Debug\net6.0\ref\AuthService.Domain.dll

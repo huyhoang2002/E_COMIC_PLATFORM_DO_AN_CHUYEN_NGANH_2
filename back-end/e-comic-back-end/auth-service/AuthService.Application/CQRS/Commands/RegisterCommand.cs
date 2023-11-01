@@ -35,11 +35,11 @@ namespace AuthService.Application.CQRS.Commands
             var result = await _userManager.CreateAsync(account, request.Password);
             if (result.Succeeded is false)
                 return CommandResult<Guid>.Error("Failed to create account");
-            await createRoleIfRoleDoesNotExist(request.Role);
+            await createRoleIfRoleDoesNotExist(request.Role, account);
             return CommandResult<Guid>.Success(Guid.Parse(account.Id));
         }
 
-        private async Task createRoleIfRoleDoesNotExist(string roleName)
+        private async Task createRoleIfRoleDoesNotExist(string roleName, Account account)
         {
             var isRoleExist = await _roleManager.RoleExistsAsync(roleName);
             if (!isRoleExist)
@@ -47,6 +47,7 @@ namespace AuthService.Application.CQRS.Commands
                 var identityRole = new IdentityRole(roleName);
                 await _roleManager.CreateAsync(identityRole);
             }
+            await _userManager.AddToRoleAsync(account, roleName);
         }
     }
 }

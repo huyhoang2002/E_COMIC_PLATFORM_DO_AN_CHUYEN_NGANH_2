@@ -1,6 +1,7 @@
 ﻿using AuthService.Application.ViewModels.Responses;
 using AuthService.Domain.Aggregates.Account;
 using AuthService.Infrastructure.CQRS.Command;
+using AuthService.Infrastructure.Persistence.Repositories.interfaces;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
@@ -25,22 +26,25 @@ namespace AuthService.Application.CQRS.Commands
     {
         private readonly IConfiguration _configuration;
         private readonly SignInManager<Account> _signInManager;
+        private readonly IAccountRepository _accountRepository;
         private readonly UserManager<Account> _userManager;
     
-        public LoginCommandHandler(IConfiguration configuration, SignInManager<Account> signInManager, UserManager<Account> userManager)
+        public LoginCommandHandler(IConfiguration configuration, SignInManager<Account> signInManager, IAccountRepository accountRepository, UserManager<Account> userManager)
         {
             _configuration = configuration;
             _signInManager = signInManager;
+            _accountRepository = accountRepository;
             _userManager = userManager;
         }
 
         public async Task<CommandResult<TokenResponseViewModel>> Handle(LoginCommand request, CancellationToken cancellationToken)
         {
-            var account = await _userManager.FindByEmailAsync(request.Email);
+            var account = _accountRepository.FirstOrDefault(_ => _.Email == request.Email);
             var signIn = await _signInManager.PasswordSignInAsync(account, request.Password, false, false);
             if (signIn.Succeeded is false)
                 return CommandResult<TokenResponseViewModel>.Error("Account is not found");
-            var claims = await getClaims(account);
+            account.ModifyBlackFlag(account.Id);
+            var claims = await getClaims(await _userManager.FindByEmailAsync(request.Email));
             var accessToken = generateToken(claims);
             var refreshToken = generateRefreshToken();
             account.SaveToken(accessToken, refreshToken, account.Id);

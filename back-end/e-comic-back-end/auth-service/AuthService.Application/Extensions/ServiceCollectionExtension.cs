@@ -36,7 +36,7 @@ namespace AuthService.Application.Extensions
             return services;
         }
 
-        public static IServiceCollection AddAuthentication(this IServiceCollection services, IConfiguration configuration)
+        public static IServiceCollection AddAuth(this IServiceCollection services, IConfiguration configuration)
         {
             services.AddAuthentication(options =>
             {
@@ -45,6 +45,7 @@ namespace AuthService.Application.Extensions
                 options.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
             }).AddJwtBearer(options =>
             {
+                options.SaveToken = true;
                 options.TokenValidationParameters = new Microsoft.IdentityModel.Tokens.TokenValidationParameters
                 {
                     ValidateIssuer = true,

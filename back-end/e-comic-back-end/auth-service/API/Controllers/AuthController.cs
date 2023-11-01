@@ -1,5 +1,6 @@
 ﻿using AuthService.Application.CQRS.Commands;
 using AuthService.Infrastructure.CQRS.Command;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -34,6 +35,15 @@ namespace API.Controllers
         [HttpPost]
         [Route("refresh-token")]
         public async Task<IActionResult> RefreshToken([FromBody] RefreshTokenCommand request)
+        {
+            var result = await _commandBus.SendAsync(request);
+            return Ok(result);
+        }
+
+        [HttpPost]
+        [Route("log-out")]
+        [Authorize(AuthenticationSchemes = "Bearer")]
+        public async Task<IActionResult> Logout([FromBody] LogoutCommand request)
         {
             var result = await _commandBus.SendAsync(request);
             return Ok(result);

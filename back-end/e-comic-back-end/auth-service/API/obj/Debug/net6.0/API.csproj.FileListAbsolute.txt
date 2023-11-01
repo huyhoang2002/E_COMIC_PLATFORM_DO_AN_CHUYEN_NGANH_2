@@ -56,7 +56,6 @@ D:\E_COMIC_PLATFORM_DO_AN_CHUYEN_NGANH_2\back-end\e-comic-back-end\auth-service\
 D:\E_COMIC_PLATFORM_DO_AN_CHUYEN_NGANH_2\back-end\e-comic-back-end\auth-service\API\obj\Debug\net6.0\API.AssemblyInfoInputs.cache
 D:\E_COMIC_PLATFORM_DO_AN_CHUYEN_NGANH_2\back-end\e-comic-back-end\auth-service\API\obj\Debug\net6.0\API.AssemblyInfo.cs
 D:\E_COMIC_PLATFORM_DO_AN_CHUYEN_NGANH_2\back-end\e-comic-back-end\auth-service\API\obj\Debug\net6.0\API.csproj.CoreCompileInputs.cache
-D:\E_COMIC_PLATFORM_DO_AN_CHUYEN_NGANH_2\back-end\e-comic-back-end\auth-service\API\obj\Debug\net6.0\API.MvcApplicationPartsAssemblyInfo.cs
 D:\E_COMIC_PLATFORM_DO_AN_CHUYEN_NGANH_2\back-end\e-comic-back-end\auth-service\API\obj\Debug\net6.0\API.MvcApplicationPartsAssemblyInfo.cache
 D:\E_COMIC_PLATFORM_DO_AN_CHUYEN_NGANH_2\back-end\e-comic-back-end\auth-service\API\obj\Debug\net6.0\staticwebassets.build.json
 D:\E_COMIC_PLATFORM_DO_AN_CHUYEN_NGANH_2\back-end\e-comic-back-end\auth-service\API\obj\Debug\net6.0\staticwebassets.development.json
@@ -75,3 +74,5 @@ D:\E_COMIC_PLATFORM_DO_AN_CHUYEN_NGANH_2\back-end\e-comic-back-end\auth-service\
 D:\E_COMIC_PLATFORM_DO_AN_CHUYEN_NGANH_2\back-end\e-comic-back-end\auth-service\API\bin\Debug\net6.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
 D:\E_COMIC_PLATFORM_DO_AN_CHUYEN_NGANH_2\back-end\e-comic-back-end\auth-service\API\bin\Debug\net6.0\AuthService.Application.dll
 D:\E_COMIC_PLATFORM_DO_AN_CHUYEN_NGANH_2\back-end\e-comic-back-end\auth-service\API\bin\Debug\net6.0\AuthService.Application.pdb
+D:\E_COMIC_PLATFORM_DO_AN_CHUYEN_NGANH_2\back-end\e-comic-back-end\auth-service\API\bin\Debug\net6.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+D:\E_COMIC_PLATFORM_DO_AN_CHUYEN_NGANH_2\back-end\e-comic-back-end\auth-service\API\obj\Debug\net6.0\API.MvcApplicationPartsAssemblyInfo.cs

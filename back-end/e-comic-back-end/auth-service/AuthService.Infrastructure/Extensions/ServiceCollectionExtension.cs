@@ -1,5 +1,10 @@
-﻿using AuthService.Infrastructure.CQRS.Command;
+﻿using AuthService.Domain.Aggregates.Account;
+using AuthService.Infrastructure.Base;
+using AuthService.Infrastructure.Base.Interfaces;
+using AuthService.Infrastructure.CQRS.Command;
 using AuthService.Infrastructure.Persistence.DbContext;
+using AuthService.Infrastructure.Persistence.Repositories;
+using AuthService.Infrastructure.Persistence.Repositories.interfaces;
 using AuthService.Infrastructure.UnitOfWork;
 using AuthService.Infrastructure.UnitOfWork.Interfaces;
 using MediatR;
@@ -35,6 +40,13 @@ namespace AuthService.Infrastructure.Extensions
         public static IServiceCollection AddCqrsBus(this IServiceCollection services)
         {
             services.AddScoped<ICommandBus, CommandBus>();
+            return services;
+        }
+
+        public static IServiceCollection AddRepository(this IServiceCollection services)
+        {
+            //services.AddScoped(typeof(IRepositoryBase<>), typeof(RepositoryBase<>));
+            services.AddScoped<IAccountRepository, AccountRepository>();
             return services;
         }
     }

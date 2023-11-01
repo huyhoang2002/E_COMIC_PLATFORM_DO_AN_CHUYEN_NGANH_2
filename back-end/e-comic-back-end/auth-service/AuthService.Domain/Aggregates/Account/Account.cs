@@ -10,16 +10,50 @@ namespace AuthService.Domain.Aggregates.Account
     public class Account : IdentityUser
     {
         public User User { get; set; }
+        private readonly List<Token> _tokens = new List<Token>();
+        public IReadOnlyCollection<Token> Tokens => _tokens;
+
 
         public Account()
         {
 
         }
 
+        public Account(string email)
+        {
+            Email = email;
+        }
+
         public Account(string userName, string email)
         {
             UserName = userName;
             Email = email;
+        }
+
+        public void SaveToken(string accessToken, string refreshToken, string accountId)
+        {
+            var token = new Token(accessToken, refreshToken, accountId);
+            _tokens.Add(token);
+        }
+
+        public IEnumerable<Token> GetToken(string accountId)
+        {
+            return _tokens.Where(_ => _.AccountId == accountId).ToList();
+        }
+
+        public void ModifyBlackFlag(string accountId)
+        {
+            var tokens = GetToken(accountId);
+            foreach (var token in tokens)
+            {
+                token.ModifyBlackFlag(false);
+            }
+        }
+
+        public bool ValidateRefreshToken(string refreshToken)
+        {
+            var result = _tokens.FirstOrDefault(_ => _.RefreshToken == refreshToken);
+            return result is not null;
         }
     }
 }

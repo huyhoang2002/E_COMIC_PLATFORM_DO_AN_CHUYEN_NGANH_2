@@ -14,6 +14,7 @@ builder.Services.AddCommandQueryHandler();
 builder.Services.AddUnitOfWork();
 builder.Services.AddCqrsBus();
 builder.Services.AddIdentity();
+builder.Services.AddRepository();
 
 var app = builder.Build();
 

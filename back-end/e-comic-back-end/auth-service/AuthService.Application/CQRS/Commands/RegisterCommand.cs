@@ -34,7 +34,7 @@ namespace AuthService.Application.CQRS.Commands
             var account = new Account(request.UserName, request.Email);
             var result = await _userManager.CreateAsync(account, request.Password);
             if (result.Succeeded is false)
-                return CommandResult<Guid>.Error(Guid.Empty);
+                return CommandResult<Guid>.Error("Failed to create account");
             await createRoleIfRoleDoesNotExist(request.Role);
             return CommandResult<Guid>.Success(Guid.Parse(account.Id));
         }

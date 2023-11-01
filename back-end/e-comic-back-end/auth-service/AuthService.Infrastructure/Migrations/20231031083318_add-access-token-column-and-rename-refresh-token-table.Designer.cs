@@ -4,6 +4,7 @@ using AuthService.Infrastructure.Persistence.DbContext;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace AuthService.Infrastructure.Migrations
 {
     [DbContext(typeof(AuthDbContext))]
-    partial class AuthDbContextModelSnapshot : ModelSnapshot
+    [Migration("20231031083318_add-access-token-column-and-rename-refresh-token-table")]
+    partial class addaccesstokencolumnandrenamerefreshtokentable
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -308,7 +310,8 @@ namespace AuthService.Infrastructure.Migrations
                 {
                     b.HasOne("AuthService.Domain.Aggregates.Account.Account", "Account")
                         .WithMany("Tokens")
-                        .HasForeignKey("AccountId");
+                        .HasForeignKey("AccountId")
+                        .OnDelete(DeleteBehavior.Cascade);
 
                     b.Navigation("Account");
                 });
@@ -317,7 +320,8 @@ namespace AuthService.Infrastructure.Migrations
                 {
                     b.HasOne("AuthService.Domain.Aggregates.Account.Account", "Account")
                         .WithOne("User")
-                        .HasForeignKey("AuthService.Domain.Aggregates.Account.User", "AccountId");
+                        .HasForeignKey("AuthService.Domain.Aggregates.Account.User", "AccountId")
+                        .OnDelete(DeleteBehavior.Cascade);
 
                     b.Navigation("Account");
                 });

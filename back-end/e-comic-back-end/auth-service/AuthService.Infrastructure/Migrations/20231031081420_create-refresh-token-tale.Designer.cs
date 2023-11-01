@@ -4,6 +4,7 @@ using AuthService.Infrastructure.Persistence.DbContext;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace AuthService.Infrastructure.Migrations
 {
     [DbContext(typeof(AuthDbContext))]
-    partial class AuthDbContextModelSnapshot : ModelSnapshot
+    [Migration("20231031081420_create-refresh-token-tale")]
+    partial class createrefreshtokentale
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -87,14 +89,11 @@ namespace AuthService.Infrastructure.Migrations
                     b.ToTable("AspNetUsers", (string)null);
                 });
 
-            modelBuilder.Entity("AuthService.Domain.Aggregates.Account.Token", b =>
+            modelBuilder.Entity("AuthService.Domain.Aggregates.Account.RefreshToken", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
-
-                    b.Property<string>("AccessToken")
-                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("AccountId")
                         .HasColumnType("nvarchar(450)");
@@ -115,14 +114,14 @@ namespace AuthService.Infrastructure.Migrations
                     b.Property<DateTime>("LastModifiedDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("RefreshToken")
+                    b.Property<string>("RefreshTokenString")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
                     b.HasIndex("AccountId");
 
-                    b.ToTable("TOKEN_TABLE", (string)null);
+                    b.ToTable("REFRESH_TOKEN_TABLE", (string)null);
                 });
 
             modelBuilder.Entity("AuthService.Domain.Aggregates.Account.User", b =>
@@ -304,11 +303,12 @@ namespace AuthService.Infrastructure.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
-            modelBuilder.Entity("AuthService.Domain.Aggregates.Account.Token", b =>
+            modelBuilder.Entity("AuthService.Domain.Aggregates.Account.RefreshToken", b =>
                 {
                     b.HasOne("AuthService.Domain.Aggregates.Account.Account", "Account")
-                        .WithMany("Tokens")
-                        .HasForeignKey("AccountId");
+                        .WithMany("RefreshTokens")
+                        .HasForeignKey("AccountId")
+                        .OnDelete(DeleteBehavior.Cascade);
 
                     b.Navigation("Account");
                 });
@@ -317,7 +317,8 @@ namespace AuthService.Infrastructure.Migrations
                 {
                     b.HasOne("AuthService.Domain.Aggregates.Account.Account", "Account")
                         .WithOne("User")
-                        .HasForeignKey("AuthService.Domain.Aggregates.Account.User", "AccountId");
+                        .HasForeignKey("AuthService.Domain.Aggregates.Account.User", "AccountId")
+                        .OnDelete(DeleteBehavior.Cascade);
 
                     b.Navigation("Account");
                 });
@@ -375,7 +376,7 @@ namespace AuthService.Infrastructure.Migrations
 
             modelBuilder.Entity("AuthService.Domain.Aggregates.Account.Account", b =>
                 {
-                    b.Navigation("Tokens");
+                    b.Navigation("RefreshTokens");
 
                     b.Navigation("User");
                 });

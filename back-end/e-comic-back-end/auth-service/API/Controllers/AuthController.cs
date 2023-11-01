@@ -22,5 +22,21 @@ namespace API.Controllers
             var result = await _commandBus.SendAsync(request);
             return Ok(result);
         }
+
+        [HttpPost]
+        [Route("login")]
+        public async Task<IActionResult> LoginAsync([FromBody] LoginCommand request)
+        {
+            var result = await _commandBus.SendAsync(request);
+            return Ok(result);
+        }
+
+        [HttpPost]
+        [Route("refresh-token")]
+        public async Task<IActionResult> RefreshToken([FromBody] RefreshTokenCommand request)
+        {
+            var result = await _commandBus.SendAsync(request);
+            return Ok(result);
+        }
     }
 }

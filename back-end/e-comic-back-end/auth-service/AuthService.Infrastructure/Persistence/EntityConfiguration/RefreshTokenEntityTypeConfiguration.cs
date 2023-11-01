@@ -9,17 +9,19 @@ using System.Threading.Tasks;
 
 namespace AuthService.Infrastructure.Persistence.EntityConfiguration
 {
-    internal sealed class UserEntityTypeConfiguration : IEntityTypeConfiguration<User>
+    internal sealed class RefreshTokenEntityTypeConfiguration : IEntityTypeConfiguration<Token>
     {
-        public void Configure(EntityTypeBuilder<User> builder)
+        public void Configure(EntityTypeBuilder<Token> builder)
         {
-            builder.ToTable("USER_TABLE");
+            builder.ToTable("TOKEN_TABLE");
             builder.HasKey(_ => _.Id);
             builder.Property(_ => _.Id).ValueGeneratedOnAdd();
             builder.Property(_ => _.CreatedDate).ValueGeneratedOnAdd();
             builder
                 .HasOne(_ => _.Account)
-                .WithOne(_ => _.User);
+                .WithMany(_ => _.Tokens)
+                .HasForeignKey(_ => _.AccountId);
+
         }
     }
 }

@@ -53,6 +53,10 @@ namespace AuthService.Domain.Aggregates.Account
         public bool ValidateRefreshToken(string refreshToken)
         {
             var result = _tokens.FirstOrDefault(_ => _.RefreshToken == refreshToken);
+            if (result.BlackFlag == false)
+            {
+                return false;
+            }
             return result is not null;
         }
     }

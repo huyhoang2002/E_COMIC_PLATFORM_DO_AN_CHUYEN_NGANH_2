@@ -15,6 +15,7 @@ builder.Services.AddUnitOfWork();
 builder.Services.AddCqrsBus();
 builder.Services.AddIdentity();
 builder.Services.AddRepository();
+builder.Services.AddAuth(builder.Configuration);
 
 var app = builder.Build();
 
@@ -24,6 +25,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+app.UseAuthentication();
 
 app.UseAuthorization();
 

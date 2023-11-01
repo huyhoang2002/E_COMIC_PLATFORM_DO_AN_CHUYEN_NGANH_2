@@ -59,5 +59,11 @@ namespace AuthService.Domain.Aggregates.Account
             }
             return result is not null;
         }
+
+        public Token GetTokenByAccountId(string accountId)
+        {
+            var result = _tokens.FirstOrDefault(_ => _.AccountId == accountId && _.BlackFlag == true);
+            return result;
+        }
     }
 }

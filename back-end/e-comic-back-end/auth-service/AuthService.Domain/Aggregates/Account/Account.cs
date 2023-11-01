@@ -9,7 +9,6 @@ namespace AuthService.Domain.Aggregates.Account
 {
     public class Account : IdentityUser
     {
-        public User User { get; set; }
         private readonly List<Token> _tokens = new List<Token>();
         public IReadOnlyCollection<Token> Tokens => _tokens;
 

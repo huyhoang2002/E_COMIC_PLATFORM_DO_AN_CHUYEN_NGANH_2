@@ -25,9 +25,6 @@ namespace AuthService.Infrastructure.Persistence.EntityConfiguration
             //     .HasForeignKey(_ => _.AccountId)
             //     .OnDelete(DeleteBehavior.Cascade);
 
-            var userNavigation = builder.Metadata.FindNavigation(nameof(Account.User));
-            userNavigation.SetPropertyAccessMode(PropertyAccessMode.Field);
-
             var refreshTokenNavigation = builder.Metadata.FindNavigation(nameof(Account.Tokens));
             refreshTokenNavigation.SetPropertyAccessMode(PropertyAccessMode.Property);
         }

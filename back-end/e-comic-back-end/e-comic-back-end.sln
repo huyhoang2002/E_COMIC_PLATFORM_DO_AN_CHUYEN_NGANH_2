@@ -17,11 +17,11 @@ Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-co
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "comic-service", "comic-service", "{92CEE85C-287C-4F03-8318-D605477EDB5C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Comic-API", "comic-service\Comic-API\Comic-API.csproj", "{841414ED-38F7-42AB-9C06-2A1BB0292A6D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Comic-API", "comic-service\Comic-API\Comic-API.csproj", "{841414ED-38F7-42AB-9C06-2A1BB0292A6D}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "user-service", "user-service", "{F2C55554-1704-471D-AD1E-EAB81404F91D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "User-API", "user-service\User-API\User-API.csproj", "{456B7F3D-761F-4826-9454-C5510CD91DA8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "User-API", "user-service\User-API\User-API.csproj", "{456B7F3D-761F-4826-9454-C5510CD91DA8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

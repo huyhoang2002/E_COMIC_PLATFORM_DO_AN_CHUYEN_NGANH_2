@@ -19,3 +19,10 @@ services:
       - "5064:80"
     depends_on:
       - authdb
+
+  user-api:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+    ports:
+      - "80"
+

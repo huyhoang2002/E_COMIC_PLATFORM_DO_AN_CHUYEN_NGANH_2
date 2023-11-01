@@ -9,3 +9,10 @@ services:
       context: .
       dockerfile: auth-service/API/Dockerfile
 
+
+  user-api:
+    image: ${DOCKER_REGISTRY-}userapi
+    build:
+      context: .
+      dockerfile: user-service/User-API/Dockerfile
+

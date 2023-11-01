@@ -28,8 +28,15 @@ namespace AuthService.Infrastructure.CQRS.Command
 
     public class CommandResult<TResponse> : CommandResult
     {
-        public TResponse Message { get; set; }
-        public CommandResult(bool isSuccess, TResponse message) : base(isSuccess)
+        public string Message { get; set; }
+        public TResponse Response { get; set; }
+        
+        public CommandResult(bool isSuccess, TResponse response) : base(isSuccess)
+        {
+            Response = response;
+        }
+
+        public CommandResult(bool isSuccess, string message) : base(isSuccess)
         {
             Message = message;
         }
@@ -39,7 +46,7 @@ namespace AuthService.Infrastructure.CQRS.Command
             return new CommandResult<TResponse>(true, message);
         }
 
-        public static CommandResult<TResponse> Error(TResponse message)
+        public static CommandResult<TResponse> Error(string message)
         {
             return new CommandResult<TResponse>(false, message);
         }

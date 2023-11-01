@@ -29,3 +29,16 @@ D:\E_COMIC_PLATFORM_DO_AN_CHUYEN_NGANH_2\back-end\e-comic-back-end\bin\Debug\Aut
 D:\E_COMIC_PLATFORM_DO_AN_CHUYEN_NGANH_2\back-end\e-comic-back-end\obj\Debug\docker-compose.dcproj.AssemblyReference.cache
 D:\E_COMIC_PLATFORM_DO_AN_CHUYEN_NGANH_2\back-end\e-comic-back-end\obj\Debug\docker-compose.dcproj.CoreCompileInputs.cache
 D:\E_COMIC_PLATFORM_DO_AN_CHUYEN_NGANH_2\back-end\e-comic-back-end\obj\Debug\docker-compose.dcproj.CopyComplete
+D:\E_COMIC_PLATFORM_DO_AN_CHUYEN_NGANH_2\back-end\e-comic-back-end\bin\Debug\AuthService.Application.dll
+D:\E_COMIC_PLATFORM_DO_AN_CHUYEN_NGANH_2\back-end\e-comic-back-end\bin\Debug\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+D:\E_COMIC_PLATFORM_DO_AN_CHUYEN_NGANH_2\back-end\e-comic-back-end\bin\Debug\MediatR.dll
+D:\E_COMIC_PLATFORM_DO_AN_CHUYEN_NGANH_2\back-end\e-comic-back-end\bin\Debug\MediatR.Contracts.dll
+D:\E_COMIC_PLATFORM_DO_AN_CHUYEN_NGANH_2\back-end\e-comic-back-end\bin\Debug\MediatR.Extensions.Microsoft.DependencyInjection.dll
+D:\E_COMIC_PLATFORM_DO_AN_CHUYEN_NGANH_2\back-end\e-comic-back-end\bin\Debug\AuthService.Application.pdb
+D:\E_COMIC_PLATFORM_DO_AN_CHUYEN_NGANH_2\back-end\e-comic-back-end\bin\Debug\Microsoft.IdentityModel.Tokens.dll
+D:\E_COMIC_PLATFORM_DO_AN_CHUYEN_NGANH_2\back-end\e-comic-back-end\bin\Debug\System.IdentityModel.Tokens.Jwt.dll
+D:\E_COMIC_PLATFORM_DO_AN_CHUYEN_NGANH_2\back-end\e-comic-back-end\bin\Debug\Microsoft.IdentityModel.Logging.dll
+D:\E_COMIC_PLATFORM_DO_AN_CHUYEN_NGANH_2\back-end\e-comic-back-end\bin\Debug\Microsoft.IdentityModel.JsonWebTokens.dll
+D:\E_COMIC_PLATFORM_DO_AN_CHUYEN_NGANH_2\back-end\e-comic-back-end\bin\Debug\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+D:\E_COMIC_PLATFORM_DO_AN_CHUYEN_NGANH_2\back-end\e-comic-back-end\bin\Debug\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+D:\E_COMIC_PLATFORM_DO_AN_CHUYEN_NGANH_2\back-end\e-comic-back-end\bin\Debug\Microsoft.IdentityModel.Protocols.dll

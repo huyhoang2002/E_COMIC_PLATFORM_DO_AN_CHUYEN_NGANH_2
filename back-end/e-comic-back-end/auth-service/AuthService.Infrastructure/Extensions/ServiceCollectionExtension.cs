@@ -28,6 +28,11 @@ namespace AuthService.Infrastructure.Extensions
             {
                 options.UseSqlServer(configuration.GetConnectionString("Default"));
             });
+            var serviceProvider = services.BuildServiceProvider();
+            using (var context = serviceProvider.GetService<AuthDbContext>())
+            {
+                context.Database.Migrate();
+            }
             return services;
         }
 

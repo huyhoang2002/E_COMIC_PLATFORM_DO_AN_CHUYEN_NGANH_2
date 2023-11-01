@@ -5,15 +5,23 @@ VisualStudioVersion = 17.2.32516.85
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "auth-service", "auth-service", "{1B0BD1EE-1089-4CD7-A204-A8567C0B717E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "API", "auth-service\API\API.csproj", "{B30DE332-F808-4E0F-8A95-8842F20F9D1D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "API", "auth-service\API\API.csproj", "{B30DE332-F808-4E0F-8A95-8842F20F9D1D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AuthService.Domain", "auth-service\AuthService.Domain\AuthService.Domain.csproj", "{F7D33CCF-36D8-4865-B8CF-45C6E48A4CD6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AuthService.Domain", "auth-service\AuthService.Domain\AuthService.Domain.csproj", "{F7D33CCF-36D8-4865-B8CF-45C6E48A4CD6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AuthService.Application", "auth-service\AuthService.Application\AuthService.Application.csproj", "{78E49039-04F5-4475-BC1B-202A05A329F5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AuthService.Application", "auth-service\AuthService.Application\AuthService.Application.csproj", "{78E49039-04F5-4475-BC1B-202A05A329F5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AuthService.Infrastructure", "auth-service\AuthService.Infrastructure\AuthService.Infrastructure.csproj", "{F862E95C-473E-4E75-8757-F654D3720F50}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AuthService.Infrastructure", "auth-service\AuthService.Infrastructure\AuthService.Infrastructure.csproj", "{F862E95C-473E-4E75-8757-F654D3720F50}"
 EndProject
 Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{B8212939-8F2D-49D8-99DF-33CB2E93C350}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "comic-service", "comic-service", "{92CEE85C-287C-4F03-8318-D605477EDB5C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Comic-API", "comic-service\Comic-API\Comic-API.csproj", "{841414ED-38F7-42AB-9C06-2A1BB0292A6D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "user-service", "user-service", "{F2C55554-1704-471D-AD1E-EAB81404F91D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "User-API", "user-service\User-API\User-API.csproj", "{456B7F3D-761F-4826-9454-C5510CD91DA8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -41,6 +49,14 @@ Global
 		{B8212939-8F2D-49D8-99DF-33CB2E93C350}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B8212939-8F2D-49D8-99DF-33CB2E93C350}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B8212939-8F2D-49D8-99DF-33CB2E93C350}.Release|Any CPU.Build.0 = Release|Any CPU
+		{841414ED-38F7-42AB-9C06-2A1BB0292A6D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{841414ED-38F7-42AB-9C06-2A1BB0292A6D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{841414ED-38F7-42AB-9C06-2A1BB0292A6D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{841414ED-38F7-42AB-9C06-2A1BB0292A6D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{456B7F3D-761F-4826-9454-C5510CD91DA8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{456B7F3D-761F-4826-9454-C5510CD91DA8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{456B7F3D-761F-4826-9454-C5510CD91DA8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{456B7F3D-761F-4826-9454-C5510CD91DA8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -50,6 +66,8 @@ Global
 		{F7D33CCF-36D8-4865-B8CF-45C6E48A4CD6} = {1B0BD1EE-1089-4CD7-A204-A8567C0B717E}
 		{78E49039-04F5-4475-BC1B-202A05A329F5} = {1B0BD1EE-1089-4CD7-A204-A8567C0B717E}
 		{F862E95C-473E-4E75-8757-F654D3720F50} = {1B0BD1EE-1089-4CD7-A204-A8567C0B717E}
+		{841414ED-38F7-42AB-9C06-2A1BB0292A6D} = {92CEE85C-287C-4F03-8318-D605477EDB5C}
+		{456B7F3D-761F-4826-9454-C5510CD91DA8} = {F2C55554-1704-471D-AD1E-EAB81404F91D}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {5CEDAAB8-D63E-4681-A2F1-858ED1C708D4}

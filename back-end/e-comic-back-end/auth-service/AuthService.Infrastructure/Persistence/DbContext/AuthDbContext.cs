@@ -18,7 +18,6 @@ namespace AuthService.Infrastructure.Persistence.DbContext
         }
 
         public DbSet<Account> Accounts { get; set; }
-        public DbSet<User> User { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {

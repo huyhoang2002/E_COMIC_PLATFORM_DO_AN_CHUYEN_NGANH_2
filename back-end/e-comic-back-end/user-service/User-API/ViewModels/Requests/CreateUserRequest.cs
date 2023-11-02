@@ -1,8 +1,6 @@
-﻿using User_API.Entities.SeedWorks;
-
-namespace User_API.Entities
+﻿namespace User_API.ViewModels.Requests
 {
-    public class User : EntityBase
+    public class CreateUserRequest
     {
         public string FirstName { get; private set; }
         public string LastName { get; private set; }
@@ -16,7 +14,7 @@ namespace User_API.Entities
         public bool IsRemove { get; private set; }
         public string AccountId { get; private set; }
 
-        public User(string firstName, string lastName, int age, string country, string job, string phoneNumber, string bio, string imageUrl, bool isDisable, bool isRemove)
+        public CreateUserRequest(string firstName, string lastName, int age, string country, string job, string phoneNumber, string bio, string imageUrl, bool isDisable, bool isRemove, string accountId)
         {
             FirstName = firstName;
             LastName = lastName;
@@ -26,13 +24,8 @@ namespace User_API.Entities
             PhoneNumber = phoneNumber;
             Bio = bio;
             ImageUrl = imageUrl;
-            ModifiedDate = DateTime.Now;
             IsDisable = isDisable;
             IsRemove = isRemove;
-        }
-
-        public void SetAccountId(string accountId)
-        {
             AccountId = accountId;
         }
     }

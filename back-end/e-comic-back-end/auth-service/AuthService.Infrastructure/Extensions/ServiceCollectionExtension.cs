@@ -2,6 +2,7 @@
 using AuthService.Infrastructure.Base;
 using AuthService.Infrastructure.Base.Interfaces;
 using AuthService.Infrastructure.CQRS.Command;
+using AuthService.Infrastructure.CQRS.Query;
 using AuthService.Infrastructure.Persistence.DbContext;
 using AuthService.Infrastructure.Persistence.Repositories;
 using AuthService.Infrastructure.Persistence.Repositories.interfaces;
@@ -45,6 +46,7 @@ namespace AuthService.Infrastructure.Extensions
         public static IServiceCollection AddCqrsBus(this IServiceCollection services)
         {
             services.AddScoped<ICommandBus, CommandBus>();
+            services.AddScoped<IQueryBus, QueryBus>();
             return services;
         }
 

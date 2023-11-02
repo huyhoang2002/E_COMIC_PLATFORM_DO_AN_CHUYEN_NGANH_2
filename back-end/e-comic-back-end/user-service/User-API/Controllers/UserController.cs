@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using User_API.Services.Interfaces;
 using User_API.ViewModels.Base;
@@ -17,6 +18,7 @@ namespace User_API.Controllers
         }
 
         [HttpPost]
+        [Authorize(AuthenticationSchemes = "Bearer")]
         public async Task<IActionResult> CreateUser([FromBody] CreateUserRequest request)
         {
             await _userService.CreateUser(request);

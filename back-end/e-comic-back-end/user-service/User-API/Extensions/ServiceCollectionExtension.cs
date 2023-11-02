@@ -13,6 +13,9 @@ using EventProcessor.Commons;
 using EventProcessor.Commons.EventName;
 using User_API.ThirdPartyServices.Interfaces;
 using User_API.ThirdPartyServices;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
 
 namespace User_API.Extensions
 {
@@ -43,6 +46,30 @@ namespace User_API.Extensions
         public static IServiceCollection AddService(this IServiceCollection services)
         {
             services.AddScoped<IUserService, UserService>();
+            return services;
+        }
+
+        public static IServiceCollection AddAuth(this IServiceCollection services, IConfiguration configuration)
+        {
+            services.AddAuthentication(options =>
+            {
+                options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+                options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+                options.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
+            }).AddJwtBearer(options =>
+            {
+                options.SaveToken = true;
+                options.TokenValidationParameters = new Microsoft.IdentityModel.Tokens.TokenValidationParameters
+                {
+                    ValidateIssuer = true,
+                    ValidateAudience = true,
+                    ValidateIssuerSigningKey = true,
+                    ValidIssuer = configuration["JWT:Issuer"],
+                    ValidAudience = configuration["JWT:Audience"],
+                    IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(configuration["JWT:Key"]!)),
+                    RequireExpirationTime = true,
+                };
+            });
             return services;
         }
 

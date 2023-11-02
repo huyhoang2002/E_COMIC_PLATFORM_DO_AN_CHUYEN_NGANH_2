@@ -13,6 +13,7 @@ builder.Services.AddMapper();
 builder.Services.AddService();
 builder.Services.AddRepositories();
 builder.Services.AddUnitOfWork();
+builder.Services.AddCloudinary();
 
 var app = builder.Build();
 

@@ -9,7 +9,7 @@
         public string Job { get; private set; }
         public string PhoneNumber { get; private set; }
         public string Bio { get; private set; }
-        public string ImageUrl { get; private set; }
+        public string? ImageUrl { get; private set; }
         public bool IsDisable { get; private set; }
         public bool IsRemove { get; private set; }
         public string AccountId { get; private set; }

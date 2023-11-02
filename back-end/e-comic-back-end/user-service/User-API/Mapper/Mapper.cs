@@ -8,7 +8,7 @@ namespace User_API.Mapper
     {
         public Mapper()
         {
-            CreateMap<User, CreateUserRequest>().ReverseMap();
+            CreateMap<User, CreateUserRequest>().ReverseMap().ForMember(_ => _.ImageUrl, opt => opt.Ignore());
         }
     }
 }

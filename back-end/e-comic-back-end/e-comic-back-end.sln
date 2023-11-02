@@ -23,6 +23,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "user-service", "user-servic
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "User-API", "user-service\User-API\User-API.csproj", "{456B7F3D-761F-4826-9454-C5510CD91DA8}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "event-processor", "event-processor", "{AC23A044-0289-4966-9E97-CBFF0E97FF67}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EventProcessor", "event-processor\EventProcessor\EventProcessor.csproj", "{B09D0FCC-33E3-415A-9999-95ADE859B706}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -57,6 +61,10 @@ Global
 		{456B7F3D-761F-4826-9454-C5510CD91DA8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{456B7F3D-761F-4826-9454-C5510CD91DA8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{456B7F3D-761F-4826-9454-C5510CD91DA8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B09D0FCC-33E3-415A-9999-95ADE859B706}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B09D0FCC-33E3-415A-9999-95ADE859B706}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B09D0FCC-33E3-415A-9999-95ADE859B706}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B09D0FCC-33E3-415A-9999-95ADE859B706}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -68,6 +76,7 @@ Global
 		{F862E95C-473E-4E75-8757-F654D3720F50} = {1B0BD1EE-1089-4CD7-A204-A8567C0B717E}
 		{841414ED-38F7-42AB-9C06-2A1BB0292A6D} = {92CEE85C-287C-4F03-8318-D605477EDB5C}
 		{456B7F3D-761F-4826-9454-C5510CD91DA8} = {F2C55554-1704-471D-AD1E-EAB81404F91D}
+		{B09D0FCC-33E3-415A-9999-95ADE859B706} = {AC23A044-0289-4966-9E97-CBFF0E97FF67}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {5CEDAAB8-D63E-4681-A2F1-858ED1C708D4}

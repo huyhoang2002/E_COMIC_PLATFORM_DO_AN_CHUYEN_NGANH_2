@@ -1,5 +1,6 @@
 ﻿using AuthService.Domain.Aggregates.Account;
 using AuthService.Infrastructure.Persistence.DbContext;
+using MassTransit;
 using MediatR;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
@@ -20,6 +21,18 @@ namespace AuthService.Application.Extensions
         public static IServiceCollection AddCommandQueryHandler(this IServiceCollection services)
         {
             services.AddMediatR(Assembly.GetExecutingAssembly());
+            return services;
+        }
+
+        public static IServiceCollection AddMessageBus(this IServiceCollection services, IConfiguration configuration)
+        {
+            services.AddMassTransit(config =>
+            {
+                config.UsingRabbitMq((ctx, config) =>
+                {
+                    config.Host(configuration["EventBusSettings:RabbitMQ"]);
+                });
+            });
             return services;
         }
 

@@ -16,6 +16,7 @@ builder.Services.AddCqrsBus();
 builder.Services.AddIdentity();
 builder.Services.AddRepository();
 builder.Services.AddAuth(builder.Configuration);
+builder.Services.AddMessageBus(builder.Configuration);
 
 var app = builder.Build();
 

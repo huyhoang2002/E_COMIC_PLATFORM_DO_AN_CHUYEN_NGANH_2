@@ -1,5 +1,8 @@
 ﻿using AuthService.Application.CQRS.Commands;
+using AuthService.Application.CQRS.Queries;
 using AuthService.Infrastructure.CQRS.Command;
+using AuthService.Infrastructure.CQRS.Query;
+using MassTransit;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -11,10 +14,13 @@ namespace API.Controllers
     public class AuthController : ControllerBase
     {
         private readonly ICommandBus _commandBus;
+        private readonly IQueryBus _queryBus;
+        private readonly IPublishEndpoint _publisher;
 
-        public AuthController(ICommandBus commandBus)
+        public AuthController(ICommandBus commandBus, IQueryBus queryBus)
         {
             _commandBus = commandBus;
+            _queryBus = queryBus;
         }
 
         [HttpPost]
@@ -48,5 +54,26 @@ namespace API.Controllers
             var result = await _commandBus.SendAsync(request);
             return Ok(result);
         }
+
+        [HttpGet]
+        [Authorize(AuthenticationSchemes = "Bearer")]
+        public async Task<IActionResult> GetAccountId()
+        {
+            var accessToken = Request.Headers.Authorization.ToString().Split(' ')[1];
+            var query = new GetAccountIdQuery()
+            {
+                AccessToken = accessToken
+            };
+            var result = await _queryBus.SendAsync(query);
+            await _publisher.Publish(result);
+            return Ok(result);
+        }
+
+        //[HttpGet]
+        //[Route("{id}")]
+        //public async Task<IActionResult> GetAccountId(string id)
+        //{
+        //    var result = await _commandBus.SendAsync();
+        //}
     }
 }

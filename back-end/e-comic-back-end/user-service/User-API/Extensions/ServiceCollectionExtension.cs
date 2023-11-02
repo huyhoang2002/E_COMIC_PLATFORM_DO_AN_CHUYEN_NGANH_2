@@ -11,6 +11,8 @@ using User_API.UnitOfWork;
 using MassTransit;
 using EventProcessor.Commons;
 using EventProcessor.Commons.EventName;
+using User_API.ThirdPartyServices.Interfaces;
+using User_API.ThirdPartyServices;
 
 namespace User_API.Extensions
 {
@@ -53,6 +55,12 @@ namespace User_API.Extensions
         public static IServiceCollection AddUnitOfWork(this IServiceCollection services)
         {
             services.AddScoped<IUnitOfWork, User_API.UnitOfWork.UnitOfWork>();
+            return services;
+        }
+
+        public static IServiceCollection AddCloudinary(this IServiceCollection services)
+        {
+            services.AddScoped<ICloudinaryService, CloudinaryService>();
             return services;
         }
 

@@ -16,7 +16,7 @@ namespace User_API.Entities
         public bool IsRemove { get; private set; }
         public string AccountId { get; private set; }
 
-        public User(string firstName, string lastName, int age, string country, string job, string phoneNumber, string bio, string imageUrl, bool isDisable, bool isRemove)
+        public User(string firstName, string lastName, int age, string country, string job, string phoneNumber, string bio, bool isDisable, bool isRemove)
         {
             FirstName = firstName;
             LastName = lastName;
@@ -25,10 +25,14 @@ namespace User_API.Entities
             Job = job;
             PhoneNumber = phoneNumber;
             Bio = bio;
-            ImageUrl = imageUrl;
             ModifiedDate = DateTime.Now;
             IsDisable = isDisable;
             IsRemove = isRemove;
+        }
+
+        public void SetImageUrl(string url)
+        {
+            ImageUrl = url;
         }
 
         public void SetAccountId(string accountId)

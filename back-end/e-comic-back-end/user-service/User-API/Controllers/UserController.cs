@@ -22,5 +22,23 @@ namespace User_API.Controllers
             await _userService.CreateUser(request);
             return StatusCode(StatusCodes.Status201Created, BaseResponse.Success());
         }
+
+        [HttpPut("avatar")]
+        public async Task<IActionResult> UpdateAvatarImage(IFormFile file, [FromQuery] Guid id)
+        {
+            if (file != null && file.Length > 0)
+            {
+                var fileName = file.FileName;
+                //var fileExtension = Path.GetExtension(fileName);
+                var filePath = Path.Combine("Uploads", fileName);
+                using (var fileStream = new FileStream(filePath, FileMode.Create))
+                {
+                    file.CopyTo(fileStream);
+                }
+                await _userService.UpdateUserAvatar(id, filePath);
+                return Ok();
+            }
+            return BadRequest();
+        }
     }
 }

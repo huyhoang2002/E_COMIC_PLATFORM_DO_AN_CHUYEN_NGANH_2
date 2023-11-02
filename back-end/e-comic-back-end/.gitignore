@@ -16,6 +16,9 @@
 # Mono auto generated files
 mono_crash.*
 
+#upload-image
+user-service/User-API/Uploads
+
 # Build results
 [Dd]ebug/
 [Dd]ebugPublic/

@@ -25,6 +25,11 @@ namespace User_API.Services
         public async Task<Guid> CreateUser(CreateUserRequest request)
         {
             var user = _mapper.Map<User>(request);
+            var isUserExisted = _userRepository.FirstOrDefault(_ => _.AccountId == user.AccountId);
+            if (isUserExisted is not null)
+            {
+                return Guid.Empty;
+            }
             await _userRepository.AddAsync(user);
             await _unitOfWork.SaveChangeAsync();
             return user.Id;

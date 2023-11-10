@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using ComicService.Domain.Aggregates;
 using ComicService.Domain.Aggregates.Categories;
+using ComicService.Domain.Aggregates.Authors;
 
 namespace ComicService.Domain.Aggregates.Comics
 {
@@ -30,6 +31,7 @@ namespace ComicService.Domain.Aggregates.Comics
             Description = description;
             ImageUrl = imageUrl;
             AuthorId = authorId;
+            IsDeleted = false;
         }
     }
 }

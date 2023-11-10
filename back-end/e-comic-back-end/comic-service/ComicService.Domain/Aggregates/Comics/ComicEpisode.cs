@@ -23,6 +23,7 @@ namespace ComicService.Domain.Aggregates.Comics
         {
             Episode = episode;
             ComicId = comicId;
+            IsDeleted = false;
         }
     }
 }

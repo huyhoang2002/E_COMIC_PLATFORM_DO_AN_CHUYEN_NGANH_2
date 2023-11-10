@@ -18,6 +18,7 @@ namespace ComicService.Domain.Aggregates.Comics
         {
             ImageUrl = imageUrl;
             ComicEpisodeId = comicEpisodeId;
+            IsDeleted = false;
         }
     }
 }

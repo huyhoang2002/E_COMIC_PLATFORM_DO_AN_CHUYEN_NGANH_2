@@ -11,7 +11,6 @@ namespace ComicService.Domain.Aggregates.Categories
     public class Category : EntityBase<Guid>
     {
         public string CategoryName { get; private set; }
-        public bool IsDeleted { get; private set; }
         private readonly List<Comic> _comics = new List<Comic>();
         public IReadOnlyCollection<Comic> Comics => _comics;
    

@@ -27,7 +27,7 @@ namespace ComicService.Application.Features.CQRS.Queries.Categories
         public async Task<IEnumerable<GetCategoriesResponse>> Handle(GetCategoriesQuery request, CancellationToken cancellationToken)
         {
             return _categoryRepository
-                .GetQuery(_ => _.IsDeleted == false)
+                .GetQuery(_ => _.IsDeleted == request.IsDeleted)
                 .Select(_ => new GetCategoriesResponse(_.Id, _.CategoryName, _.ModifiedAt, _.Comics));
         }
     }

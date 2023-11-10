@@ -38,6 +38,7 @@ namespace ComicService.Infrastructure.Extensions
             //services.AddScoped(typeof(IRepositoryBase<>), typeof(RepositoryBase<>));
             services.AddScoped<IComicRepository, ComicRepository>();
             services.AddScoped<ICategoryRepository, CategoryRepository>();
+            services.AddScoped<IAuthorRepository, AuthorRepository>();
             return services;
         }
     }

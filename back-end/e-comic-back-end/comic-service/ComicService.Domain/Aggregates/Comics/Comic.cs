@@ -25,13 +25,30 @@ namespace ComicService.Domain.Aggregates.Comics
         private readonly List<ComicEpisode> _comicEpisodes = new List<ComicEpisode>();
         public IReadOnlyCollection<ComicEpisode> ComicEpisodes => _comicEpisodes;
 
-        public Comic(string title, string description, string imageUrl, Guid authorId)
+        public Comic(string title, string description, string imageUrl, Guid authorId, Guid categoryId)
         {
             Title = title;
             Description = description;
             ImageUrl = imageUrl;
             AuthorId = authorId;
+            CategoryId = categoryId;
             IsDeleted = false;
+        }
+
+        public void UpdateComic(string title, string description)
+        {
+            Title = title;
+            Description = description;
+        }
+
+        public void UpdateBackgroundImage(string imageUrl)
+        {
+            ImageUrl = imageUrl;
+        }
+
+        public void SoftDelete()
+        {
+            IsDeleted = true;
         }
     }
 }

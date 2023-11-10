@@ -1,8 +1,8 @@
 version: '3.4'
 
 services:
-  authdb:
-    container_name: auth-db
+  e-comic-sql-server:
+    container_name: e-comic-sql-server
     ports:
       - "1433:1433"
     environment:
@@ -11,14 +11,14 @@ services:
   auth.api:
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
-      - ConnectionStrings:Default=Server=authdb;Database=IdentityDb;User Id=sa;Password=Huy2002109@;TrustServerCertificate=True
+      - ConnectionStrings:Default=Server=e-comic-sql-server;Database=IdentityDb;User Id=sa;Password=Huy2002109@;TrustServerCertificate=True
       - JWT:Key=this is the secret key for authentication
       - JWT:Issuer=http://+:5064
       - JWT:Audience=http://+:5064
     ports:
       - "5064:80"
     depends_on:
-      - authdb
+      - e-comic-sql-server
 
   user-api:
     environment:

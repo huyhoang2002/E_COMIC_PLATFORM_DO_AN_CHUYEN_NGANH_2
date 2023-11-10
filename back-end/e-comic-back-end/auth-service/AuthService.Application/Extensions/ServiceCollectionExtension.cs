@@ -24,17 +24,17 @@ namespace AuthService.Application.Extensions
             return services;
         }
 
-        public static IServiceCollection AddMessageBus(this IServiceCollection services, IConfiguration configuration)
-        {
-            services.AddMassTransit(config =>
-            {
-                config.UsingRabbitMq((ctx, config) =>
-                {
-                    config.Host(configuration["EventBusSettings:RabbitMQ"]);
-                });
-            });
-            return services;
-        }
+        //public static IServiceCollection AddMessageBus(this IServiceCollection services, IConfiguration configuration)
+        //{
+        //    services.AddMassTransit(config =>
+        //    {
+        //        config.UsingRabbitMq((ctx, config) =>
+        //        {
+        //            config.Host(configuration["EventBusSettings:RabbitMQ"]);
+        //        });
+        //    });
+        //    return services;
+        //}
 
         public static IServiceCollection AddIdentity(this IServiceCollection services)
         {

@@ -21,4 +21,8 @@
     <ProjectReference Include="..\ComicService.Persistence\ComicService.Persistence.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Uploads\" />
+  </ItemGroup>
+
 </Project>

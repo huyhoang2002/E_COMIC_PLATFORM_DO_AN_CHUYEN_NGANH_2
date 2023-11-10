@@ -16,6 +16,7 @@ builder.Services.AddCqrsBus();
 builder.Services.AddRepository();
 builder.Services.AddCommandQuery();
 builder.Services.AddAuth(builder.Configuration);
+builder.Services.AddCloudinary();
 
 var app = builder.Build();
 

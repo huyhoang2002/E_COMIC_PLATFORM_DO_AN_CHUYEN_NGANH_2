@@ -10,5 +10,6 @@ namespace ComicService.Domain.Seedworks
     {
         public TId Id { get; private set; }
         public DateTime ModifiedAt { get; set; } = DateTime.Now;
+        public bool IsDeleted { get; set; }
     }
 }

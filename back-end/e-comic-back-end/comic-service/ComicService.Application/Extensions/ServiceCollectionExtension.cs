@@ -1,4 +1,6 @@
-﻿using MediatR;
+﻿using ComicService.Application.Services.CloudinaryService;
+using ComicService.Application.Services.CloudinaryService.Interfaces;
+using MediatR;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -17,6 +19,12 @@ namespace ComicService.Application.Extensions
         public static IServiceCollection AddCommandQuery(this IServiceCollection services)
         {
             services.AddMediatR(assemblies: Assembly.GetExecutingAssembly());
+            return services;
+        }
+
+        public static IServiceCollection AddCloudinary(this IServiceCollection services)
+        {
+            services.AddScoped<ICloudinaryService, CloudinaryService>();
             return services;
         }
 

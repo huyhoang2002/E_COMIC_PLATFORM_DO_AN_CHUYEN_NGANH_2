@@ -49,6 +49,7 @@ namespace Comic_API.Controllers
         }
 
         [HttpPut]
+        [Authorize(Roles = "ADMIN", AuthenticationSchemes = "Bearer")]
         [Route("{id}")]
         public async Task<IActionResult> UpdateCategoryName(Guid id, [FromBody] UpdateCategoryRequest request) 
         {
@@ -62,6 +63,7 @@ namespace Comic_API.Controllers
         }
 
         [HttpDelete]
+        [Authorize(Roles = "ADMIN", AuthenticationSchemes = "Bearer")]
         [Route("{id}")]
         public async Task<IActionResult> DeleteCategory(Guid id)
         {

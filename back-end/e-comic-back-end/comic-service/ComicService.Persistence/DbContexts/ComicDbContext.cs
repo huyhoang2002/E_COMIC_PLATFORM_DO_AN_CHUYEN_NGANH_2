@@ -1,4 +1,5 @@
-﻿using ComicService.Domain.Aggregates.Categories;
+﻿using ComicService.Domain.Aggregates.Authors;
+using ComicService.Domain.Aggregates.Categories;
 using ComicService.Domain.Aggregates.Comics;
 using Microsoft.EntityFrameworkCore;
 using System;

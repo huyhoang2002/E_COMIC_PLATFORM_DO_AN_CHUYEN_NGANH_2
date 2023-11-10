@@ -1,5 +1,7 @@
 ﻿using AutoMapper;
+using System.IdentityModel.Tokens.Jwt;
 using User_API.Entities;
+using User_API.Helpers;
 using User_API.Repository.repositories.Interfaces;
 using User_API.Services.Interfaces;
 using User_API.ThirdPartyServices.Interfaces;
@@ -22,8 +24,10 @@ namespace User_API.Services
             _cloudinaryService = cloudinaryService;
         }
 
-        public async Task<Guid> CreateUser(CreateUserRequest request)
+        public async Task<Guid> CreateUser(HttpContext context, CreateUserRequest request)
         {
+            var accountId = getAccountIdFromToken(context);
+            request.SetAccountId(accountId);
             var user = _mapper.Map<User>(request);
             var isUserExisted = _userRepository.FirstOrDefault(_ => _.AccountId == user.AccountId);
             if (isUserExisted is not null)
@@ -48,6 +52,13 @@ namespace User_API.Services
             var cloudinaryUrl = await _cloudinaryService.UploadImageAsync(path);
             user.SetImageUrl(cloudinaryUrl);
             await _unitOfWork.SaveChangeAsync();
+        }
+
+        private string getAccountIdFromToken(HttpContext httpContext)
+        {
+            var token = DecodeTokenHelper.DecodeToken(httpContext);
+            var accountId = token.Claims.FirstOrDefault(_ => _.Type == "nameid").Value;
+            return accountId;
         }
     }
 }

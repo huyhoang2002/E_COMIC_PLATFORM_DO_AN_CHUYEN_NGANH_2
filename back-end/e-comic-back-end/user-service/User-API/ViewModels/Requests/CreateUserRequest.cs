@@ -14,7 +14,7 @@
         public bool IsRemove { get; private set; }
         public string AccountId { get; private set; }
 
-        public CreateUserRequest(string firstName, string lastName, int age, string country, string job, string phoneNumber, string bio, string accountId)
+        public CreateUserRequest(string firstName, string lastName, int age, string country, string job, string phoneNumber, string bio)
         {
             FirstName = firstName;
             LastName = lastName;
@@ -23,12 +23,16 @@
             Job = job;
             PhoneNumber = phoneNumber;
             Bio = bio;
-            AccountId = accountId;
         }
 
         public void SetAvatarUrl(string url)
         {
             ImageUrl = url;
+        }
+
+        public void SetAccountId(string accountId)
+        {
+            AccountId = accountId;
         }
     }
 }

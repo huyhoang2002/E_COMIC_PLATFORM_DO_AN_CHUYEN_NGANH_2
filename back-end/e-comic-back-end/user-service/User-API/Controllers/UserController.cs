@@ -21,7 +21,7 @@ namespace User_API.Controllers
         [Authorize(AuthenticationSchemes = "Bearer")]
         public async Task<IActionResult> CreateUser([FromBody] CreateUserRequest request)
         {
-            await _userService.CreateUser(request);
+            await _userService.CreateUser(HttpContext, request);
             return StatusCode(StatusCodes.Status201Created, BaseResponse.Success());
         }
 

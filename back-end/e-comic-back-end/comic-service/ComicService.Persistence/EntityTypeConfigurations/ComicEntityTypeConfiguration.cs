@@ -22,7 +22,8 @@ namespace ComicService.Persistence.EntityTypeConfigurations
             builder
                 .HasOne(_ => _.Category)
                 .WithMany(_ => _.Comics)
-                .HasForeignKey(_ => _.CategoryId);
+                .HasForeignKey(_ => _.CategoryId)
+                .OnDelete(DeleteBehavior.Cascade); 
 
             var comicEpisodeNavigation = builder.Metadata.FindNavigation(nameof(Comic.ComicEpisodes));
             comicEpisodeNavigation.SetPropertyAccessMode(PropertyAccessMode.Field);

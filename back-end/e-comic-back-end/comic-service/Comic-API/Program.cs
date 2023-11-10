@@ -1,6 +1,6 @@
 using ComicService.Persistence.Extensions;
 using ComicService.Infrastructure.Extensions;
-
+using ComicService.Application.Extensions;
 
     var builder = WebApplication.CreateBuilder(args);
 
@@ -14,6 +14,8 @@ builder.Services.AddPersistence(builder.Configuration);
 builder.Services.AddUnitOfWork();
 builder.Services.AddCqrsBus();
 builder.Services.AddRepository();
+builder.Services.AddCommandQuery();
+builder.Services.AddAuth(builder.Configuration);
 
 var app = builder.Build();
 

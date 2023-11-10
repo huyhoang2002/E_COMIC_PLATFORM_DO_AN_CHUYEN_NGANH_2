@@ -9,6 +9,6 @@ namespace ComicService.Domain.Seedworks
     public abstract class EntityBase<TId>
     {
         public TId Id { get; private set; }
-        public DateTime ModifiedAt { get; private set; } = DateTime.Now;
+        public DateTime ModifiedAt { get; set; } = DateTime.Now;
     }
 }

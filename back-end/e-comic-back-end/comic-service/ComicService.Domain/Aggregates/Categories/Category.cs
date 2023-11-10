@@ -11,12 +11,31 @@ namespace ComicService.Domain.Aggregates.Categories
     public class Category : EntityBase<Guid>
     {
         public string CategoryName { get; private set; }
+        public bool IsDeleted { get; private set; }
         private readonly List<Comic> _comics = new List<Comic>();
         public IReadOnlyCollection<Comic> Comics => _comics;
+   
 
         public Category(string categoryName)
         {
             CategoryName = categoryName;
+            IsDeleted = false;
+        }
+
+        public bool IsCategoryNameNull()
+        {
+            return CategoryName is null;
+        }
+
+        public void UpdateCategoryName(string name)
+        {
+            CategoryName = name;
+            ModifiedAt = DateTime.Now;
+        }
+        public void SoftDelete()
+        {
+            IsDeleted = true;
+            ModifiedAt = DateTime.Now;
         }
     }
 }

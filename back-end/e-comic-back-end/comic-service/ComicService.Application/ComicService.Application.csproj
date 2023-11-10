@@ -1,13 +1,24 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net6.0</TargetFramework>
-    <ImplicitUsings>enable</ImplicitUsings>
-    <Nullable>enable</Nullable>
+	<TargetFramework>net6.0</TargetFramework>
+	<ImplicitUsings>enable</ImplicitUsings>
+	<Nullable>disable</Nullable>
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Services\" />
+	<Folder Include="Behaviors\" />
+	<Folder Include="Features\CQRS\Commands\Comics\" />
+	<Folder Include="Services\" />
+  </ItemGroup>
+
+  <ItemGroup>
+	<PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="11.1.0" />
+	<PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="6.0.14" />
+  </ItemGroup>
+
+  <ItemGroup>
+	<ProjectReference Include="..\ComicService.Infrastructure\ComicService.Infrastructure.csproj" />
   </ItemGroup>
 
 </Project>

@@ -55,19 +55,19 @@ namespace API.Controllers
             return Ok(result);
         }
 
-        [HttpGet]
-        [Authorize(AuthenticationSchemes = "Bearer")]
-        public async Task<IActionResult> GetAccountId()
-        {
-            var accessToken = Request.Headers.Authorization.ToString().Split(' ')[1];
-            var query = new GetAccountIdQuery()
-            {
-                AccessToken = accessToken
-            };
-            var result = await _queryBus.SendAsync(query);
-            await _publisher.Publish(result);
-            return Ok(result);
-        }
+        //[HttpGet]
+        //[Authorize(AuthenticationSchemes = "Bearer")]
+        //public async Task<IActionResult> GetAccountId()
+        //{
+        //    var accessToken = Request.Headers.Authorization.ToString().Split(' ')[1];
+        //    var query = new GetAccountIdQuery()
+        //    {
+        //        AccessToken = accessToken
+        //    };
+        //    var result = await _queryBus.SendAsync(query);
+        //    await _publisher.Publish(result);
+        //    return Ok(result);
+        //}
 
         //[HttpGet]
         //[Route("{id}")]

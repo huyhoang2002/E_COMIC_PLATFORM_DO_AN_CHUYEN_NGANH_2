@@ -35,7 +35,7 @@ namespace ComicService.Infrastructure.Base
             return DbSet.FirstOrDefault(predicate);
         }
 
-        public IQueryable<T> GetQuery(Expression<Func<T, bool>> predicate)
+        public virtual IQueryable<T> GetQuery(Expression<Func<T, bool>> predicate)
         {
             if (predicate is null)
             {

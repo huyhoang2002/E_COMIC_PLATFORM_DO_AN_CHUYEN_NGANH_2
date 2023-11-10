@@ -1,7 +1,7 @@
 version: '3.4'
 
 services:
-  authdb:
+  e-comic-sql-server:
     image: mcr.microsoft.com/mssql/server:2022-latest
   auth.api:
     image: ${DOCKER_REGISTRY-}api

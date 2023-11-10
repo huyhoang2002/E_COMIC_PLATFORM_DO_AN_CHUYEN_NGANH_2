@@ -1,4 +1,5 @@
-﻿using ComicService.Domain.Aggregates.Comic;
+﻿using ComicService.Domain.Aggregates.Categories;
+using ComicService.Domain.Aggregates.Comics;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -20,6 +21,7 @@ namespace ComicService.Persistence.DbContexts
         public DbSet<Author> Authors { get; set; }
         public DbSet<ComicEpisode> Episodes { get; set; }
         public DbSet<EpisodeImage> Images { get; set; }
+        public DbSet<Category> Categories { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

@@ -1,30 +1,59 @@
-import { SafeAreaView } from 'react-native';
+import { SafeAreaView, View, Text, TouchableOpacity } from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import InitialScreen from '../Initial/InitialScreen';
+import { Ionicons } from '@expo/vector-icons';
+import Profile from '../Profile/ProfileScreen';
+import Header from './Header';
 
 const Tab = createBottomTabNavigator();
 
 const Home = () => {
   return (
-    <SafeAreaView>
-      <ScrollView showsHorizontalScrollIndicator="false"></ScrollView>
+    <SafeAreaView style={{ flex: 1, backgroundColor: 'black' }}>
+      <ScrollView showsVerticalScrollIndicator={false}>
+        <Header />
+      </ScrollView>
     </SafeAreaView>
   );
 };
 
 function MyTabs() {
   return (
-    <Tab.Navigator>
+    <Tab.Navigator
+      screenOptions={({ route }) => ({
+        tabBarActiveTintColor: 'white',
+        tabBarInactiveTintColor: 'gray',
+        tabBarStyle: { backgroundColor: 'black' },
+
+        tabBarIcon: ({ color, size }) => {
+          let iconName;
+
+          if (route.name === 'home') {
+            iconName = 'home';
+          } else if (route.name === 'profile') {
+            iconName = 'settings';
+          }
+
+          return (
+            <Ionicons
+              name={iconName}
+              color={color}
+              size={size}
+              marginTop={10}
+            />
+          );
+        },
+      })}
+    >
       <Tab.Screen
         name="home"
         component={Home}
-        options={{ headerShown: false }} // Tắt thanh tiêu đề cho màn hình "Home"
+        options={{ headerShown: false, tabBarLabel: '' }}
       />
       <Tab.Screen
-        name="initial"
-        component={InitialScreen}
-        options={{ headerShown: false }} // Tắt thanh tiêu đề cho màn hình "Initial"
+        name="profile"
+        component={Profile}
+        options={{ headerShown: false, tabBarLabel: '' }}
       />
     </Tab.Navigator>
   );

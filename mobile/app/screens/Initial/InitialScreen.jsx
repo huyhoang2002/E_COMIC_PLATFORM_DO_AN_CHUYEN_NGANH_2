@@ -13,6 +13,13 @@ const InitialScreen = ({ navigation }) => {
   };
   return (
     <View style={styles.container}>
+      <TouchableOpacity
+        style={{ marginRight: 300, marginBottom: 130 }}
+        onPress={() => navigation.goBack()}
+      >
+        <Ionicons name="arrow-back" size={24} color="white" />
+      </TouchableOpacity>
+
       <AntDesign name="book" size={120} color="white" />
       <View style={{ display: 'flex', gap: 20, width: '100%' }}>
         <Text style={styles.headerText}>Comic</Text>

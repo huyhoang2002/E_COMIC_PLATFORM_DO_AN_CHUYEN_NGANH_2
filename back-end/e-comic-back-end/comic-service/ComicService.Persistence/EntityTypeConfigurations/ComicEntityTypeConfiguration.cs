@@ -1,4 +1,4 @@
-﻿using ComicService.Domain.Aggregates.Comic;
+﻿using ComicService.Domain.Aggregates.Comics;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using System;
@@ -19,6 +19,10 @@ namespace ComicService.Persistence.EntityTypeConfigurations
                 .HasOne(_ => _.Author)
                 .WithMany(_ => _.Comics)
                 .HasForeignKey(_ => _.AuthorId);
+            builder
+                .HasOne(_ => _.Category)
+                .WithMany(_ => _.Comics)
+                .HasForeignKey(_ => _.CategoryId);
 
             var comicEpisodeNavigation = builder.Metadata.FindNavigation(nameof(Comic.ComicEpisodes));
             comicEpisodeNavigation.SetPropertyAccessMode(PropertyAccessMode.Field);

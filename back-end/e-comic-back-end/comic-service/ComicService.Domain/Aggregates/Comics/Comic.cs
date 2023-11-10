@@ -4,8 +4,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ComicService.Domain.Aggregates;
+using ComicService.Domain.Aggregates.Categories;
 
-namespace ComicService.Domain.Aggregates.Comic
+namespace ComicService.Domain.Aggregates.Comics
 {
     public class Comic : EntityBase<Guid>
     {
@@ -15,6 +17,10 @@ namespace ComicService.Domain.Aggregates.Comic
 
         public Guid AuthorId { get; set; }
         public Author Author { get; set; }
+        
+        public Guid CategoryId { get; set; }
+        public Category Category { get; set; } 
+
         private readonly List<ComicEpisode> _comicEpisodes = new List<ComicEpisode>();
         public IReadOnlyCollection<ComicEpisode> ComicEpisodes => _comicEpisodes;
 

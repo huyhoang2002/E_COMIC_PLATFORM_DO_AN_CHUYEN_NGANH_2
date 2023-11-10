@@ -1,4 +1,4 @@
-﻿using ComicService.Domain.Aggregates.Comic;
+﻿using ComicService.Domain.Aggregates.Comics;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using System;

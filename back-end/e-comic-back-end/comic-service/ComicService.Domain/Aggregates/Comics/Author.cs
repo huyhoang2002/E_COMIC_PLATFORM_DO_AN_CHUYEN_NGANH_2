@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ComicService.Domain.Aggregates.Comic
+namespace ComicService.Domain.Aggregates.Comics
 {
     public class Author : EntityBase<Guid>
     {

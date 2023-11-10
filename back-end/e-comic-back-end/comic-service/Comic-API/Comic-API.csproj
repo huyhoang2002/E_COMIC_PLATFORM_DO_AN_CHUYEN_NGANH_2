@@ -16,6 +16,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\ComicService.Infrastructure\ComicService.Infrastructure.csproj" />
     <ProjectReference Include="..\ComicService.Persistence\ComicService.Persistence.csproj" />
   </ItemGroup>
 

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AuthService.Infrastructure.CQRS.Query
+namespace ComicService.Infrastructure.CQRS.Query
 {
     public class QueryResult<TResult>
     {

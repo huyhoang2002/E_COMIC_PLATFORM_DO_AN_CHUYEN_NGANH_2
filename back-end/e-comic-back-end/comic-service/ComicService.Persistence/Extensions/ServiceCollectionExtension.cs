@@ -18,6 +18,12 @@ namespace ComicService.Persistence.Extensions
             {
                 options.UseSqlServer(configuration.GetConnectionString("Default"));
             });
+
+            var ServiceProvider = services.BuildServiceProvider();
+            using (var context = ServiceProvider.GetRequiredService<ComicDbContext>())
+            {
+                context.Database.Migrate();
+            }
             return services;
         }
     }

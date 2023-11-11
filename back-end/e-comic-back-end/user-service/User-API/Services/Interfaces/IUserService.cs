@@ -1,4 +1,5 @@
 ﻿using User_API.Entities;
+using User_API.ViewModels.Base;
 using User_API.ViewModels.Requests;
 
 namespace User_API.Services.Interfaces
@@ -9,5 +10,7 @@ namespace User_API.Services.Interfaces
         Task UpdateAccountId(Guid userId, string accountId);
         Task UpdateUserAvatar(Guid userId, string path);
         IQueryable<User> GetUserDatas(bool isDisable);
+        Task<BaseResponse> DisableUser(Guid userId);
+        Task<BaseResponse> EnableUser(Guid userId);
     }
 }

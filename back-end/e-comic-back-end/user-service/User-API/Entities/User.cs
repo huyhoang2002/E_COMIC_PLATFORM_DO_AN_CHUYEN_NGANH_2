@@ -39,5 +39,15 @@ namespace User_API.Entities
         {
             AccountId = accountId;
         }
+
+        public void DisableUser()
+        {
+            IsDisable = true;
+        }
+
+        public void EnableUser()
+        {
+            IsDisable = false;
+        }
     }
 }

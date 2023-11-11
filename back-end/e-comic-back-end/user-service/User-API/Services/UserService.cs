@@ -6,6 +6,7 @@ using User_API.Repository.repositories.Interfaces;
 using User_API.Services.Interfaces;
 using User_API.ThirdPartyServices.Interfaces;
 using User_API.UnitOfWork.Interfaces;
+using User_API.ViewModels.Base;
 using User_API.ViewModels.Requests;
 
 namespace User_API.Services
@@ -65,6 +66,34 @@ namespace User_API.Services
             var token = DecodeTokenHelper.DecodeToken(httpContext);
             var accountId = token.Claims.FirstOrDefault(_ => _.Type == "nameid").Value;
             return accountId;
+        }
+
+        public async Task<BaseResponse> DisableUser(Guid userId)
+        {
+            var user = _userRepository.FirstOrDefault(_ => _.Id == userId);
+            if (user is null) 
+                return BaseResponse.Error("User not found");
+            if (user.IsDisable == true)
+            {
+                return BaseResponse.Error("User has been disabled");
+            }
+            user.DisableUser();
+            await _unitOfWork.SaveChangeAsync();
+            return BaseResponse.Success();
+        }
+
+        public async Task<BaseResponse> EnableUser(Guid userId)
+        {
+            var user = _userRepository.FirstOrDefault(_ => _.Id == userId);
+            if (user is null)
+                return BaseResponse.Error("User not found");
+            if (user.IsDisable == false)
+            {
+                return BaseResponse.Error("User has been enabled");
+            }
+            user.EnableUser();
+            await _unitOfWork.SaveChangeAsync();
+            return BaseResponse.Success();
         }
     }
 }

@@ -49,9 +49,13 @@ namespace API.Controllers
         [HttpPost]
         [Route("log-out")]
         [Authorize(AuthenticationSchemes = "Bearer")]
-        public async Task<IActionResult> Logout([FromBody] LogoutCommand request)
+        public async Task<IActionResult> Logout()
         {
-            var result = await _commandBus.SendAsync(request);
+            var command = new LogoutCommand
+            {
+                HttpContext = HttpContext
+            };
+            var result = await _commandBus.SendAsync(command);
             return Ok(result);
         }
 

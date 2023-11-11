@@ -1,4 +1,5 @@
-﻿using ComicService.Domain.Aggregates.Comics;
+﻿using ComicService.Domain.Aggregates.Categories;
+using ComicService.Domain.Aggregates.Comics;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,17 +10,15 @@ namespace ComicService.Application.ViewModels.Responses
 {
     public class GetCategoriesResponse
     {
-        public GetCategoriesResponse(Guid id, string categoryName, DateTime modifiedTime, IEnumerable<Comic> comics)
-        {
-            Id = id;
-            CategoryName = categoryName;
-            ModifiedTime = modifiedTime;
-            Comics = comics;
-        }
-
         public Guid Id { get; set; }
         public string CategoryName { get; set; }
-        public DateTime ModifiedTime { get; set; }
-        public IEnumerable<Comic> Comics { get; set; }
+        public DateTime ModifiedAt { get; set; }
+
+        public GetCategoriesResponse(Category category)
+        {
+            Id = category.Id;
+            CategoryName = category.CategoryName;
+            ModifiedAt = category.ModifiedAt;
+        }
     }
 }

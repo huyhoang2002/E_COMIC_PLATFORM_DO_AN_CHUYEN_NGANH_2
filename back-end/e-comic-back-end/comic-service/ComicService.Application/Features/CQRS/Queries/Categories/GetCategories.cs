@@ -28,7 +28,7 @@ namespace ComicService.Application.Features.CQRS.Queries.Categories
         {
             return _categoryRepository
                 .GetQuery(_ => _.IsDeleted == request.IsDeleted)
-                .Select(_ => new GetCategoriesResponse(_.Id, _.CategoryName, _.ModifiedAt, _.Comics));
+                .Select(_ => new GetCategoriesResponse(_));
         }
     }
 }

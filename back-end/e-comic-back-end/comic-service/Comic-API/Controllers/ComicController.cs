@@ -46,6 +46,31 @@ namespace Comic_API.Controllers
             return Ok(result);
         }
 
+        [HttpGet]
+        [Route("{id}/episodes")]
+        public async Task<IActionResult> GetComicEpisodes(Guid id)
+        {
+            var query = new GetComicEpisodeQuery()
+            {
+                ComicId = id
+            };
+            var result = await _queryBus.SendAsync(query);
+            return Ok(result);
+        }
+
+        [HttpGet]
+        [Route("{id}/episodes/{episodeId}")]
+        public async Task<IActionResult> GetComicEpisodes(Guid id, Guid episodeId)
+        {
+            var query = new GetComicEpisodeDetailQuery()
+            {
+                ComicId = id,
+                ComicEpisodeId = episodeId
+            };
+            var result = await _queryBus.SendAsync(query);
+            return Ok(result);
+        }
+
         [HttpPost]
         [Authorize(Roles = "ADMIN", AuthenticationSchemes = "Bearer")]
         public async Task<IActionResult> CreateComic([FromForm] CreateComicRequest request, IFormFile file)
@@ -70,6 +95,51 @@ namespace Comic_API.Controllers
                 return Ok(result);
             }
             return BadRequest();
+        }
+
+        [HttpPost]
+        [Route("{id}/episode")]
+        [Authorize(Roles = "ADMIN", AuthenticationSchemes = "Bearer")]
+        public async Task<IActionResult> CreateComicEpisode(Guid id, [FromBody] CreateComiceEpisodeRequest request)
+        {
+            var command = new CreateComicEpisodeCommand
+            {
+                Episode = request.Episode,
+                ComicId = id
+            };
+            var result = await _commandBus.SendAsync(command);
+            return Ok(result);
+        }
+
+        [HttpPost]
+        [Route("{id}/episode/{episodeId}")]
+        [Authorize(Roles = "ADMIN", AuthenticationSchemes = "Bearer")]
+        public async Task<IActionResult> CreateComicEpisodeDetail(Guid id, Guid EpisodeId, List<IFormFile> files)
+        {
+            if (files.Count.Equals(0))
+            {
+                return BadRequest();
+            }
+            var filePaths = new List<string>();
+            foreach (var file in files)
+            {
+                if (file is not null || file.Length > 0)
+                {
+                    var fileName = file.FileName;
+                    var filePath = Path.Combine("Uploads", fileName);
+                    using var fileStream = new FileStream(filePath, FileMode.Create);
+                    file.CopyTo(fileStream);
+                    filePaths.Add(filePath);
+                }
+            }
+            var command = new CreateEpisodeDetailCommand()
+            {
+                ComicId = id,
+                EpisodeId = EpisodeId,
+                ImageUrls = filePaths
+            };
+            var result = await _commandBus.SendAsync(command);
+            return Ok(result);
         }
 
         [HttpPut]

@@ -25,5 +25,15 @@ namespace ComicService.Domain.Aggregates.Comics
             ComicId = comicId;
             IsDeleted = false;
         }
+
+        public void AddEpisodeDetail(EpisodeImage episodeImage)
+        {
+            _episodeImages.Add(episodeImage);
+        }
+
+        public IEnumerable<EpisodeImage> GetEpisodeImages(Guid comicEpisodeId)
+        {
+            return _episodeImages.Where(_ => _.ComicEpisodeId == comicEpisodeId);
+        }
     }
 }

@@ -39,16 +39,39 @@ namespace ComicService.Domain.Aggregates.Comics
         {
             Title = title;
             Description = description;
+            ModifiedAt = DateTime.Now;
         }
 
         public void UpdateBackgroundImage(string imageUrl)
         {
             ImageUrl = imageUrl;
+            ModifiedAt = DateTime.Now;
         }
 
         public void SoftDelete()
         {
             IsDeleted = true;
+            ModifiedAt = DateTime.Now;
+        }
+
+        public void AddEpisode(ComicEpisode comicEpisode)
+        {
+            _comicEpisodes.Add(comicEpisode);
+        }
+
+        public IEnumerable<ComicEpisode> GetEpisodesById(Guid comicId)
+        {
+            return _comicEpisodes.Where(_ => _.ComicId == comicId);
+        }
+
+        public ComicEpisode GetEpisodeById(Guid id)
+        {
+            return _comicEpisodes.FirstOrDefault(_ => _.Id == id);
+        }
+
+        public ComicEpisode GetEpisodeByComicId(Guid comicId)
+        {
+            return _comicEpisodes.FirstOrDefault(_ => _.ComicId == comicId);
         }
     }
 }

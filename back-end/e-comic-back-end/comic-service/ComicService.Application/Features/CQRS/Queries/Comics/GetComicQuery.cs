@@ -1,20 +1,15 @@
-﻿using ComicService.Domain.Aggregates.Comics;
+﻿using ComicService.Application.ViewModels.Responses;
 using ComicService.Infrastructure.CQRS.Query;
 using ComicService.Infrastructure.Repositories.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ComicService.Application.Features.CQRS.Queries.Comics
 {
-    public class GetComicQuery : IQuery<Comic>
+    public class GetComicQuery : IQuery<GetComicResponse>
     {
         public Guid Id { get; set; }
     }
 
-    public class GetComicQueryHandler : IQueryHandler<GetComicQuery, Comic>
+    public class GetComicQueryHandler : IQueryHandler<GetComicQuery, GetComicResponse>
     {
         private readonly IComicRepository _comicRepository;
 
@@ -23,14 +18,22 @@ namespace ComicService.Application.Features.CQRS.Queries.Comics
             _comicRepository = comicRepository;
         }
 
-        public async Task<Comic> Handle(GetComicQuery request, CancellationToken cancellationToken)
+        public async Task<GetComicResponse> Handle(GetComicQuery request, CancellationToken cancellationToken)
         {
             var comic = _comicRepository.FirstOrDefault(_ => _.Id == request.Id);
             if (comic is null)
             {
                 return null;
             }
-            return comic;
+            return new GetComicResponse(
+                comic.Id, 
+                comic.Title, 
+                comic.Description, 
+                comic.ImageUrl, 
+                new AuthorResponse(comic.Author), 
+                new GetCategoriesResponse(comic.Category), 
+                comic.ModifiedAt
+            );
         }
     }
 }

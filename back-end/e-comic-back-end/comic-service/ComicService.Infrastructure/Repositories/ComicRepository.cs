@@ -20,7 +20,12 @@ namespace ComicService.Infrastructure.Repositories
 
         public override Comic FirstOrDefault(Expression<Func<Comic, bool>> predicate)
         {
-            return DbSet.Include(_ => _.Category).Include(_ => _.Author).FirstOrDefault(predicate);
+            return DbSet
+                .Include(_ => _.Category)
+                .Include(_ => _.Author)
+                .Include(_ => _.ComicEpisodes)
+                .ThenInclude(_ => _.EpisodeImages)
+                .FirstOrDefault(predicate);
         }
     }
 }

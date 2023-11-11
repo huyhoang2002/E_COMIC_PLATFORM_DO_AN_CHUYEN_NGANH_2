@@ -16,3 +16,10 @@ services:
       context: .
       dockerfile: user-service/User-API/Dockerfile
 
+
+  comic-api:
+    image: ${DOCKER_REGISTRY-}comicapi
+    build:
+      context: .
+      dockerfile: comic-service/Comic-API/Dockerfile
+

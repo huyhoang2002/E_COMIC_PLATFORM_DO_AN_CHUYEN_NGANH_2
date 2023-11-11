@@ -1,18 +1,26 @@
-import { SafeAreaView, View, Text, TouchableOpacity } from 'react-native';
-import { ScrollView } from 'react-native-gesture-handler';
+import {
+  SafeAreaView,
+  View,
+  Text,
+  TouchableOpacity,
+  ScrollView,
+} from 'react-native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { Ionicons } from '@expo/vector-icons';
 import Profile from '../Profile/ProfileScreen';
 import Header from './Header';
-
+import FlatListHeader from './FlatListHeader';
+import CarouselComic from './CarouselComic';
+import ScrollComic from './ScrollComic';
 const Tab = createBottomTabNavigator();
 
 const Home = () => {
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: 'black' }}>
-      <ScrollView showsVerticalScrollIndicator={false}>
-        <Header />
-      </ScrollView>
+      <Header />
+      <FlatListHeader />
+      <CarouselComic />
+      <ScrollComic />
     </SafeAreaView>
   );
 };

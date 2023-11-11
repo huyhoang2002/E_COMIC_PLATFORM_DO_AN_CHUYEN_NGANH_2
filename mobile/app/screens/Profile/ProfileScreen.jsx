@@ -1,5 +1,10 @@
-import { SafeAreaView, TouchableOpacity, View, Text } from 'react-native';
-import { ScrollView } from 'react-native-gesture-handler';
+import {
+  SafeAreaView,
+  TouchableOpacity,
+  View,
+  Text,
+  ScrollView,
+} from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { Ionicons } from '@expo/vector-icons';
 

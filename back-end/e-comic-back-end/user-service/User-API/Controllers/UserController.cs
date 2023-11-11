@@ -50,5 +50,19 @@ namespace User_API.Controllers
             }
             return BadRequest();
         }
+
+        [HttpPut("{id}/disable")]
+        public async Task<IActionResult> DisableUser(Guid id)
+        {
+            var result = await _userService.DisableUser(id);
+            return Ok(result);
+        }
+
+        [HttpPut("{id}/enable")]
+        public async Task<IActionResult> EnableUser(Guid id)
+        {
+            var result = await _userService.EnableUser(id);
+            return Ok(result);
+        }
     }
 }

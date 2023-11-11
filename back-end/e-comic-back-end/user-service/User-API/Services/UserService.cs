@@ -54,6 +54,12 @@ namespace User_API.Services
             await _unitOfWork.SaveChangeAsync();
         }
 
+        public IQueryable<User> GetUserDatas(bool isDisable)
+        {
+            var user = _userRepository.Find(_ => _.IsDisable == isDisable);
+            return user;
+        }
+
         private string getAccountIdFromToken(HttpContext httpContext)
         {
             var token = DecodeTokenHelper.DecodeToken(httpContext);

@@ -17,6 +17,14 @@ namespace User_API.Controllers
             _userService = userService;
         }
 
+        [HttpGet]
+        [Authorize(AuthenticationSchemes = "Bearer", Roles = "ADMIN")]
+        public async Task<IActionResult> GetUserDatas([FromQuery] bool isDisable)
+        {
+            var result = _userService.GetUserDatas(isDisable);
+            return Ok(result);
+        }
+
         [HttpPost]
         [Authorize(AuthenticationSchemes = "Bearer")]
         public async Task<IActionResult> CreateUser([FromBody] CreateUserRequest request)

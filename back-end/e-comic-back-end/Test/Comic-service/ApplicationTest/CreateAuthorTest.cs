@@ -21,7 +21,7 @@ namespace ApplicationTest
         };
 
         [Fact]
-        public async Task It_should_return_success_command_result_including_author_id_after_create_author()
+        public async Task It_should_return_true_after_create_author()
         {
             //arrage
             var author = getSampleAuthor();

@@ -29,7 +29,7 @@ namespace ComicService.Application.Features.CQRS.Queries.Comics
 
         public async Task<PaginationResponse<GetComicResponse>> Handle(GetComicsQuery request, CancellationToken cancellationToken)
         {
-            var result = _comicRepository.GetQuery(_ => _.IsDeleted == request.IsDeleted);
+            var result = _comicRepository.GetQuery(_ => _.IsDeleted == request.IsDeleted).OrderByDescending(_ => _.ModifiedAt);
             return new PaginationResponse<GetComicResponse>(result.Select(_ => new GetComicResponse(_)), request.PageSize, request.pageIndex);
         }
     }

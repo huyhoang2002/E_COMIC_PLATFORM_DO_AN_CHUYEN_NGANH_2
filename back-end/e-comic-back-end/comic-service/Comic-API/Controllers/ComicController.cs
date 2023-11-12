@@ -195,5 +195,18 @@ namespace Comic_API.Controllers
             var result = await _commandBus.SendAsync(command);
             return Ok(result);
         }
+
+        [HttpPut]
+        [Route("{id}/restoration")]
+        [Authorize(Roles = "ADMIN", AuthenticationSchemes = " Bearer")]
+        public async Task<IActionResult> RestoreComic(Guid id)
+        {
+            var command = new RestoreComicCommand
+            {
+                ComicId = id
+            };
+            var result = await _commandBus.SendAsync(command);
+            return Ok(result);
+        }
     }
 }

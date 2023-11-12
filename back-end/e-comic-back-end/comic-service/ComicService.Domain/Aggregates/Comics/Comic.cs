@@ -73,5 +73,10 @@ namespace ComicService.Domain.Aggregates.Comics
         {
             return _comicEpisodes.FirstOrDefault(_ => _.ComicId == comicId);
         }
+
+        public void RestoreComic()
+        {
+            IsDeleted = false;
+        }
     }
 }

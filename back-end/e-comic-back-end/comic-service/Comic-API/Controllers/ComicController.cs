@@ -24,11 +24,13 @@ namespace Comic_API.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> GetComics([FromQuery] bool isDeleted)
+        public async Task<IActionResult> GetComics([FromQuery] GetComicRequest request)
         {
             var query = new GetComicsQuery()
             {
-                IsDeleted = isDeleted
+                IsDeleted = request.IsDeleted,
+                pageIndex = request.PageIndex,
+                PageSize = request.PageSize,
             };
             var result = await _queryBus.SendAsync(query);
             return Ok(result);

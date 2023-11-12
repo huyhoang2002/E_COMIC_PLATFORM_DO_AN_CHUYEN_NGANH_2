@@ -1,4 +1,5 @@
-﻿using ComicService.Application.ViewModels.Responses;
+﻿using ComicService.Application.ViewModels.Base.Responses;
+using ComicService.Application.ViewModels.Responses;
 using ComicService.Domain.Aggregates.Comics;
 using ComicService.Infrastructure.CQRS.Query;
 using ComicService.Infrastructure.Repositories.Interfaces;
@@ -10,12 +11,14 @@ using System.Threading.Tasks;
 
 namespace ComicService.Application.Features.CQRS.Queries.Comics
 {
-    public class GetComicsQuery : IQuery<IEnumerable<GetComicResponse>>
+    public class GetComicsQuery : IQuery<PaginationResponse<GetComicResponse>>
     {
         public bool IsDeleted { get; set; }
+        public int PageSize { get; set; }
+        public int pageIndex { get; set; }
     }
 
-    public class GetComicsQueryHandler : IQueryHandler<GetComicsQuery, IEnumerable<GetComicResponse>>
+    public class GetComicsQueryHandler : IQueryHandler<GetComicsQuery, PaginationResponse<GetComicResponse>>
     {
         private readonly IComicRepository _comicRepository;
 
@@ -24,10 +27,10 @@ namespace ComicService.Application.Features.CQRS.Queries.Comics
             _comicRepository = comicRepository;
         }
 
-        public async Task<IEnumerable<GetComicResponse>> Handle(GetComicsQuery request, CancellationToken cancellationToken)
+        public async Task<PaginationResponse<GetComicResponse>> Handle(GetComicsQuery request, CancellationToken cancellationToken)
         {
             var result = _comicRepository.GetQuery(_ => _.IsDeleted == request.IsDeleted);
-            return result.Select(_ => new GetComicResponse(_));
+            return new PaginationResponse<GetComicResponse>(result.Select(_ => new GetComicResponse(_)), request.PageSize, request.pageIndex);
         }
     }
 }

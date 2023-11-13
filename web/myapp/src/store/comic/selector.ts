@@ -8,3 +8,8 @@ export const comicsSelector = createSelector(comicReducer, (state: TComicInitial
 
 export const categoriesSelector = createSelector(comicReducer, (state: TComicInitialState) => state.categories)
 
+export const pageIndexSelector = createSelector(comicReducer, (state: TComicInitialState) => state.pageIndex)
+
+export const pageSizeSelector = createSelector(comicReducer, (state: TComicInitialState) => state.pageSize)
+
+export const isLoadingSelector = createSelector(comicReducer, (state: TComicInitialState) => state.isLoading)

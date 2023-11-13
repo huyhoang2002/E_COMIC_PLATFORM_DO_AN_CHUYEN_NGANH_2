@@ -17,11 +17,10 @@ namespace Reaction_Data.Extensions
             services.AddDbContext<ReactionDbContext>(options =>
             {
                 options.UseSqlServer(configuration.GetConnectionString("Default"));
-
-                var serviceProvider = services.BuildServiceProvider();
-                using var context = serviceProvider.GetRequiredService<ReactionDbContext>();
-                context.Database.Migrate();
             });
+            var serviceProvider = services.BuildServiceProvider();
+            using var context = serviceProvider.GetRequiredService<ReactionDbContext>();
+            context.Database.Migrate();
             return services;
         }
     }

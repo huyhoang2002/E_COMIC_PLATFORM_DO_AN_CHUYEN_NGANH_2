@@ -5,9 +5,7 @@ const LandingPage = () => {
   return (
     <div className="text-lg font-bold">
       <Carousel />
-      <div>
-        <ComicList />
-      </div>
+      <ComicList />
     </div>
   )
 }

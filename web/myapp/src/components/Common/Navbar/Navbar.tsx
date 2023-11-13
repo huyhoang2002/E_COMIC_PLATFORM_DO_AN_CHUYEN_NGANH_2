@@ -14,14 +14,16 @@ const Navbar = () => {
 
     return (
         <>
-            <div className='w-[100%] py-1 px-10 bg-orange-700 flex justify-between'>
-                <Logo />
-                <div className={`flex items-center gap-7 max-[500px]:hidden max-[500px]:absolute`}>
+            <div className='py-1 px-10 bg-orange-700 flex justify-between fixed z-[1000] w-full'>
+                <Logo fontSize='lg'/>
+                <div className={`flex items-center`}>
+                    <div className={`md:hidden text-white`} onClick={handleOpenResponseMenuBar}>
+                        <HiOutlineMenuAlt3 />
+                    </div>
+                </div>
+                <div className={`flex items-center gap-0 ${!isOpen ? "max-md:hidden" : "max-md:absolute"} top-[100px] z-[1000] max-md:justify-center`}>
                     <SearchBar />
                     <UserMenuItem />
-                </div>
-                <div className={`flex items-center text-white sm:hidden`} onClick={handleOpenResponseMenuBar}>
-                    <HiOutlineMenuAlt3 />
                 </div>
             </div>
         </>

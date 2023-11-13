@@ -22,6 +22,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\comic-service\ComicService.Domain\ComicService.Domain.csproj" />
+    <ProjectReference Include="..\Reaction-Business\Reaction-Business.csproj" />
   </ItemGroup>
 
   <ItemGroup>

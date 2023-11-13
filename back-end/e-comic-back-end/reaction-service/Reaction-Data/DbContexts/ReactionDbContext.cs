@@ -1,5 +1,6 @@
 ﻿using ComicService.Domain.Aggregates.Comics;
 using Microsoft.EntityFrameworkCore;
+using Reaction_Business.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,7 +17,7 @@ namespace Reaction_Data.DbContexts
 
         }
 
-        public DbSet<Comic> Comics { get; set; }
+        public DbSet<Comment> Comments { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

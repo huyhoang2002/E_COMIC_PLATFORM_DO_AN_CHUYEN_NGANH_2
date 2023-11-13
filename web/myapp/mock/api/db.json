@@ -1,0 +1,81 @@
+{
+    "Category": [
+        {
+            "id": "3d813914-d357-4029-16d6-08dbe3264d88",
+            "categoryName": "Hành động",
+            "modifiedAt": "2023-11-12T09:23:05.2073259"
+        },
+        {
+            "id": "d6ca2c55-d4d5-487c-7242-08dbe33ed54c",
+            "categoryName": "Thám hiểm",
+            "modifiedAt": "2023-11-12T12:18:40.8497183"
+        },
+        {
+            "id": "d6ca2c55-d4d5-487c-7242-08dbe33ed54c",
+            "categoryName": "Thám hiểm",
+            "modifiedAt": "2023-11-12T12:18:40.8497183"
+        }
+    ],
+    "Comic": {
+        "pageIndex": 1,
+        "pageSize": 20,
+        "pageCount": 1,
+        "totalRows": 2,
+        "data": [
+            {
+                "id": "207fc28e-9236-465f-dcf4-08dbe33f3289",
+                "title": "One piece",
+                "description": "This is one piece comic",
+                "imageUrl": "http://res.cloudinary.com/justme2002cloud/image/upload/v1699766477/desktop-wallpaper-one-piece-portrait-one-piece-samsung_eedf9c.jpg",
+                "author": null,
+                "category": null,
+                "modifiedAt": "2023-11-12T12:21:17.3374514"
+            },
+            {
+                "id": "b3aadf58-869b-4fc7-ef46-08dbe326a58f",
+                "title": "Naruto",
+                "description": "Thằng Naruto ngu vloz",
+                "imageUrl": "http://res.cloudinary.com/justme2002cloud/image/upload/v1699755932/e507281583e982658bc02858b8060189_cmttmv.jpg",
+                "author": null,
+                "category": null,
+                "modifiedAt": "2023-11-12T09:27:03.022741"
+            },
+            {
+                "id": "b3aadf58-869b-4fc7-ef46-08dbe326a58f",
+                "title": "Naruto",
+                "description": "Thằng Naruto ngu vloz",
+                "imageUrl": "http://res.cloudinary.com/justme2002cloud/image/upload/v1699755932/e507281583e982658bc02858b8060189_cmttmv.jpg",
+                "author": null,
+                "category": null,
+                "modifiedAt": "2023-11-12T09:27:03.022741"
+            },
+            {
+                "id": "b3aadf58-869b-4fc7-ef46-08dbe326a58f",
+                "title": "Naruto",
+                "description": "Thằng Naruto ngu vloz",
+                "imageUrl": "http://res.cloudinary.com/justme2002cloud/image/upload/v1699755932/e507281583e982658bc02858b8060189_cmttmv.jpg",
+                "author": null,
+                "category": null,
+                "modifiedAt": "2023-11-12T09:27:03.022741"
+            },
+            {
+                "id": "b3aadf58-869b-4fc7-ef46-08dbe326a58f",
+                "title": "Naruto",
+                "description": "Thằng Naruto ngu vloz",
+                "imageUrl": "http://res.cloudinary.com/justme2002cloud/image/upload/v1699755932/e507281583e982658bc02858b8060189_cmttmv.jpg",
+                "author": null,
+                "category": null,
+                "modifiedAt": "2023-11-12T09:27:03.022741"
+            },
+            {
+                "id": "b3aadf58-869b-4fc7-ef46-08dbe326a58f",
+                "title": "Naruto",
+                "description": "Thằng Naruto ngu vloz",
+                "imageUrl": "http://res.cloudinary.com/justme2002cloud/image/upload/v1699755932/e507281583e982658bc02858b8060189_cmttmv.jpg",
+                "author": null,
+                "category": null,
+                "modifiedAt": "2023-11-12T09:27:03.022741"
+            }
+        ]
+    }
+}

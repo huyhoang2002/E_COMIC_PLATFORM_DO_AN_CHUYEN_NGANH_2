@@ -37,7 +37,7 @@ namespace ComicService.Application.Features.CQRS.Queries.Comics
             {
                 return null;
             }
-            return comicEpisode.Select(_ => new ComicEpisodeResponse(_));
+            return comicEpisode.Select(_ => new ComicEpisodeResponse(_)).OrderBy(_ => _.ModifiedAt);
         }
     }
 }

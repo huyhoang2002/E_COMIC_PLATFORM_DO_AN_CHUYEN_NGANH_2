@@ -12,7 +12,7 @@ const ComicCard = ({ id, imageUrl, title, modifiedAt }: Props) => {
   const navigate = useNavigate()
 
   const handleNavigateToComicDetail = (id: string) => {
-    navigate(`/c/detail/${id}`)
+    navigate(`/c/detail/${id}/vol`)
   }
 
   return (

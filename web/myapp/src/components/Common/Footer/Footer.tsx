@@ -5,7 +5,7 @@ import { FaXTwitter } from 'react-icons/fa6'
 
 const Footer = () => {
   return (
-    <div className="w-full h-[400px] bg-orange-600 fixed bottom-0">
+    <div className="w-full h-[400px] bg-orange-600">
         <Container>
             <div className="flex flex-col gap-10">
                 <div>

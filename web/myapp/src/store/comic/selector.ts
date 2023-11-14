@@ -13,3 +13,5 @@ export const pageIndexSelector = createSelector(comicReducer, (state: TComicInit
 export const pageSizeSelector = createSelector(comicReducer, (state: TComicInitialState) => state.pageSize)
 
 export const isLoadingSelector = createSelector(comicReducer, (state: TComicInitialState) => state.isLoading)
+
+export const isSuccessSelector = createSelector(comicReducer, (state: TComicInitialState) => state.isSuccess)

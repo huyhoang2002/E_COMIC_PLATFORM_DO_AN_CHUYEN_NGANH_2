@@ -70,6 +70,7 @@ namespace User_API.Controllers
         }
 
         [HttpPost("comment")]
+        [Authorize(Roles = "USER", AuthenticationSchemes = "Bearer")]
         public async Task<IActionResult> Comment([FromBody] AddCommentRequest request)
         {
             var eventMessage = new AddCommentEvent(request.CommentText, request.CommentImage, request.UserName, request.UserId, request.UserAvatar, request.CommicId);

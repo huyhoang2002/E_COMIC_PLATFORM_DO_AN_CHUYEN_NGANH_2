@@ -5,11 +5,11 @@ import { FaXTwitter } from 'react-icons/fa6'
 
 const Footer = () => {
   return (
-    <div className="w-full h-[400px] bg-orange-600">
+    <div className="w-full h-[400px] bg-orange-600 fixed bottom-0">
         <Container>
             <div className="flex flex-col gap-10">
                 <div>
-                    <Logo fontSize="lg"/>
+                    <Logo />
                     <div className="w-[250px] h-[5px] bg-white"></div>
                 </div>
                 <div>

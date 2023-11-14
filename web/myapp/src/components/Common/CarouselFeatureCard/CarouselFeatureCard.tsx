@@ -11,7 +11,7 @@ const CarouselFeatureCard = ({ wallpaper, title, content }: props) => {
     <div>
         <img className='relative h-[900px] max-md:h-[400px]' src={wallpaper} />
         <div className='absolute bottom-[100px] max-md:bottom-0 max-md:left-0 max-w-[500px] left-[200px] p-5 bg-white opacity-90'>
-            <div className='mt-[150px] flex flex-col gap-10'>
+            <div className='mt-[150px] flex flex-col gap-10 text-black'>
                 <div>
                     <h1 className='font-extrabold text-[90px] max-md:text-[70px]'>{title}</h1>
                 </div>

@@ -21,10 +21,12 @@ namespace ComicService.Application.ViewModels.Responses
             Id = episode.Id;
             Episode = episode.Episode;
             ComicId = episode.ComicId;
+            ModifiedAt = episode.ModifiedAt;
         }
 
         public Guid Id { get; set; }
         public string Episode { get; set; }
         public Guid ComicId { get; set; }
+        public DateTime ModifiedAt { get; set; }
     }
 }

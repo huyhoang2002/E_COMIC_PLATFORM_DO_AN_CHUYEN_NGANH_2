@@ -9,7 +9,7 @@ const LayoutClient = () => {
         <div className='mb-[480px]'>
           <Outlet />
         </div>
-        {/* <Footer /> */}
+        <Footer />
     </div>
   )
 }

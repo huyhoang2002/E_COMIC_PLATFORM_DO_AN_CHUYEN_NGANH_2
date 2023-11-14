@@ -42,7 +42,11 @@ const ComicList = () => {
                 />
             </div>
         </div>
-        {isLoading ? <div className="flex w-full justify-center items-center"><Spinner className="text-orange-600 h-[50px] w-[50px]" /></div> : <div className="flex flex-row mt-[50px] gap-28 max-md:gap-16 flex-wrap justify-start max-md:justify-center">
+        {isLoading ? 
+        <div className="flex w-full justify-center items-center">
+            <Spinner className="text-orange-600 h-[50px] w-[50px]" />
+        </div> : 
+        <div className="flex flex-row mt-[50px] gap-20 max-md:gap-16 flex-wrap justify-start max-md:justify-center">
             {comics?.map(comic => {
                 return (
                     <ComicCard 

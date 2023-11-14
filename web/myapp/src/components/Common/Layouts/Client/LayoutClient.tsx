@@ -6,8 +6,10 @@ const LayoutClient = () => {
   return (
     <div className='flex flex-col gap-[50px]'>
         <Navbar />
-        <Outlet />
-        <Footer />
+        <div className='mb-[480px]'>
+          <Outlet />
+        </div>
+        {/* <Footer /> */}
     </div>
   )
 }

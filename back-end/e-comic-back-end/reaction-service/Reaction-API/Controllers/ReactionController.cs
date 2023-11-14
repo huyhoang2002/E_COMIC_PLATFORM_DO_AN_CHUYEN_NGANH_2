@@ -17,6 +17,14 @@ namespace Reaction_API.Controllers
             _repository = repository;
         }
 
+        [HttpGet]
+        [Route("{comicId}")]
+        public Task<IActionResult> GetCommentsByPostId(Guid comicId)
+        {
+            var comments = _repository.GetQuery(_ => _.CommicId == comicId);
+            return Task.FromResult<IActionResult>(Ok(comments));
+        }
+
         [HttpPost]
         public async Task<IActionResult> AddComment([FromBody] AddCommentRequest request)
         {

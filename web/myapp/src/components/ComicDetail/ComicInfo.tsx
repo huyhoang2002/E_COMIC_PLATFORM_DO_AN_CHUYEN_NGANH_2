@@ -1,0 +1,56 @@
+import { Button } from 'flowbite-react'
+import { useEffect } from 'react'
+import { Outlet, useNavigate, useParams } from 'react-router-dom'
+
+const ComicInfo = () => {
+
+  const navigate = useNavigate()
+  const params = useParams()
+
+  const navigateToCommentList = () => {
+    navigate(`/c/detail/${params?.id}/comment`)
+  }
+
+  const navigateToVolList = () => {
+    navigate(`/c/detail/${params?.id}/vol`)
+  }
+
+  useEffect(() => {
+    navigate(`/c/detail/${params?.id}/vol`)
+  }, [params?.id])
+
+  return (
+    <>
+      <div className="flex justify-center">
+        <div className="absolute top-[150px] z-[1000] grid grid-cols-1 lg:grid-cols-3 gri bg-white w-[370px] md:w-[700px] lg:w-[1100px] h-fit bg-opacity-95">
+          <div className="p-5 flex flex-col gap-2">
+            <img className="h-[500px] object-cover" src="https://upload.wikimedia.org/wikipedia/vi/c/c7/Naruto_Volume_1_manga_cover.jpg" alt="" />
+            <Button className="rounded-none bg-orange-600 transition-all">Read volume 1 now</Button>
+          </div>
+          <div className="flex flex-col gap-4 p-5 col-span-2">
+            <h1 className="text-black text-[50px] font-semibold">Naruto</h1>
+            <div className="text-black flex flex-col gap-3">
+              <p className="font-medium">Genre: <span className="text-red-600">Action</span></p>
+              <p className="font-medium">Artist: <span className="text-red-600">Masashi Kishimoto</span></p>
+              <p className="font-medium">Latest update: <span className="text-red-600">26</span></p>
+            </div>
+            <div className=''>
+              <p className="text-black text-justify">Naruto is a Japanese manga series written and illustrated by Masashi Kishimoto. It tells the story of Naruto Uzumaki, a young ninja who seeks recognition from his peers and dreams of becoming the Hokage, the leader of his village.</p>
+            </div>
+          </div>
+        </div>
+        <div className="absolute z-[1300] top-[1150px] md:top-[1050px] lg:top-[780px] flex flex-col w-[370px] md:w-[700px] lg:w-[1100px] justify-between bg-white">
+          <div className='text-black flex gap-6 m-5 cursor-pointer'>
+            <p className='font-medium hover:text-orange-600' onClick={navigateToVolList.bind(this)}>VOL.</p>
+            <p className='font-medium hover:text-orange-600' onClick={navigateToCommentList.bind(this)}>Comment</p>
+          </div>       
+          <div>
+            <Outlet />
+          </div>
+        </div>
+      </div>
+    </>
+  )
+}
+
+export default ComicInfo

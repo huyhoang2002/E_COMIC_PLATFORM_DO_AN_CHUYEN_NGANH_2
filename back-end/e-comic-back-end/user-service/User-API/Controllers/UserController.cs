@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Authorization;
+﻿using EventProcessor.Events;
+using MassTransit;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using User_API.Services.Interfaces;
@@ -12,9 +14,11 @@ namespace User_API.Controllers
     public class UserController : ControllerBase
     {
         private readonly IUserService _userService;
-        public UserController(IUserService userService)
+        private readonly IPublishEndpoint _publisher;
+        public UserController(IUserService userService, IPublishEndpoint publisher)
         {
             _userService = userService;
+            _publisher = publisher;
         }
 
         [HttpGet]
@@ -63,6 +67,14 @@ namespace User_API.Controllers
         {
             var result = await _userService.EnableUser(id);
             return Ok(result);
+        }
+
+        [HttpPost("comment")]
+        public async Task<IActionResult> Comment([FromBody] AddCommentRequest request)
+        {
+            var eventMessage = new AddCommentEvent(request.CommentText, request.CommentImage, request.UserName, request.UserId, request.UserAvatar, request.CommicId);
+            await _publisher.Publish(eventMessage);
+            return Ok(BaseResponse.Success());
         }
     }
 }

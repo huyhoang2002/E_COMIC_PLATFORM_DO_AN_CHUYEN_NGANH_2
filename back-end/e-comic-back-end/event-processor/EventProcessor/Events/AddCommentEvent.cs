@@ -1,15 +1,15 @@
-﻿using Reaction_Business.Bases;
+﻿using EventProcessor.Commons.Base;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Reaction_Business.Entities
+namespace EventProcessor.Events
 {
-    public class Comment : EntityBase<Guid>
+    public class AddCommentEvent : IntergrationBaseEvent
     {
-        public Comment(string commentText, string commentImage, string userName, Guid userId, string userAvatar, Guid commicId)
+        public AddCommentEvent(string commentText, string commentImage, string userName, Guid userId, string userAvatar, Guid commicId)
         {
             CommentText = commentText;
             CommentImage = commentImage;

@@ -1,7 +1,12 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using MassTransit;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Reaction_Data.DbContexts;
+using Reaction_Data.Repositories;
+using Reaction_Data.Repositories.Interfaces;
+using Reaction_Data.UnitOfWorks;
+using Reaction_Data.UnitOfWorks.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,6 +26,18 @@ namespace Reaction_Data.Extensions
             var serviceProvider = services.BuildServiceProvider();
             using var context = serviceProvider.GetRequiredService<ReactionDbContext>();
             context.Database.Migrate();
+            return services;
+        }
+
+        public static IServiceCollection AddRepositories(this IServiceCollection services)
+        {
+            services.AddScoped<ICommentRepository, CommentRepository>();
+            return services;
+        }
+
+        public static IServiceCollection AddUnitOfWork(this IServiceCollection services)
+        {
+            services.AddScoped<IUnitOfWork, UnitOfWork>();
             return services;
         }
     }

@@ -91,24 +91,16 @@ namespace User_API.Extensions
             return services;
         }
 
-        //public static IServiceCollection AddMessageBus(this IServiceCollection services, IConfiguration configuration)
-        //{
-        //    services.AddMassTransit(config =>
-        //    {
-        //        config.UsingRabbitMq((ctx, config) =>
-        //        {
-        //            config.Host(configuration["EventBusSettings:RabbitMQ"], config =>
-        //            {
-        //                config.Username("guest");
-        //                config.Password("guest");
-        //            });
-        //            config.ReceiveEndpoint(EventBusConstant.ADD_ACCOUNT_ID_TO_USER_PROFILE, c =>
-        //            {
-        //                c.ConfigureConsumer<AccountIdConsumer>(ctx);
-        //            });
-        //        });
-        //    });
-        //    return services;
-        //}
+        public static IServiceCollection AddPublisher(this IServiceCollection services, IConfiguration configuration)
+        {
+            services.AddMassTransit(config =>
+            {
+                config.UsingRabbitMq((ctx, config) =>
+                {
+                    config.Host(configuration["EventBusSettings:RabbitMQ"]);
+                });
+            });
+            return services;
+        }
     }
 }

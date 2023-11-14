@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Reaction_Data.DbContexts;
 
@@ -11,9 +12,10 @@ using Reaction_Data.DbContexts;
 namespace Reaction_Data.Migrations
 {
     [DbContext(typeof(ReactionDbContext))]
-    partial class ReactionDbContextModelSnapshot : ModelSnapshot
+    [Migration("20231114011700_add-comic-id-column")]
+    partial class addcomicidcolumn
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

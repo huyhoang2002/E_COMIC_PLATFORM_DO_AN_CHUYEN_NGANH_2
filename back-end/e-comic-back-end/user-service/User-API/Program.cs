@@ -15,6 +15,7 @@ builder.Services.AddRepositories();
 builder.Services.AddUnitOfWork();
 builder.Services.AddCloudinary();
 builder.Services.AddAuth(builder.Configuration);
+builder.Services.AddPublisher(builder.Configuration);
 
 var app = builder.Build();
 

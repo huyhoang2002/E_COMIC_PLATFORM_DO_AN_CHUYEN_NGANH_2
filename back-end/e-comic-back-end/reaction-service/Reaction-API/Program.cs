@@ -1,3 +1,4 @@
+using Reaction_API.Extensions;
 using Reaction_Data.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -9,6 +10,10 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddDBContext(builder.Configuration);
+builder.Services.AddRepositories();
+builder.Services.AddUnitOfWork();
+builder.Services.AddConsumer(builder.Configuration);
+builder.Services.AddLogging();
 
 var app = builder.Build();
 

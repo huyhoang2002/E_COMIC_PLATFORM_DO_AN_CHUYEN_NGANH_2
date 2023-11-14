@@ -8,6 +8,14 @@ services:
     environment:
       - ACCEPT_EULA=Y
       - MSSQL_SA_PASSWORD=Huy2002109@
+  rabbitmq:
+    container_name: e-comic-rabbit-mq
+    ports:
+        - 5672:5672
+        - 15672:15672
+    environment:
+        - RABBITMQ_DEFAULT_USER=guest
+        - RABBITMQ_DEFAULT_PASS=guest
   auth.api:
     container_name: identity-service
     environment:
@@ -30,10 +38,12 @@ services:
       - JWT:Key=this is the secret key for authentication
       - JWT:Issuer=http://+:5064
       - JWT:Audience=http://+:5064
+      - EventBusSettings:RabbitMQ=amqp://guest:guest@rabbitmq:5672
     ports:
       - "5157:80"
     depends_on:
       - e-comic-sql-server
+      - rabbitmq
 
 
   comic-api:
@@ -49,4 +59,16 @@ services:
       - "5016:80"
     depends_on:
       - e-comic-sql-server
+
+
+  reaction-api:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ConnectionStrings:Default=Server=e-comic-sql-server;Database=ReactionDb;User Id=sa;Password=Huy2002109@;TrustServerCertificate=True
+      - EventBusSettings:RabbitMQ=amqp://guest:guest@rabbitmq:5672
+    ports:
+      - "5023:80"
+    depends_on:
+      - e-comic-sql-server
+      - rabbitmq
 

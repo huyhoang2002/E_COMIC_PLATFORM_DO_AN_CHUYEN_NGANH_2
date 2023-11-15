@@ -11,13 +11,12 @@ using System.Threading.Tasks;
 
 namespace ComicService.Application.Features.CQRS.Queries.Comics
 {
-    public class GetComicEpisodeDetailQuery : IQuery<IEnumerable<ComicEpisodeDetailResponse>>
+    public class GetComicEpisodeDetailQuery : IQuery<ComicEpisodeDetailResponse>
     {
         public Guid ComicId { get; set; }
-        public Guid ComicEpisodeId { get; set; }
     }
 
-    public class GetComicEpisodeDetailQueryHandler : IQueryHandler<GetComicEpisodeDetailQuery, IEnumerable<ComicEpisodeDetailResponse>>
+    public class GetComicEpisodeDetailQueryHandler : IQueryHandler<GetComicEpisodeDetailQuery, ComicEpisodeDetailResponse>
     {
         private readonly IComicRepository _comicRepository;
 
@@ -26,16 +25,15 @@ namespace ComicService.Application.Features.CQRS.Queries.Comics
             _comicRepository = comicRepository;
         }
 
-        public async Task<IEnumerable<ComicEpisodeDetailResponse>> Handle(GetComicEpisodeDetailQuery request, CancellationToken cancellationToken)
+        public async Task<ComicEpisodeDetailResponse> Handle(GetComicEpisodeDetailQuery request, CancellationToken cancellationToken)
         {
             var comic = _comicRepository.FirstOrDefault(_ => _.Id == request.ComicId);
-            var comicEpisode = comic.GetEpisodeById(request.ComicEpisodeId);
-            var comicEpisodeDetail = comicEpisode.GetEpisodeImages(comicEpisode.Id);
-            if (comic is null || comicEpisode is null || comicEpisodeDetail is null)
+            var comicEpisode = comic.GetEpisodeByComicId(comic.Id);
+            if (comic is null || comicEpisode is null)
             {
                 return null;
             }
-            return comicEpisodeDetail.Select(_ => new ComicEpisodeDetailResponse(_));
+            return new ComicEpisodeDetailResponse(comicEpisode);
         }
     }
 }

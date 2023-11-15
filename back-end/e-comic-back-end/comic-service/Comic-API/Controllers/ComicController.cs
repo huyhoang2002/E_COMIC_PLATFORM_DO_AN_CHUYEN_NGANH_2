@@ -61,13 +61,12 @@ namespace Comic_API.Controllers
         }
 
         [HttpGet]
-        [Route("{id}/episodes/{episodeId}")]
-        public async Task<IActionResult> GetComicEpisodes(Guid id, Guid episodeId)
+        [Route("{id}/episode")]
+        public async Task<IActionResult> GetComicEpisodeDetail(Guid id)
         {
             var query = new GetComicEpisodeDetailQuery()
             {
                 ComicId = id,
-                ComicEpisodeId = episodeId
             };
             var result = await _queryBus.SendAsync(query);
             return Ok(result);

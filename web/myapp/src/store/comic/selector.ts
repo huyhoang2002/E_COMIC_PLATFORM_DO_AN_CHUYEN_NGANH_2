@@ -19,3 +19,5 @@ export const isSuccessSelector = createSelector(comicReducer, (state: TComicInit
 export const comicSelector = createSelector(comicReducer, (state: TComicInitialState) => state.comic)
 
 export const episodesSelector = createSelector(comicReducer, (state: TComicInitialState) => state.episodes)
+
+export const comicEpisodeDetailSelector = createSelector(comicReducer, (state: TComicInitialState) => state.comicEpisodeDetail)

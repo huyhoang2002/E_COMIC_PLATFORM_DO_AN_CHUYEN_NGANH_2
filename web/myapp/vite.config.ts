@@ -7,7 +7,8 @@ export default defineConfig({
   define: {
     process: {
       env: {
-        "SERVICE_URL": "http://localhost:8200"
+        "MOCK_URL": "http://localhost:8200",
+        "DEVELOPMENT_URL": "http://localhost:5016/api"
       }
     }
   }

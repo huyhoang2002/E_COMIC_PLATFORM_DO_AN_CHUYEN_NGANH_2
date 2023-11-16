@@ -14,6 +14,7 @@ namespace ComicService.Application.Features.CQRS.Queries.Comics
     public class GetComicEpisodeDetailQuery : IQuery<ComicEpisodeDetailResponse>
     {
         public Guid ComicId { get; set; }
+        public int Index { get; set; }
     }
 
     public class GetComicEpisodeDetailQueryHandler : IQueryHandler<GetComicEpisodeDetailQuery, ComicEpisodeDetailResponse>
@@ -28,7 +29,7 @@ namespace ComicService.Application.Features.CQRS.Queries.Comics
         public async Task<ComicEpisodeDetailResponse> Handle(GetComicEpisodeDetailQuery request, CancellationToken cancellationToken)
         {
             var comic = _comicRepository.FirstOrDefault(_ => _.Id == request.ComicId);
-            var comicEpisode = comic.GetEpisodeByComicId(comic.Id);
+            var comicEpisode = comic.GetEpisodeByIndex(request.Index);
             if (comic is null || comicEpisode is null)
             {
                 return null;

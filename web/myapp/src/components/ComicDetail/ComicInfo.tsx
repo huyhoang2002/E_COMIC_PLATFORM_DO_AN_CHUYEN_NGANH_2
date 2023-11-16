@@ -26,8 +26,8 @@ const ComicInfo = () => {
 
   return (
     <>
-      <div className="flex justify-center">
-        <div className="absolute top-[150px] z-[1000] grid grid-cols-1 lg:grid-cols-3 gri bg-white w-[370px] md:w-[700px] lg:w-[1100px] h-fit bg-opacity-95">
+      <div className="flex h-[120vh] pt-[150px] flex-col gap-3 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gri bg-white w-[370px] md:w-[700px] lg:w-[1100px] h-fit bg-opacity-95">
           <div className="p-5 flex flex-col gap-2">
             <img className="h-[500px] object-cover" src={comic?.imageUrl} alt="" />
             <Button className="rounded-none bg-orange-600 transition-all">Read volume 1 now</Button>
@@ -44,7 +44,7 @@ const ComicInfo = () => {
             </div>
           </div>
         </div>
-        <div className="absolute z-[1300] top-[1150px] md:top-[1050px] lg:top-[780px] flex flex-col w-[370px] md:w-[700px] lg:w-[1100px] justify-between bg-white">
+        <div className="flex flex-col w-[370px] md:w-[700px] lg:w-[1100px] justify-between bg-white">
           <div className='text-black flex gap-6 m-5 cursor-pointer'>
             <p className='font-medium hover:text-orange-600' onClick={navigateToVolList.bind(this)}>VOL.</p>
             <p className='font-medium hover:text-orange-600' onClick={navigateToCommentList.bind(this)}>Comment</p>

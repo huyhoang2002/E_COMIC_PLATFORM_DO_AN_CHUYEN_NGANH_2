@@ -74,9 +74,36 @@ namespace ComicService.Domain.Aggregates.Comics
             return _comicEpisodes.FirstOrDefault(_ => _.ComicId == comicId);
         }
 
+        public ComicEpisode GetEpisodeByIndex(int index)
+        {
+            if (index > _comicEpisodes.Count - 1)
+                return new ComicEpisode();
+            return _comicEpisodes[index];
+        }
+
         public void RestoreComic()
         {
             IsDeleted = false;
+        }
+
+        public ComicEpisode MoveToNextEpisode(int index)
+        {
+            if (index + 1 > _comicEpisodes.Count)
+            {
+                return new ComicEpisode();
+            }
+            var nextEpisode = _comicEpisodes[(index - 1) + 1];
+            return nextEpisode;
+        }
+
+        public ComicEpisode MoveBackPreviousEpisode(int index)
+        {
+            if (index + 1 <= 0 || index + 1 > _comicEpisodes.Count)
+            {
+                return new ComicEpisode();
+            }
+            var nextEpisode = _comicEpisodes[(index + 1) - 1];
+            return nextEpisode;
         }
     }
 }

@@ -132,28 +132,98 @@
         ],
     "Episode": [
         {
-          "id": "20c5ac08-7ea9-4fc7-f7be-08dbe32714aa",
-          "episode": "1",
-          "comicId": "b3aadf58-869b-4fc7-ef46-08dbe326a58f",
-          "modifiedAt": "2023-11-12T09:28:39.2897957"
-        },
-        {
             "id": "20c5ac08-7ea9-4fc7-f7be-08dbe32714aa",
-            "episode": "2",
+            "episode": "1",
             "comicId": "b3aadf58-869b-4fc7-ef46-08dbe326a58f",
-            "modifiedAt": "2023-11-12T09:28:39.2897957"
+            "modifiedAt": "2023-11-12T09:28:39.2897957",
+            "comicEpisodeDetailResponses": [
+                {
+                    "id": "2ae4ab26-ba8e-4785-f94a-08dbe3275949",
+                    "imageUrl": "http://res.cloudinary.com/justme2002cloud/image/upload/v1699756233/002-fix-2_fxfulq.jpg",
+                    "modifiedAt": "2023-11-12T09:30:33.3897037",
+                    "comicEpisodeId": "20c5ac08-7ea9-4fc7-f7be-08dbe32714aa"
+                },
+                {
+                    "id": "464f2faf-e6a7-4963-f94b-08dbe3275949",
+                    "imageUrl": "http://res.cloudinary.com/justme2002cloud/image/upload/v1699756234/005-fix-2_j5uvjv.jpg",
+                    "modifiedAt": "2023-11-12T09:30:34.4281664",
+                    "comicEpisodeId": "20c5ac08-7ea9-4fc7-f7be-08dbe32714aa"
+                }
+            ]
         },
         {
             "id": "20c5ac08-7ea9-4fc7-f7be-08dbe32714aa",
-            "episode": "3",
+            "episode": "1",
             "comicId": "b3aadf58-869b-4fc7-ef46-08dbe326a58f",
-            "modifiedAt": "2023-11-12T09:28:39.2897957"
+            "modifiedAt": "2023-11-12T09:28:39.2897957",
+            "comicEpisodeDetailResponses": [
+                {
+                    "id": "2ae4ab26-ba8e-4785-f94a-08dbe3275949",
+                    "imageUrl": "http://res.cloudinary.com/justme2002cloud/image/upload/v1699756233/002-fix-2_fxfulq.jpg",
+                    "modifiedAt": "2023-11-12T09:30:33.3897037",
+                    "comicEpisodeId": "20c5ac08-7ea9-4fc7-f7be-08dbe32714aa"
+                },
+                {
+                    "id": "464f2faf-e6a7-4963-f94b-08dbe3275949",
+                    "imageUrl": "http://res.cloudinary.com/justme2002cloud/image/upload/v1699756234/005-fix-2_j5uvjv.jpg",
+                    "modifiedAt": "2023-11-12T09:30:34.4281664",
+                    "comicEpisodeId": "20c5ac08-7ea9-4fc7-f7be-08dbe32714aa"
+                }
+            ]
         },
         {
             "id": "20c5ac08-7ea9-4fc7-f7be-08dbe32714aa",
-            "episode": "4",
-            "comicId": "b3aadf58-869b-4fc7-ef46-08dbe326a58c",
-            "modifiedAt": "2023-11-12T09:28:39.2897957"
+            "episode": "1",
+            "comicId": "b3aadf58-869b-4fc7-ef46-08dbe326a58f",
+            "modifiedAt": "2023-11-12T09:28:39.2897957",
+            "comicEpisodeDetailResponses": [
+                {
+                    "id": "2ae4ab26-ba8e-4785-f94a-08dbe3275949",
+                    "imageUrl": "http://res.cloudinary.com/justme2002cloud/image/upload/v1699756233/002-fix-2_fxfulq.jpg",
+                    "modifiedAt": "2023-11-12T09:30:33.3897037",
+                    "comicEpisodeId": "20c5ac08-7ea9-4fc7-f7be-08dbe32714aa"
+                },
+                {
+                    "id": "464f2faf-e6a7-4963-f94b-08dbe3275949",
+                    "imageUrl": "http://res.cloudinary.com/justme2002cloud/image/upload/v1699756234/005-fix-2_j5uvjv.jpg",
+                    "modifiedAt": "2023-11-12T09:30:34.4281664",
+                    "comicEpisodeId": "20c5ac08-7ea9-4fc7-f7be-08dbe32714aa"
+                }
+            ]
+        },
+        {
+            "id": "20c5ac08-7ea9-4fc7-f7be-08dbe32714aa",
+            "episode": "1",
+            "comicId": "b3aadf58-869b-4fc7-ef46-08dbe326a58f",
+            "modifiedAt": "2023-11-12T09:28:39.2897957",
+            "comicEpisodeDetailResponses": [
+                {
+                    "id": "2ae4ab26-ba8e-4785-f94a-08dbe3275949",
+                    "imageUrl": "http://res.cloudinary.com/justme2002cloud/image/upload/v1699756233/002-fix-2_fxfulq.jpg",
+                    "modifiedAt": "2023-11-12T09:30:33.3897037",
+                    "comicEpisodeId": "20c5ac08-7ea9-4fc7-f7be-08dbe32714aa"
+                },
+                {
+                    "id": "464f2faf-e6a7-4963-f94b-08dbe3275949",
+                    "imageUrl": "http://res.cloudinary.com/justme2002cloud/image/upload/v1699756234/005-fix-2_j5uvjv.jpg",
+                    "modifiedAt": "2023-11-12T09:30:34.4281664",
+                    "comicEpisodeId": "20c5ac08-7ea9-4fc7-f7be-08dbe32714aa"
+                }
+            ]
         }
-      ]
+      ],
+    "episodeDetail": [
+        {
+            "id": "2ae4ab26-ba8e-4785-f94a-08dbe3275949",
+            "imageUrl": "http://res.cloudinary.com/justme2002cloud/image/upload/v1699756233/002-fix-2_fxfulq.jpg",
+            "modifiedAt": "2023-11-12T09:30:33.3897037",
+            "comicEpisodeId": "20c5ac08-7ea9-4fc7-f7be-08dbe32714aa"
+        },
+        {
+            "id": "464f2faf-e6a7-4963-f94b-08dbe3275949",
+            "imageUrl": "http://res.cloudinary.com/justme2002cloud/image/upload/v1699756234/005-fix-2_j5uvjv.jpg",
+            "modifiedAt": "2023-11-12T09:30:34.4281664",
+            "comicEpisodeId": "20c5ac08-7ea9-4fc7-f7be-08dbe32714aa"
+        }
+    ]
 }

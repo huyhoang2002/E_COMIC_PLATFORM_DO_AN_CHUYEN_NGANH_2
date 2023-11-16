@@ -9,6 +9,8 @@ namespace ComicService.Application.ViewModels.Responses
 {
     public class ComicEpisodeResponse
     {
+        public ComicEpisodeResponse() { }
+
         public ComicEpisodeResponse(Guid id, string episode, Guid comicId)
         {
             Id = id;

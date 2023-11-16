@@ -21,6 +21,13 @@ export type TEpisode = {
     modifiedAt: Date
 }
 
+export type TEpisodeDetail = {
+    id: string
+    imageUrl: string
+    modifiedAt: Date
+    comicEpisodeId: string
+}
+
 export interface IComic {
     id: string
     title: string
@@ -33,5 +40,13 @@ export interface IComic {
 
 export interface IComicResponse extends IPagingResponse {
     data: Array<IComic>
+}
+
+export interface IComicEpisodeDetailResponse {
+    comicId: string
+    episode: string
+    episodeDetail: Array<TEpisodeDetail>,
+    id: string
+    modifiedAt: Date
 }
 

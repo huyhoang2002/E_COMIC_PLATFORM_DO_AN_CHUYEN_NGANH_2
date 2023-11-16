@@ -1,13 +1,13 @@
 import axios from 'axios'
 
 const client = axios.create({
-    baseURL: process.env.SERVICE_URL,
+    baseURL: process.env.DEVELOPMENT_URL,
     timeout: 3000000
 })
 
 const clientWithCredential = axios.create({
     withCredentials: true,
-    baseURL: process.env.SERVICE_URL,
+    baseURL: process.env.DEVELOPMENT_URL,
     timeout: 300000,
     headers: {
         Authorization: `Bearer ${localStorage.getItem("accessToken")}`

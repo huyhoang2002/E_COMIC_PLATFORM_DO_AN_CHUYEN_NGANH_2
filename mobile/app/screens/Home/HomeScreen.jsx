@@ -4,7 +4,9 @@ import {
   Text,
   TouchableOpacity,
   ScrollView,
+  Image,
 } from 'react-native';
+
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { Ionicons } from '@expo/vector-icons';
 import Profile from '../Profile/ProfileScreen';
@@ -12,6 +14,7 @@ import Header from './Header';
 import FlatListHeader from './FlatListHeader';
 import CarouselComic from './CarouselComic';
 import ScrollComic from './ScrollComic';
+import CategoryComic from './CategoryComic';
 const Tab = createBottomTabNavigator();
 
 const Home = () => {
@@ -19,8 +22,13 @@ const Home = () => {
     <SafeAreaView style={{ flex: 1, backgroundColor: 'black' }}>
       <Header />
       <FlatListHeader />
-      <CarouselComic />
-      <ScrollComic />
+      <ScrollView showsVerticalScrollIndicator={false}>
+        <View>
+          <CarouselComic />
+          <CategoryComic />
+          <ScrollComic />
+        </View>
+      </ScrollView>
     </SafeAreaView>
   );
 };

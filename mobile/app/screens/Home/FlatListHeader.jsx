@@ -49,12 +49,13 @@ const FlatListHorizontal = () => {
 const styles = StyleSheet.create({
   container: {
     // flex: 1,
+    marginBottom: 10,
   },
   item: {
-    marginTop: '3%',
+    marginTop: '1%',
     marginLeft: 16,
     width: 120,
-    backgroundColor: 'gray',
+    backgroundColor: '#333333',
     borderRadius: 20,
   },
 

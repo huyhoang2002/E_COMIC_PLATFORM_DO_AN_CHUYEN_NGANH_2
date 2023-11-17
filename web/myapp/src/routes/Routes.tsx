@@ -6,6 +6,7 @@ import Comment from '../components/ComicDetail/Comment'
 import VolumeList from '../components/ComicDetail/VolumeList'
 import ComicEpisodeDetail from '../pages/client/ComicEpisodeDetail/ComicEpisodeDetail'
 import SignIn from '../pages/client/Authentication/Login/SignIn'
+import Register from '../pages/client/Authentication/Register/Register'
 
 export const routes = createBrowserRouter([
     {
@@ -51,5 +52,9 @@ export const routes = createBrowserRouter([
     {
         path: "/sign-in",
         element: <SignIn />
+    },
+    {
+        path: "/sign-up",
+        element: <Register />
     }
 ])

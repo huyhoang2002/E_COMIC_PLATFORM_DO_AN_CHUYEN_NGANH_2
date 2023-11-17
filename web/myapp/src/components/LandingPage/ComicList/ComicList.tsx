@@ -1,4 +1,4 @@
-import { useSelector } from "react-redux"
+import { connect, useSelector } from "react-redux"
 import { categoriesSelector, comicsSelector, isLoadingSelector, isSuccessSelector } from "../../../store/comic/selector"
 import { useEffect } from "react"
 import { getCategoriesAction, getComicAction } from "../../../store/comic/action"

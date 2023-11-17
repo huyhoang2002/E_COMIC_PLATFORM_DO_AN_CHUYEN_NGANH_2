@@ -42,7 +42,7 @@ const ComicList = () => {
                 />
             </div>
         </div>
-        {isLoading ? 
+        {isSuccess === false ? 
         <div className="flex w-full justify-center items-center">
             <Spinner className="text-orange-600 h-[50px] w-[50px]" />
         </div> : 

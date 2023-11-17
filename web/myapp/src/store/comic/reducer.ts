@@ -19,10 +19,10 @@ const reducer = (state = initialState, action: AnyAction) => {
                 isLoading: false,
                 isSuccess: true,
                 data: action?.data,
-                // pageCount: action?.pageCount as fromActions.IGetComicActionSuccess,
-                // pageIndex: action?.pageIndex as fromActions.IGetComicActionSuccess,
-                // pageSize: action?.pageSize as fromActions.IGetComicActionSuccess,
-                // totalRows: action?.totalRows as fromActions.IGetComicActionSuccess,
+                pageCount: action?.pageCount as fromActions.IGetComicActionSuccess,
+                pageIndex: action?.pageIndex as fromActions.IGetComicActionSuccess,
+                pageSize: action?.pageSize as fromActions.IGetComicActionSuccess,
+                totalRows: action?.totalRows as fromActions.IGetComicActionSuccess,
             }
         case fromActionTypes.GET_COMICS_ERROR:
             return {
@@ -74,6 +74,42 @@ const reducer = (state = initialState, action: AnyAction) => {
                 episodes: action?.episodes
             }
             case fromActionTypes.GET_COMIC_EPISODES_ERROR:
+                return {
+                    ...state,
+                    isLoading: false,
+                    isSuccess: false
+                }
+            case fromActionTypes.GET_COMIC_EPISODE_DETAIL:
+                return {
+                    ...state,
+                    isLoading: true
+                }
+            case fromActionTypes.GET_COMIC_EPISODE_DETAIL_SUCCESS:
+                return {
+                    ...state,
+                    isLoading: false,
+                    isSuccess: true,
+                    comicEpisodeDetail: action?.episodeDetails
+                }
+            case fromActionTypes.GET_COMIC_EPISODE_DETAIL_ERROR:
+                return {
+                    ...state,
+                    isLoading: false,
+                    isSuccess: false
+                }
+            case fromActionTypes.GET_COMIC_EPISODE_DETAIL_BY_ID:
+                return {
+                    ...state,
+                    isLoading: true
+                }
+            case fromActionTypes.GET_COMIC_EPISODE_DETAIL_BY_ID_SUCCESS:
+                return {
+                    ...state,
+                    isLoading: false,
+                    isSuccess: true,
+                    comicEpisodeDetail: action?.episodeDetails
+                }
+            case fromActionTypes.GET_COMIC_EPISODE_DETAIL_BY_ID_ERROR:
                 return {
                     ...state,
                     isLoading: false,

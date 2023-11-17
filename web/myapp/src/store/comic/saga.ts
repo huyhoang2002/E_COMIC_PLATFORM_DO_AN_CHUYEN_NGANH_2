@@ -1,14 +1,14 @@
 import { call, put, takeLatest } from 'redux-saga/effects'
-import { getComicById, getComicEpisode, getComics } from '../../services/comic'
-import { IComic, IComicResponse, TEpisode } from '../../services/models/comic'
-import { IGetComicAction, IGetComicByIdAction, IGetComicEpisodesAction, getCategoriesErrorAction, getCategoriesSuccessAction, getComicActionError, getComicActionSuccess, getComicByActionSuccess, getComicByIdActionError, getComicEpisodesActionError, getComicEpisodesActionSuccess } from './action'
+import { getComicById, getComicEpisode, getComicEpisodeDetail, getComicEpisodeDetailByEpisodeId, getComics } from '../../services/comic'
+import { IComic, IComicEpisodeDetailResponse, IComicResponse, TEpisode } from '../../services/models/comic'
+import { IGetComicAction, IGetComicByIdAction, IGetComicEpisodeDetailAction, IGetComicEpisodeDetailByIdAction, IGetComicEpisodesAction, getCategoriesErrorAction, getCategoriesSuccessAction, getComicActionError, getComicActionSuccess, getComicByActionSuccess, getComicByIdActionError, getComicEpisodeDetailActionError, getComicEpisodeDetailActionSuccess, getComicEpisodeDetailByIdActionError, getComicEpisodeDetailByIdActionSuccess, getComicEpisodesActionError, getComicEpisodesActionSuccess } from './action'
 import * as fromActionTypes from './actionType'
 import { getCategories } from '../../services/category'
 import { TCategories } from '../../services/models/category'
 
 export function* getComicsSaga(action: IGetComicAction) {
     try {
-        const result: Array<IComic> = yield call(getComics, action.isDeleted, action.pageSize, action.pageIndex)
+        const result: IComicResponse = yield call(getComics, action.isDeleted, action.pageSize, action.pageIndex)
         if (result !== null || undefined) {
             yield put(getComicActionSuccess(result))
         } else {
@@ -65,11 +65,41 @@ export function* getComicEpisodesSaga(action: IGetComicEpisodesAction) {
     }
 }
 
+export function* getComicEpisodeDetailSaga(action: IGetComicEpisodeDetailAction) {
+    try {
+        const result: IComicEpisodeDetailResponse = yield call(getComicEpisodeDetail, action.comicId, action.index)
+        if (result !== null || undefined) {
+            yield put(getComicEpisodeDetailActionSuccess(result))
+        } else {
+            yield put(getComicEpisodeDetailActionError())
+        }
+    } catch (error) {
+        yield put(getComicEpisodeDetailActionError())
+        console.log(error)
+    }
+}
+
+export function* getComicEpisodeDetailByIdSaga(action: IGetComicEpisodeDetailByIdAction) {
+    try {
+        const result: IComicEpisodeDetailResponse = yield call(getComicEpisodeDetailByEpisodeId, action.comicId, action.episodeId);
+        if (result !== null || undefined) {
+            yield put(getComicEpisodeDetailByIdActionSuccess(result))
+        } else {
+            yield put(getComicEpisodeDetailByIdActionError())
+        }
+    } catch (error) {
+        yield put(getComicEpisodeDetailByIdActionError())
+        console.log(error)
+    }
+}
+
 const sagas = [
     takeLatest(fromActionTypes.GET_COMICS, getComicsSaga),
     takeLatest(fromActionTypes.GET_CATEGORIES, getCategoriesSaga),
     takeLatest(fromActionTypes.GET_COMIC_BY_ID, getComicByIdSaga),
-    takeLatest(fromActionTypes.GET_COMIC_EPISODES, getComicEpisodesSaga)
+    takeLatest(fromActionTypes.GET_COMIC_EPISODES, getComicEpisodesSaga),
+    takeLatest(fromActionTypes.GET_COMIC_EPISODE_DETAIL, getComicEpisodeDetailSaga),
+    takeLatest(fromActionTypes.GET_COMIC_EPISODE_DETAIL_BY_ID, getComicEpisodeDetailByIdSaga)
 ]
 
 export default sagas

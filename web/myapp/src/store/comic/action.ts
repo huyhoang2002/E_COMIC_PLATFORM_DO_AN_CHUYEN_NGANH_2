@@ -1,6 +1,6 @@
 import { Action } from 'redux'
 import * as fromActions from './actionType'
-import { IComic, IComicResponse, TEpisode } from '../../services/models/comic'
+import { IComic, IComicEpisodeDetailResponse, IComicResponse, TEpisode, TEpisodeDetail } from '../../services/models/comic'
 import { TCategories } from '../../services/models/category'
 
 export interface IGetComicAction extends Action {
@@ -19,11 +19,19 @@ export const getComicAction = (action: { isDeleted: boolean, pageSize: number, p
 
 export interface IGetComicActionSuccess extends Action {
     data: Array<IComic>,
+    pageCount: number,
+    pageIndex: number,
+    pageSize: number,
+    totalRows: number
 }
-export const getComicActionSuccess = (action: Array<IComic>) : IGetComicActionSuccess => {
+export const getComicActionSuccess = ({ data, pageCount, pageIndex, pageSize, totalRows }: IComicResponse) : IGetComicActionSuccess => {
     return {
         type: fromActions.GET_COMICS_SUCCESS,
-        data: action
+        data,
+        pageCount,
+        pageIndex,
+        pageSize,
+        totalRows
     }
 }
 
@@ -109,5 +117,63 @@ export interface IGetComicEpisodesActionError extends Action {}
 export const getComicEpisodesActionError = () : IGetComicEpisodesActionError => {
     return {
         type: fromActions.GET_COMIC_EPISODES_ERROR
+    }
+}
+
+export interface IGetComicEpisodeDetailAction extends Action {
+    comicId: string,
+    index: number
+}
+export const getComicEpisodeDetailAction = (comicId: string, index: number) : IGetComicEpisodeDetailAction => {
+    return {
+        type: fromActions.GET_COMIC_EPISODE_DETAIL,
+        comicId,
+        index
+    }
+}
+
+export interface IGetComicEpisodeDetailActionSuccess extends Action {
+    episodeDetails: IComicEpisodeDetailResponse
+}
+export const getComicEpisodeDetailActionSuccess = (episodeDetails: IComicEpisodeDetailResponse) : IGetComicEpisodeDetailActionSuccess => {
+    return {
+        type: fromActions.GET_COMIC_EPISODE_DETAIL_SUCCESS,
+        episodeDetails
+    }
+}
+
+export interface IGetComicEpisodeDetailActionError extends Action {}
+export const getComicEpisodeDetailActionError = () : IGetComicEpisodeDetailActionError => {
+    return {
+        type: fromActions.GET_COMIC_EPISODE_DETAIL_ERROR
+    }
+}
+
+export interface IGetComicEpisodeDetailByIdAction extends Action {
+    comicId: string,
+    episodeId: string
+}
+export const getComicEpisodeDetailByIdAction = (comicId: string, episodeId: string) : IGetComicEpisodeDetailByIdAction => {
+    return {
+        type: fromActions.GET_COMIC_EPISODE_DETAIL_BY_ID,
+        comicId,
+        episodeId
+    }
+}
+
+export interface IGetComicEpisodeDetailByIdActionSuccess extends Action {
+    episodeDetails: IComicEpisodeDetailResponse
+}
+export const getComicEpisodeDetailByIdActionSuccess = (episodeDetails: IComicEpisodeDetailResponse) : IGetComicEpisodeDetailByIdActionSuccess => {
+    return {
+        type: fromActions.GET_COMIC_EPISODE_DETAIL_BY_ID_SUCCESS,
+        episodeDetails
+    }
+}
+
+export interface IGetComicEpisodeDetailByIdActionError extends Action {}
+export const getComicEpisodeDetailByIdActionError = () : IGetComicEpisodeDetailActionError => {
+    return {
+        type: fromActions.GET_COMIC_EPISODE_DETAIL_BY_ID_ERROR
     }
 }

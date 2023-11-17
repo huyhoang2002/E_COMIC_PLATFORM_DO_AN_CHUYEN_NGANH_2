@@ -1,8 +1,9 @@
 using ComicService.Persistence.Extensions;
 using ComicService.Infrastructure.Extensions;
 using ComicService.Application.Extensions;
+using Comic_API.Extensions;
 
-    var builder = WebApplication.CreateBuilder(args);
+var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
@@ -19,6 +20,7 @@ builder.Services.AddRepository();
 builder.Services.AddCommandQuery();
 builder.Services.AddAuth(builder.Configuration);
 builder.Services.AddCloudinary();
+builder.Services.AddCrossOriginResource();
 
 var app = builder.Build();
 
@@ -28,6 +30,8 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
+app.UseCors("comic_cors");
 
 app.UseAuthorization();
 

@@ -62,11 +62,25 @@ namespace Comic_API.Controllers
 
         [HttpGet]
         [Route("{id}/episode")]
-        public async Task<IActionResult> GetComicEpisodeDetail(Guid id)
+        public async Task<IActionResult> GetComicEpisodeDetail(Guid id, [FromQuery] int index)
         {
             var query = new GetComicEpisodeDetailQuery()
             {
                 ComicId = id,
+                Index = index
+            };
+            var result = await _queryBus.SendAsync(query);
+            return Ok(result);
+        }
+
+        [HttpGet]
+        [Route("{id}/episode/{episodeId}")]
+        public async Task<IActionResult> GetComicEpisodeByEpisodeId(Guid id, Guid episodeId)
+        {
+            var query = new GetComicEpisodeDetailByEpisodeIdQuery()
+            {
+                ComicId = id,
+                EpisodeId = episodeId
             };
             var result = await _queryBus.SendAsync(query);
             return Ok(result);
@@ -205,6 +219,32 @@ namespace Comic_API.Controllers
                 ComicId = id
             };
             var result = await _commandBus.SendAsync(command);
+            return Ok(result);
+        }
+
+        [HttpGet]
+        [Route("{id}/next")]
+        public async Task<IActionResult> MoveNextEpisode(Guid id, [FromQuery] int index)
+        {
+            var query = new MoveNextEpisodeQuery
+            {
+                ComicId = id,
+                Index = index
+            };
+            var result = await _queryBus.SendAsync(query);
+            return Ok(result);
+        }
+
+        [HttpGet]
+        [Route("{id}/previous")]
+        public async Task<IActionResult> MoveBackPreviousEpisode(Guid id, [FromQuery] int index)
+        {
+            var query = new MoveBackPreviousEpisodeQuery
+            {
+                ComicId = id,
+                Index = index
+            };
+            var result = await _queryBus.SendAsync(query);
             return Ok(result);
         }
     }

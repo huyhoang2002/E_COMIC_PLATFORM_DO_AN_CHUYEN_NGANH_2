@@ -7,6 +7,7 @@ import Login from '../screens/Profile/Login/Login';
 import Register from '../screens/Profile/Register/Register';
 import HomeScreen from '../screens/Home/HomeScreen';
 import ProfileScreen from '../screens/Profile/ProfileScreen';
+import HomeDetail from '../screens/Details/HomeDetail';
 const Stack = createStackNavigator();
 
 const Navigator = () => {
@@ -23,6 +24,7 @@ const Navigator = () => {
           <Stack.Screen name="Profile" component={ProfileScreen} />
           <Stack.Screen name="Home" component={HomeScreen} />
           <Stack.Screen name="Initial" component={InitialScreen} />
+          <Stack.Screen name="Detail" component={HomeDetail} />
           <Stack.Screen name="Login" component={Login} />
           <Stack.Screen name="Register" component={Register} />
           {/* Thêm các màn hình khác nếu cần */}

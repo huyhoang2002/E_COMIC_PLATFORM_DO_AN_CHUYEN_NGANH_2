@@ -6,13 +6,26 @@ import {
   TextInput,
   TouchableOpacity,
 } from 'react-native';
+import axios from 'axios';
+import React, { useState } from 'react';
 import { Ionicons } from '@expo/vector-icons';
 import { AntDesign } from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/native';
+import getLogin from '../../../router/LoginRoute';
 
 const Login = () => {
   const navigation = useNavigation();
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
 
+  const handleLogin = async () => {
+    try {
+      const userData = await getLogin(email, password);
+      console.log('User logged in successfully', userData);
+    } catch (error) {
+      console.error('Login failed', error);
+    }
+  };
   return (
     <SafeAreaView style={styles.container}>
       <TouchableOpacity onPress={() => navigation.goBack()}>
@@ -41,6 +54,7 @@ const Login = () => {
         </Text>
         <Text style={{ color: 'white', padding: 20 }}>Email</Text>
         <TextInput
+          color="white"
           style={{
             borderRadius: 20,
             height: 50,
@@ -49,11 +63,14 @@ const Login = () => {
             paddingLeft: 50,
             marginVertical: -10,
           }}
+          value={email}
+          onChangeText={text => setEmail(text)}
           placeholder="Enter email here"
           placeholderTextColor={'white'}
         />
         <Text style={{ color: 'white', padding: 20 }}>Password</Text>
         <TextInput
+          color="white"
           style={{
             borderRadius: 20,
             height: 50,
@@ -64,6 +81,7 @@ const Login = () => {
           }}
           placeholder="Password"
           placeholderTextColor={'white'}
+          onChangeText={text => setPassword(text)}
           secureTextEntry
         />
         <TouchableOpacity
@@ -76,6 +94,7 @@ const Login = () => {
             marginTop: 50,
             gap: 10,
           }}
+          onPress={handleLogin}
         >
           <Text
             style={{

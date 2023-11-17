@@ -6,13 +6,26 @@ import {
   TextInput,
   TouchableOpacity,
 } from 'react-native';
+import axios from 'axios';
+import React, { useState } from 'react';
 import { Ionicons } from '@expo/vector-icons';
 import { AntDesign } from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/native';
-
+import getRegister from '../../../router/RegisterRoute';
 const Register = () => {
   const navigation = useNavigation();
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
 
+  const handleRegister = async () => {
+    try {
+      const userData = await getRegister(email, password);
+
+      console.log('User registered successfully', userData);
+    } catch (error) {
+      console.error('Registration failed', error);
+    }
+  };
   return (
     <SafeAreaView style={styles.container}>
       <TouchableOpacity onPress={() => navigation.goBack()}>
@@ -41,6 +54,7 @@ const Register = () => {
         </Text>
         <Text style={{ color: 'white', padding: 20 }}>Email</Text>
         <TextInput
+          color="white"
           style={{
             borderRadius: 20,
             height: 50,
@@ -49,11 +63,14 @@ const Register = () => {
             paddingLeft: 50,
             marginVertical: -10,
           }}
+          value={email}
+          onChangeText={text => setEmail(text)}
           placeholder="Enter email here"
           placeholderTextColor={'white'}
         />
         <Text style={{ color: 'white', padding: 20 }}>Password</Text>
         <TextInput
+          color="white"
           style={{
             borderRadius: 20,
             height: 50,
@@ -63,6 +80,8 @@ const Register = () => {
             marginVertical: -10,
           }}
           placeholder="Password"
+          value={password}
+          onChangeText={text => setPassword(text)}
           placeholderTextColor={'white'}
           secureTextEntry
         />
@@ -76,6 +95,7 @@ const Register = () => {
             marginTop: 50,
             gap: 10,
           }}
+          onPress={handleRegister}
         >
           <Text
             style={{

@@ -27,12 +27,14 @@ namespace ComicService.Application.ViewModels.Responses
             Title = comic.Title;
             Description = comic.Description;
             ImageUrl = comic.ImageUrl;
+            WallPaperUrl = comic.WallPaperUrl;
             ModifiedAt = comic.ModifiedAt;
         }
 
         public Guid Id { get; set; }
         public string Title { get; set; }
         public string Description { get; set; }
+        public string WallPaperUrl { get; set; }
         public string ImageUrl { get; set; }
         public AuthorResponse Author { get; set; }
         public GetCategoriesResponse Category { get; set; }

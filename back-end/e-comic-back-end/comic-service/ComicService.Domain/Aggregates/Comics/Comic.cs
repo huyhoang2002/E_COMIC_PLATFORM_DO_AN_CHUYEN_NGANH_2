@@ -14,6 +14,7 @@ namespace ComicService.Domain.Aggregates.Comics
     {
         public string Title { get; private set; }
         public string Description { get; private set; }
+        public string WallPaperUrl { get; private set; }
         public string ImageUrl { get; private set; }
 
         public Guid AuthorId { get; set; }
@@ -45,6 +46,12 @@ namespace ComicService.Domain.Aggregates.Comics
         public void UpdateBackgroundImage(string imageUrl)
         {
             ImageUrl = imageUrl;
+            ModifiedAt = DateTime.Now;
+        }
+
+        public void UpdateWallPaperUrl(string wallPaperUrl)
+        {
+            WallPaperUrl = wallPaperUrl;
             ModifiedAt = DateTime.Now;
         }
 

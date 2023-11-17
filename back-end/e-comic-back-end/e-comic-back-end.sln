@@ -43,11 +43,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ApplicationTest", "Test\Com
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "reaction-service", "reaction-service", "{7EB758D5-DA56-4AB2-AE79-930A54CA60ED}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Reaction-API", "reaction-service\Reaction-API\Reaction-API.csproj", "{997F693F-BC26-4117-80EA-BDD93FC7D9A4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Reaction-API", "reaction-service\Reaction-API\Reaction-API.csproj", "{997F693F-BC26-4117-80EA-BDD93FC7D9A4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Reaction-Business", "reaction-service\Reaction-Business\Reaction-Business.csproj", "{AB2EC49A-9AAD-403D-8F55-1AD37D777428}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Reaction-Business", "reaction-service\Reaction-Business\Reaction-Business.csproj", "{AB2EC49A-9AAD-403D-8F55-1AD37D777428}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Reaction-Data", "reaction-service\Reaction-Data\Reaction-Data.csproj", "{BEF8B657-EB50-487C-8351-82E756539F7E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Reaction-Data", "reaction-service\Reaction-Data\Reaction-Data.csproj", "{BEF8B657-EB50-487C-8351-82E756539F7E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -196,6 +196,27 @@ namespace Comic_API.Controllers
             return BadRequest();
         }
 
+        [HttpPut]
+        [Route("{id}/wallpaper")]
+        public async Task<IActionResult> UpdateWallpaper(Guid id, [FromQuery] IFormFile file)
+        {
+            if (file != null || file.Length > 0)
+            {
+                var fileName = file.FileName;
+                var path = Path.Combine("upload", fileName);
+                using var fileStream = new FileStream(path, FileMode.Create);
+                file.CopyTo(fileStream);
+                var command = new UpdateComicWallpaperCommand
+                {
+                    Id = id,
+                    FilePath = path
+                };
+                var result = await _commandBus.SendAsync(command);
+                return Ok(result);
+            }
+            return BadRequest();
+        }
+
         [HttpDelete]
         [Route("{id}/soft")]
         [Authorize(Roles = "ADMIN", AuthenticationSchemes = "Bearer")]

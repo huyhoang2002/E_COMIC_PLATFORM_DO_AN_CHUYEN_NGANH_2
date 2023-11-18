@@ -4,3 +4,9 @@ export interface IPagingResponse {
     pageCount: number
     totalRows: number
 }
+
+export interface IBaseResponse<T> {
+    message?: string | null
+    response: T
+    isSuccess: boolean
+}

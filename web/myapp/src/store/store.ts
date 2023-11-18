@@ -1,11 +1,13 @@
 import { applyMiddleware, legacy_createStore as createStore, compose } from 'redux'
 import { combineReducers } from 'redux'
 import comicReducer from './comic'
+import authReducer from './auth'
 import createSagaMiddleware from 'redux-saga'
 import { rootSagas } from './rootSaga'
 
 const reducers = combineReducers({
-    comicReducer
+    comicReducer,
+    authReducer
 })
 const composeEnhancers = (window as any).__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 

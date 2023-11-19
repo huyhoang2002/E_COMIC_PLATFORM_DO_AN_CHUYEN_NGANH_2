@@ -32,7 +32,8 @@ namespace ComicService.Application.Features.CQRS.Queries.Comics
                 comic.ImageUrl, 
                 new AuthorResponse(comic.Author), 
                 new GetCategoriesResponse(comic.Category), 
-                comic.ModifiedAt
+                comic.ModifiedAt,
+                comic.WallPaperUrl
             );
         }
     }

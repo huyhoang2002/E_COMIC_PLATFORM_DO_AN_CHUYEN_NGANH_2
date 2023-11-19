@@ -1,6 +1,6 @@
 const CommentList = () => {
   return (
-    <div className="grid grid-cols-1 gap-6 text-black p-5">
+    <div className="grid grid-cols-1 gap-6 text-black p-5 max-h-[250px] overflow-hidden overflow-y-auto">
       <div className="flex gap-4">
         <div className="h-[40px] w-[40px] bg-red-600 rounded-[20px]"></div>  
         <div className="p-3 rounded-[20px] bg-gray-200 max-w-[250px] md:max-w-[530px] lg:max-w-[982px]">

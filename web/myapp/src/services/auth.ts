@@ -1,4 +1,4 @@
-import { post } from "./base/base-service"
+import { post, postWithToken } from "./base/base-service"
 import { ISignIn, ISignUp } from "./models/auth"
 
 export const signInAsync = async ({ email, password }: ISignIn) => { 
@@ -21,6 +21,15 @@ export const signUpAsync = async ({ email, password, role, userName }: ISignUp) 
             password, 
             role
         })
+        return response.data
+    } catch (error) {
+        console.log(error)
+    }
+}
+
+export const handleSignOutAsync = async () => {
+    try {
+        const response = await postWithToken("/api/sign-out", {})
         return response.data
     } catch (error) {
         console.log(error)

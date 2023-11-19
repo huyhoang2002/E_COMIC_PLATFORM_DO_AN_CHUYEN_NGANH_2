@@ -1,4 +1,5 @@
 import axios from 'axios'
+import { getAccessToken } from '../../utils/helpers/localstorageHelper'
 
 const client = axios.create({
     baseURL: process.env.DEVELOPMENT_URL,
@@ -10,7 +11,7 @@ const clientWithCredential = axios.create({
     baseURL: process.env.DEVELOPMENT_URL,
     timeout: 300000,
     headers: {
-        Authorization: `Bearer ${localStorage.getItem("accessToken")}`
+        Authorization: `Bearer ${getAccessToken("accessToken")}`
     }
 })
 

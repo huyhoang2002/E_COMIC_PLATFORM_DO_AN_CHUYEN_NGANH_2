@@ -1,0 +1,19 @@
+﻿{
+  "GlobalConfiguration": {
+    "RequestIdKey": "OcelotRequestIdKey",
+  },
+  "Routes": [
+    {
+      "DownstreamPathTemplate": "/api/Comic",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 5016
+        }
+      ],
+      "DownstreamScheme": "http",
+      "UpstreamPathTemplate": "/api/comic",
+      "UpstreamHttpMethod": [ "GET", "POST" ]
+    }
+  ]
+}

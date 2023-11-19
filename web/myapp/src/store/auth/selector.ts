@@ -4,6 +4,10 @@ import { IAuthInitialState } from "./initialState";
 
 const authReducer = (state: RootState) => state.authReducer
 
+export const isLoadingSelector = createSelector(authReducer, (state: IAuthInitialState) => state.isLoading)
+
+export const isSuccessSelector = createSelector(authReducer, (state: IAuthInitialState) => state.isSuccess)
+
 export const accessTokenSelector = createSelector(authReducer, (state: IAuthInitialState) => state.accessToken)
 
 export const refreshTokenSelector = createSelector(authReducer, (state: IAuthInitialState) => state.refreshToken)

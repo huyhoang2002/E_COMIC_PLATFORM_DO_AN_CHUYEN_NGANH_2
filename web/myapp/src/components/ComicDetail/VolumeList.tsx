@@ -21,7 +21,7 @@ const VolumeList = () => {
 
   return (
     <div className='px-3 lg:px-16 pb-5'>
-      {episodes.map((episode, index) => {
+      {episodes?.map((episode, index) => {
         return (
           <div 
             className='flex w-full justify-between p-5 text-black hover:bg-orange-400 transition-all'

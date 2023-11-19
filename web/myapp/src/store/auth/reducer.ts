@@ -2,6 +2,7 @@ import { AnyAction } from "redux";
 import { IAuthInitialState } from "./initialState";
 import * as fromActions from './actionType'
 import initialState from "./initialState";
+import * as fromBaseAction from '../base/actionType'
 
 const reducer = (state: IAuthInitialState = initialState, action: AnyAction) => {
     switch (action.type) {
@@ -11,6 +12,7 @@ const reducer = (state: IAuthInitialState = initialState, action: AnyAction) => 
                 isLoading: true
             }
         case fromActions.SIGN_IN_SUCCESS:
+            console.log(state)
             return {
                 ...state,
                 isLoading: false,
@@ -24,6 +26,42 @@ const reducer = (state: IAuthInitialState = initialState, action: AnyAction) => 
                 isLoading: false,
                 isSuccess: false
             }
+        case fromActions.SIGN_UP:
+            return {
+                ...state,
+                isLoading: true
+            }
+        case fromActions.SIGN_UP_SUCCESS:
+            return {
+                ...state,
+                isLoading: false,
+                isSuccess: true
+            }
+        case fromActions.SIGN_UP_ERROR:
+            return {
+                ...state,
+                isLoading: false,
+                isSuccess: false
+            }
+        case fromActions.SIGN_OUT:
+            return {
+                ...state,
+                isLoading: true,
+            }
+        case fromActions.SIGN_OUT_SUCCESS:
+            return {
+                ...state,
+                isLoading: false,
+                isSuccess: true
+            }
+        case fromActions.SIGN_OUT_ERROR:
+            return {
+                ...state,
+                isLoading: false,
+                isSuccess: false
+            }
+        case fromBaseAction.RESET_STATE_ACTION:
+            return initialState
         default:
             return state
     }

@@ -16,6 +16,7 @@ builder.Services.AddUnitOfWork();
 builder.Services.AddCloudinary();
 builder.Services.AddAuth(builder.Configuration);
 builder.Services.AddPublisher(builder.Configuration);
+builder.Services.AddCrossOriginResource();
 
 var app = builder.Build();
 
@@ -25,6 +26,8 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
+app.UseCors("user-cors");
 
 app.UseAuthorization();
 

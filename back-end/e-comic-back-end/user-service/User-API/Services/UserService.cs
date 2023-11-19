@@ -25,7 +25,7 @@ namespace User_API.Services
             _cloudinaryService = cloudinaryService;
         }
 
-        public async Task<Guid> CreateUser(HttpContext context, CreateUserRequest request)
+        public async Task<BaseResponse<Guid>> CreateUser(HttpContext context, CreateUserRequest request)
         {
             var accountId = getAccountIdFromToken(context);
             request.SetAccountId(accountId);
@@ -33,11 +33,11 @@ namespace User_API.Services
             var isUserExisted = _userRepository.FirstOrDefault(_ => _.AccountId == user.AccountId);
             if (isUserExisted is not null)
             {
-                return Guid.Empty;
+                return BaseResponse<Guid>.Error("Failed to create user");
             }
             await _userRepository.AddAsync(user);
             await _unitOfWork.SaveChangeAsync();
-            return user.Id;
+            return BaseResponse<Guid>.Success(user.Id);
         }
 
         public async Task UpdateAccountId(Guid userId, string accountId)
@@ -94,6 +94,17 @@ namespace User_API.Services
             user.EnableUser();
             await _unitOfWork.SaveChangeAsync();
             return BaseResponse.Success();
+        }
+
+        public BaseResponse<User> GetUserByAccessToken(HttpContext context)
+        {
+            var accountId = getAccountIdFromToken(context);
+            var user = _userRepository.FirstOrDefault(_ => _.AccountId == accountId);
+            if (user is null)
+            {
+                return BaseResponse<User>.Error("No user found");
+            }
+            return BaseResponse<User>.Success(user);
         }
     }
 }

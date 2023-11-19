@@ -9,6 +9,7 @@ import Pagination from "../Pagination/Pagination"
 import { Spinner } from 'flowbite-react'
 import { useDispatch } from "react-redux"
 import { AnyAction, Dispatch } from "redux"
+import { AlertError } from "../../../utils/helpers/alertHelper"
 
 const ComicList = () => {
     const dispatch: Dispatch<AnyAction> = useDispatch()
@@ -16,6 +17,16 @@ const ComicList = () => {
     const categories = useSelector(categoriesSelector)
     const isLoading = useSelector(isLoadingSelector)
     const isSuccess = useSelector(isSuccessSelector)
+
+    console.log(isSuccess)
+
+    useEffect(() => {
+        if (isSuccess === false) {
+            AlertError({
+                title: "Network error"
+            })
+        }
+    }, [isSuccess])
     
     useEffect(() => {
         dispatch(getComicAction({
@@ -42,12 +53,12 @@ const ComicList = () => {
                 />
             </div>
         </div>
-        {isSuccess === false ? 
-        <div className="flex w-full justify-center items-center">
+        {isLoading === true ? 
+        <div className="flex w-full justify-center items-center h-[100vh]">
             <Spinner className="text-orange-600 h-[50px] w-[50px]" />
         </div> : 
         <div className="flex flex-row mt-[50px] gap-20 max-md:gap-16 flex-wrap justify-start max-md:justify-center">
-            {comics?.map(comic => {
+            {comics.length > 0 ? comics?.map(comic => {
                 return (
                     <ComicCard 
                         id={comic.id}
@@ -56,7 +67,10 @@ const ComicList = () => {
                         modifiedAt={new Date(comic.modifiedAt)}
                     />
                 )
-            })}
+            }) : 
+            <div className="flex justify-center items-center w-full h-[100vh] transition-all">
+                <h1 className="text-[40px] font-light text-orange-600">No comic found !</h1>
+            </div>}
         </div>}
         <Pagination />
     </Container>

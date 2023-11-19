@@ -10,7 +10,7 @@ namespace ComicService.Application.ViewModels.Responses
 {
     public class GetComicResponse
     {
-        public GetComicResponse(Guid id, string title, string description, string imageUrl, AuthorResponse author, GetCategoriesResponse category, DateTime modifiedAt)
+        public GetComicResponse(Guid id, string title, string description, string imageUrl, AuthorResponse author, GetCategoriesResponse category, DateTime modifiedAt, string wallPaperUrl)
         {
             Id = id;
             Title = title;
@@ -18,6 +18,7 @@ namespace ComicService.Application.ViewModels.Responses
             ImageUrl = imageUrl;
             Author = author;
             Category = category;
+            WallPaperUrl = wallPaperUrl;
             ModifiedAt = modifiedAt;
         }
 

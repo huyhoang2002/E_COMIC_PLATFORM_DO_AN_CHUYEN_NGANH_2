@@ -10,3 +10,8 @@ export const getAccessToken = (key: string) => {
 export const getRefreshToken = (key: string) => {
     return localStorage.getItem(key)
 }
+
+export const removeCredential = () => {
+    localStorage.removeItem("accessToken")
+    localStorage.removeItem("refreshToken")
+}

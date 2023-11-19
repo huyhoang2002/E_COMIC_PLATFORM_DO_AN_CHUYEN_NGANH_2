@@ -37,6 +37,20 @@ namespace User_API.Extensions
             return services;
         }
 
+        public static IServiceCollection AddCrossOriginResource(this IServiceCollection services)
+        {
+            services.AddCors(options =>
+            {
+                options.AddPolicy("user-cors", policy =>
+                {
+                    policy
+                    .WithOrigins(new string[] { "http://localhost:5173" })
+                    .AllowAnyMethod();
+                });
+            });
+            return services;
+        }
+
         public static IServiceCollection AddMapper(this IServiceCollection services)
         {
             services.AddAutoMapper(Assembly.GetExecutingAssembly());

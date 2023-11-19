@@ -1,0 +1,1 @@
+export const RESET_STATE_ACTION = "RESET_STATE_ACTION"

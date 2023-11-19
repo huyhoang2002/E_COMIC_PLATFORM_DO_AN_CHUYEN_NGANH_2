@@ -1,5 +1,6 @@
 using AuthService.Infrastructure.Extensions;
 using AuthService.Application.Extensions;
+using API.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -15,6 +16,7 @@ builder.Services.AddUnitOfWork();
 builder.Services.AddCqrsBus();
 builder.Services.AddIdentity();
 builder.Services.AddRepository();
+builder.Services.AddCrossOriginResource();
 builder.Services.AddAuth(builder.Configuration);
 //builder.Services.AddMessageBus(builder.Configuration);
 
@@ -26,6 +28,9 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
+app.UseCors("auth-cors");
+
 app.UseAuthentication();
 
 app.UseAuthorization();

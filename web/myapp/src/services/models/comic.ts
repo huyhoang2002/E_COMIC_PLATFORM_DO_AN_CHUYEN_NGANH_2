@@ -36,6 +36,7 @@ export interface IComic {
     modifiedAt: Date
     author: IAuthor
     category: ICategory
+    wallPaperUrl: string
 }
 
 export interface IComicResponse extends IPagingResponse {

@@ -3,10 +3,13 @@ import Logo from './Logo/Logo'
 import SearchBar from './SearchBar/SearchBar'
 import UserMenuItem from './UserMenuItem/UserMenuItem'
 import { HiOutlineMenuAlt3 } from 'react-icons/hi'
+import { useSelector } from 'react-redux'
+import { isSuccessSelector } from '../../../store/user/selector'
 
 const Navbar = () => {
 
     const [ isOpen, setIsOpen ] = useState(false)
+    const isSuccess = useSelector(isSuccessSelector)
 
     const handleOpenResponseMenuBar = () => {
         setIsOpen(!isOpen)

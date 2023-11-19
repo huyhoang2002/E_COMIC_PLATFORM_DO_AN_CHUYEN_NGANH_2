@@ -69,6 +69,14 @@ namespace User_API.Controllers
             return Ok(result);
         }
 
+        [HttpGet("profile")]
+        [Authorize(Roles = "USER", AuthenticationSchemes = "Bearer")]
+        public async Task<IActionResult> GetUserByToken()
+        {
+            var result = _userService.GetUserByAccessToken(HttpContext);
+            return Ok(result);
+        }
+
         [HttpPost("comment")]
         [Authorize(Roles = "USER", AuthenticationSchemes = "Bearer")]
         public async Task<IActionResult> Comment([FromBody] AddCommentRequest request)

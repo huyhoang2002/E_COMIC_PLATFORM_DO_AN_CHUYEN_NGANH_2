@@ -7,6 +7,8 @@ import VolumeList from '../components/ComicDetail/VolumeList'
 import ComicEpisodeDetail from '../pages/client/ComicEpisodeDetail/ComicEpisodeDetail'
 import SignIn from '../pages/client/Authentication/Login/SignIn'
 import Register from '../pages/client/Authentication/Register/Register'
+import CreateProfile from '../pages/client/CreateProfile/CreateProfile'
+import UserProfile from '../pages/client/UserProfile/UserProfile'
 
 export const routes = createBrowserRouter([
     {
@@ -37,6 +39,10 @@ export const routes = createBrowserRouter([
                     {
                         path: "detail/:id/episode",
                         element: <ComicEpisodeDetail />
+                    },
+                    {
+                        path: "profile",
+                        element: <UserProfile />
                     }
                 ],
                 // errorElement: <ErrorPage />
@@ -56,5 +62,9 @@ export const routes = createBrowserRouter([
     {
         path: "/sign-up",
         element: <Register />
+    },
+    {
+        path: "/create-profile",
+        element: <CreateProfile />
     }
 ])

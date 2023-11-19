@@ -2,6 +2,7 @@ import { AnyAction } from 'redux'
 import * as fromActions from './action'
 import * as fromActionTypes from './actionType'
 import { initialState } from './initialState'
+import * as fromBaseTypes from '../base/actionType'
 
 const reducer = (state = initialState, action: AnyAction) => {
     const { type } = action
@@ -27,6 +28,8 @@ const reducer = (state = initialState, action: AnyAction) => {
         case fromActionTypes.GET_COMICS_ERROR:
             return {
                 ...state,
+                isLoading: false,
+                isSuccess: false
             }
         case fromActionTypes.GET_CATEGORIES:
             return {
@@ -73,48 +76,50 @@ const reducer = (state = initialState, action: AnyAction) => {
                 isSuccess: true,
                 episodes: action?.episodes
             }
-            case fromActionTypes.GET_COMIC_EPISODES_ERROR:
-                return {
-                    ...state,
-                    isLoading: false,
-                    isSuccess: false
-                }
-            case fromActionTypes.GET_COMIC_EPISODE_DETAIL:
-                return {
-                    ...state,
-                    isLoading: true
-                }
-            case fromActionTypes.GET_COMIC_EPISODE_DETAIL_SUCCESS:
-                return {
-                    ...state,
-                    isLoading: false,
-                    isSuccess: true,
-                    comicEpisodeDetail: action?.episodeDetails
-                }
-            case fromActionTypes.GET_COMIC_EPISODE_DETAIL_ERROR:
-                return {
-                    ...state,
-                    isLoading: false,
-                    isSuccess: false
-                }
-            case fromActionTypes.GET_COMIC_EPISODE_DETAIL_BY_ID:
-                return {
-                    ...state,
-                    isLoading: true
-                }
-            case fromActionTypes.GET_COMIC_EPISODE_DETAIL_BY_ID_SUCCESS:
-                return {
-                    ...state,
-                    isLoading: false,
-                    isSuccess: true,
-                    comicEpisodeDetail: action?.episodeDetails
-                }
-            case fromActionTypes.GET_COMIC_EPISODE_DETAIL_BY_ID_ERROR:
-                return {
-                    ...state,
-                    isLoading: false,
-                    isSuccess: false
-                }
+        case fromActionTypes.GET_COMIC_EPISODES_ERROR:
+            return {
+                ...state,
+                isLoading: false,
+                isSuccess: false
+            }
+        case fromActionTypes.GET_COMIC_EPISODE_DETAIL:
+            return {
+                ...state,
+                isLoading: true
+            }
+        case fromActionTypes.GET_COMIC_EPISODE_DETAIL_SUCCESS:
+            return {
+                ...state,
+                isLoading: false,
+                isSuccess: true,
+                comicEpisodeDetail: action?.episodeDetails
+            }
+        case fromActionTypes.GET_COMIC_EPISODE_DETAIL_ERROR:
+            return {
+                ...state,
+                isLoading: false,
+                isSuccess: false
+            }
+        case fromActionTypes.GET_COMIC_EPISODE_DETAIL_BY_ID:
+            return {
+                ...state,
+                isLoading: true
+            }
+        case fromActionTypes.GET_COMIC_EPISODE_DETAIL_BY_ID_SUCCESS:
+            return {
+                ...state,
+                isLoading: false,
+                isSuccess: true,
+                comicEpisodeDetail: action?.episodeDetails
+            }
+        case fromActionTypes.GET_COMIC_EPISODE_DETAIL_BY_ID_ERROR:
+            return {
+                ...state,
+                isLoading: false,
+                isSuccess: false
+            }
+        case fromBaseTypes.RESET_STATE_ACTION:
+            return initialState
         default:
             return state
     }

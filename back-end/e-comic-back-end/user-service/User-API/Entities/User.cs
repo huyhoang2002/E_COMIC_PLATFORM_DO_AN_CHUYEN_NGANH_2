@@ -16,6 +16,11 @@ namespace User_API.Entities
         public bool IsRemove { get; private set; }
         public string AccountId { get; private set; }
 
+        public User()
+        {
+
+        }
+
         public User(string firstName, string lastName, int age, string country, string job, string phoneNumber, string bio, bool isDisable, bool isRemove)
         {
             FirstName = firstName;

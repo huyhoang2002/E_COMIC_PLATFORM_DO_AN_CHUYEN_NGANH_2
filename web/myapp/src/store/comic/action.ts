@@ -1,6 +1,6 @@
 import { Action } from 'redux'
 import * as fromActions from './actionType'
-import { IComic, IComicEpisodeDetailResponse, IComicResponse, TEpisode, TEpisodeDetail } from '../../services/models/comic'
+import { IComic, IComicEpisodeDetailResponse, IComicResponse, TEpisode } from '../../services/models/comic'
 import { TCategories } from '../../services/models/category'
 
 export interface IGetComicAction extends Action {

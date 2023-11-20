@@ -1,6 +1,6 @@
 ﻿{
   "GlobalConfiguration": {
-    "RequestIdKey": "OcelotRequestIdKey"
+    "BaseUrl":  "http://localhost:5219"
   },
   "Routes": [
     {

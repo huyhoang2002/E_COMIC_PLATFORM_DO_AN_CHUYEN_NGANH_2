@@ -52,8 +52,8 @@ const CreateProfile = () => {
 
     return (
         <>
-            <div className="absolute z-1">
-                <img className="h-[900px] w-full" src="https://www.bhmpics.com/downloads/marvel-comic-background/2.1835991.jpg" alt="" />
+            <div className="absolute z-1 w-full">
+                <img className="h-[100vh] w-full" src="https://wallpapers.com/images/hd/comic-book-background-a09lfl6egxpsqgwc.jpg" alt="" />
             </div>
             <div className="absolute z-2 bg-slate-800 h-[100vh] w-full opacity-90"></div>
             <div className="absolute z-2 w-full h-[100vh] flex justify-center items-center">

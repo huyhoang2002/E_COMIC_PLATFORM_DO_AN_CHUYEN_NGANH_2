@@ -9,13 +9,20 @@ import SignIn from '../pages/client/Authentication/Login/SignIn'
 import Register from '../pages/client/Authentication/Register/Register'
 import CreateProfile from '../pages/client/CreateProfile/CreateProfile'
 import UserProfile from '../pages/client/UserProfile/UserProfile'
-
+import LayoutAdmin from '../components/Common/Layouts/Admin/LayoutAdmin'
+import Author from '../pages/admin/author/Author'
+import Category from '../pages/admin/category/Category'
+import * as fromRoutes from './routeName'
+import AddNewAuthor from '../pages/admin/author/AddNewAuthor'
+import UpdateAuthor from '../pages/admin/author/UpdateAuthor'
+import AddNewComic from '../pages/admin/comic/AddNewComic'
+import Comic from '../pages/admin/comic/Comic'
 export const routes = createBrowserRouter([
     {
         path: "/",
         children: [
             {
-                path: "c",
+                path: fromRoutes.CLIENT,
                 element: <LayoutClient />,
                 children: [
                     {
@@ -23,48 +30,72 @@ export const routes = createBrowserRouter([
                         element: <LandingPage />
                     },
                     {
-                        path: "detail/:id",
+                        path: fromRoutes.COMIC_DETAIL,
                         element: <ComicDetail />,
                         children: [
                             {
-                                path: "vol",
+                                path: fromRoutes.COMIC_VOLUME_LIST,
                                 element: <VolumeList />
                             },
                             {
-                                path: "comment",
+                                path: fromRoutes.COMMENT,
                                 element: <Comment />
                             }
                         ]
                     },
                     {
-                        path: "detail/:id/episode",
+                        path: fromRoutes.EPISODE_DETAIL,
                         element: <ComicEpisodeDetail />
                     },
                     {
-                        path: "profile",
+                        path: fromRoutes.PROFILE,
                         element: <UserProfile />
                     }
                 ],
                 // errorElement: <ErrorPage />
             },
             {
-                path: "/a",
+                path: fromRoutes.ADMIN,
+                element: <LayoutAdmin />,
                 children: [
-                    
+                    {
+                        path: fromRoutes.AUTHOR,
+                        element: <Author />
+                    },
+                    {
+                        path: fromRoutes.ADD_NEW_AUTHOR,
+                        element: <AddNewAuthor />
+                    },
+                    {
+                        path: fromRoutes.UPDATE_AUTHOR,
+                        element: <UpdateAuthor />
+                    },
+                    {
+                        path: fromRoutes.CATEGORY,
+                        element: <Category />
+                    },
+                    {
+                        path: fromRoutes.COMIC,
+                        element: <Comic />
+                    },
+                    {
+                        path: fromRoutes.ADD_NEW_COMIC,
+                        element: <AddNewComic />
+                    }
                 ]
             }
         ]
     },
     {
-        path: "/sign-in",
+        path: fromRoutes.SIGN_IN,
         element: <SignIn />
     },
     {
-        path: "/sign-up",
+        path: fromRoutes.SIGN_UP,
         element: <Register />
     },
     {
-        path: "/create-profile",
+        path: fromRoutes.CREATE_PROFILE,
         element: <CreateProfile />
     }
 ])

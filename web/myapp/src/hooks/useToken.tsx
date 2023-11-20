@@ -13,7 +13,7 @@ const useToken = () => {
     useEffect(() => {
         const refreshTokenFromStorage = getRefreshToken("refreshToken")
         setRefreshToken(refreshTokenFromStorage)
-    })
+    }, [])
     return [ accessToken, refreshToken ]
 }
 

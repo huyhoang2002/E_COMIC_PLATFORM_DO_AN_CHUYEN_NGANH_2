@@ -8,6 +8,7 @@ using User_API.ThirdPartyServices.Interfaces;
 using User_API.UnitOfWork.Interfaces;
 using User_API.ViewModels.Base;
 using User_API.ViewModels.Requests;
+using User_API.ViewModels.Responses;
 
 namespace User_API.Services
 {
@@ -68,6 +69,13 @@ namespace User_API.Services
             return accountId;
         }
 
+        private string getUserRoleFromToken(HttpContext httpContext)
+        {
+            var token = DecodeTokenHelper.DecodeToken(httpContext);
+            var role = token.Claims.FirstOrDefault(_ => _.Type == "http://schemas.microsoft.com/ws/2008/06/identity/claims/role").Value;
+            return role;
+        }
+
         public async Task<BaseResponse> DisableUser(Guid userId)
         {
             var user = _userRepository.FirstOrDefault(_ => _.Id == userId);
@@ -96,15 +104,18 @@ namespace User_API.Services
             return BaseResponse.Success();
         }
 
-        public BaseResponse<User> GetUserByAccessToken(HttpContext context)
+        public BaseResponse<UserResponse> GetUserByAccessToken(HttpContext context)
         {
             var accountId = getAccountIdFromToken(context);
+            var role = getUserRoleFromToken(context);
             var user = _userRepository.FirstOrDefault(_ => _.AccountId == accountId);
+            var userResponse = new UserResponse(user);
+            userResponse.SetRole(role);
             if (user is null)
             {
-                return BaseResponse<User>.Error("No user found");
+                return BaseResponse<UserResponse>.Error("No user found");
             }
-            return BaseResponse<User>.Success(user);
+            return BaseResponse<UserResponse>.Success(userResponse);
         }
     }
 }

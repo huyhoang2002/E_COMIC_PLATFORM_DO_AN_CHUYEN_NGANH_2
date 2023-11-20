@@ -268,5 +268,20 @@ namespace Comic_API.Controllers
             var result = await _queryBus.SendAsync(query);
             return Ok(result);
         }
+
+        [HttpGet]
+        [Route("/query")]
+        public async Task<IActionResult> SearchComic([FromQuery] SearchComicRequest request)
+        {
+            var query = new SearchComicQuery()
+            {
+                CategoryId = request.CategoryId,
+                Keyword = request.Keyword,
+                PageCount = request.PageCount,
+                PageSize = request.PageSize
+            };
+            var result = await _queryBus.SendAsync(query);
+            return Ok(result);
+        }
     }
 }

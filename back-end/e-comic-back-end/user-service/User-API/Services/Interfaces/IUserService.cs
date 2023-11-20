@@ -1,6 +1,7 @@
 ﻿using User_API.Entities;
 using User_API.ViewModels.Base;
 using User_API.ViewModels.Requests;
+using User_API.ViewModels.Responses;
 
 namespace User_API.Services.Interfaces
 {
@@ -12,6 +13,6 @@ namespace User_API.Services.Interfaces
         IQueryable<User> GetUserDatas(bool isDisable);
         Task<BaseResponse> DisableUser(Guid userId);
         Task<BaseResponse> EnableUser(Guid userId);
-        BaseResponse<User> GetUserByAccessToken(HttpContext context);
+        BaseResponse<UserResponse> GetUserByAccessToken(HttpContext context);
     }
 }

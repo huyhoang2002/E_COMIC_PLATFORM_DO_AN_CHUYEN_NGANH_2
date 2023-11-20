@@ -270,14 +270,14 @@ namespace Comic_API.Controllers
         }
 
         [HttpGet]
-        [Route("/query")]
+        [Route("query")]
         public async Task<IActionResult> SearchComic([FromQuery] SearchComicRequest request)
         {
             var query = new SearchComicQuery()
             {
                 CategoryId = request.CategoryId,
                 Keyword = request.Keyword,
-                PageCount = request.PageCount,
+                PageIndex = request.PageIndex,
                 PageSize = request.PageSize
             };
             var result = await _queryBus.SendAsync(query);

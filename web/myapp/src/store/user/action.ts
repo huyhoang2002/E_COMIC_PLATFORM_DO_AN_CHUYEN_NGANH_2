@@ -21,10 +21,13 @@ export const getUserInfoSuccessAction = (user: IUser, message: string) : IGetUse
     }
 }
 
-export interface IGetUserInfoErrorAction extends Action {}
-export const getUserInfoErrorAction = () : IGetUserInfoErrorAction => {
+export interface IGetUserInfoErrorAction extends Action {
+    message: string
+}
+export const getUserInfoErrorAction = (message: string) : IGetUserInfoErrorAction => {
     return {
-        type: fromActions.GET_USER_INFO_ERROR
+        type: fromActions.GET_USER_INFO_ERROR,
+        message
     }
 }
 

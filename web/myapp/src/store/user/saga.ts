@@ -9,12 +9,13 @@ export function* getUserInfoSaga() {
     try {
         const result: IBaseResponse<IUser> = yield call(getUserInfo)
         if (result.isSuccess === false) {
-            yield put(getUserInfoErrorAction())
+            console.log(result.message)
+            yield put(getUserInfoErrorAction(result.message as string))
         } else {
             yield put(getUserInfoSuccessAction(result.response, result.message as string))
         }
     } catch (error) {
-        yield put(getUserInfoErrorAction())
+        // yield put(getUserInfoErrorAction(result.message as string))
         console.log(error)
     }
 }

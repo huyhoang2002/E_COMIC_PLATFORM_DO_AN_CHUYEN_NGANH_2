@@ -21,3 +21,5 @@ export const comicSelector = createSelector(comicReducer, (state: TComicInitialS
 export const episodesSelector = createSelector(comicReducer, (state: TComicInitialState) => state.episodes)
 
 export const comicEpisodeDetailSelector = createSelector(comicReducer, (state: TComicInitialState) => state.comicEpisodeDetail)
+
+export const searchResultSelector = createSelector(comicReducer, (state: TComicInitialState) => state.searchResults)

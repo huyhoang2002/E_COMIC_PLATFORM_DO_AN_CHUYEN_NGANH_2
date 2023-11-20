@@ -1,6 +1,6 @@
 import { FaUserAlt } from 'react-icons/fa'
 import { useSelector } from 'react-redux'
-import { useNavigate } from 'react-router-dom'
+import { Navigate, useNavigate } from 'react-router-dom'
 import { isSuccessSelector, messageSelector, userSelector } from '../../../../store/user/selector'
 import { useEffect } from 'react'
 import { useDispatch } from 'react-redux'
@@ -10,12 +10,14 @@ import UseDisclosure from '../../../../hooks/UseDisclosure'
 import { resetStateAction } from '../../../../store/base/action'
 import { signOutAction } from '../../../../store/auth/action'
 import { removeCredential } from '../../../../utils/helpers/localstorageHelper'
+import { AlertWarning } from '../../../../utils/helpers/alertHelper'
 
 const UserMenuItem = () => {
 
   const navigation = useNavigate()
   const user = useSelector(userSelector)
   const isSuccess = useSelector(isSuccessSelector)
+  const message = useSelector(messageSelector)
   const { isOpen, onToggle } = UseDisclosure()
   const [ accessToken ] = useToken()
   const dispatch = useDispatch()
@@ -28,6 +30,17 @@ const UserMenuItem = () => {
       }
     }
   }, [dispatch, isSuccess, accessToken])
+
+  useEffect(() => {
+    if (message === "User session has been expired") {
+      AlertWarning({
+        title: message
+      })
+    }
+    if (message === "No user found") {
+      navigation("/create-profile")
+    }
+  }, [message])
 
   const handleNavigateToSignInPage = () => {
     navigation("/sign-in")
@@ -58,7 +71,7 @@ const UserMenuItem = () => {
 
   return (
     <>
-      {isSuccess === false ? <div className='rounded-[20px] hover:bg-orange-300 transition-all p-3' onClick={handleNavigateToSignInPage}>
+      {isSuccess === false ? <div className='rounded-[20px] hover:bg-orange-300 transition-all p-3 bg-red-600' onClick={handleNavigateToSignInPage}>
         <FaUserAlt style={{ color: "white" }} /> 
       </div> :
       <div className='relative'>

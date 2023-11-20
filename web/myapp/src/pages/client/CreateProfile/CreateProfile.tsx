@@ -8,7 +8,7 @@ import { useForm } from "react-hook-form"
 import { IAddUser } from "../../../services/models/user"
 import { useEffect } from "react"
 import { isLoadingSelector } from "../../../store/comic/selector"
-import { AlertSuccess, AlertWait } from "../../../utils/helpers/alertHelper"
+import { AlertError, AlertSuccess, AlertWait } from "../../../utils/helpers/alertHelper"
 import { resetStateAction } from "../../../store/base/action"
 
 const CreateProfile = () => {
@@ -24,29 +24,20 @@ const CreateProfile = () => {
     })
 
     useEffect(() => {
-        if (isLoading === true) {
-            AlertWait({
-                title: "Loading..."
-            })
-        }
-
-        return () => {
-            if (isLoading === false) {
-                dispatch(resetStateAction())
-            }
-        }
-    }, [isLoading, dispatch])
-
-    useEffect(() => {
        if (isSuccess === true) {
             AlertSuccess({
                 title: "Create profile successfully"
             }) 
-       } 
+       } else if (isSuccess === false) {
+            AlertError({
+                title: "Create profile failed"
+            })
+       }
+       
        return () => {
-            if (isSuccess !== undefined) [
+            if (isSuccess === true || false) {
                 dispatch(resetStateAction())
-            ]
+            }
        }
     }, [isSuccess, dispatch])
 

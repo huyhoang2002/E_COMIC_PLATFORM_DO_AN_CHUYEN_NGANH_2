@@ -22,7 +22,8 @@ const reducer = (state: IUserInitialState = initialState, action: AnyAction) => 
             return {
                 ...state,
                 isLoading: false,
-                isSuccess: false
+                isSuccess: false,
+                message: action?.message
             }
         case fromActions.CREATE_USER_PROFILE:
             return {

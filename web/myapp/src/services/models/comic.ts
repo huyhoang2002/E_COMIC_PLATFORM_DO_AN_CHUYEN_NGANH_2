@@ -1,3 +1,4 @@
+import { IPaginationRequest } from "../base/base-request";
 import { IPagingResponse } from "../base/base-response";
 
 export interface IAuthor { 
@@ -43,6 +44,10 @@ export interface IComicResponse extends IPagingResponse {
     data: Array<IComic>
 }
 
+export interface ISearchResponse extends IPagingResponse {
+    data: Array<IComic>
+}
+
 export interface IComicEpisodeDetailResponse {
     comicId: string
     episode: string
@@ -51,3 +56,7 @@ export interface IComicEpisodeDetailResponse {
     modifiedAt: Date
 }
 
+export interface ISearchComicRequest extends IPaginationRequest {
+    categoryId?: string
+    keyWord: string
+}

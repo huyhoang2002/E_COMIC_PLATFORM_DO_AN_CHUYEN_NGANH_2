@@ -16,7 +16,7 @@ namespace ComicService.Application.Features.CQRS.Queries.Comics
         public Guid CategoryId { get; set; }
         public string Keyword { get; set; }
         public int PageSize { get; set; }
-        public int PageCount { get; set; }
+        public int PageIndex { get; set; }
     }
 
     public class SearchComicQueryHandler : IQueryHandler<SearchComicQuery, PaginationResponse<GetComicResponse>>
@@ -31,10 +31,10 @@ namespace ComicService.Application.Features.CQRS.Queries.Comics
         public Task<PaginationResponse<GetComicResponse>> Handle(SearchComicQuery request, CancellationToken cancellationToken)
         {
             var comic = _repository
-                .GetQuery(_ => request.CategoryId == Guid.Empty && _.CategoryId == request.CategoryId)
+                .GetQuery(request.CategoryId.Equals(Guid.Empty) ? null : _ => !request.CategoryId.Equals(Guid.Empty) && _.CategoryId == request.CategoryId)
                 .Where(_ => _.Title.Contains(request.Keyword));
             var getComicResponses = comic.Select(_ => new GetComicResponse(_));
-            return Task.FromResult(new PaginationResponse<GetComicResponse>(getComicResponses, request.PageSize, request.PageCount));
+            return Task.FromResult(new PaginationResponse<GetComicResponse>(getComicResponses, request.PageSize, request.PageIndex));
         }
     }
 }

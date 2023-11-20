@@ -1,6 +1,6 @@
 import { Action } from 'redux'
 import * as fromActions from './actionType'
-import { IComic, IComicEpisodeDetailResponse, IComicResponse, TEpisode } from '../../services/models/comic'
+import { IComic, IComicEpisodeDetailResponse, IComicResponse, ISearchResponse, TEpisode } from '../../services/models/comic'
 import { TCategories } from '../../services/models/category'
 
 export interface IGetComicAction extends Action {
@@ -175,5 +175,43 @@ export interface IGetComicEpisodeDetailByIdActionError extends Action {}
 export const getComicEpisodeDetailByIdActionError = () : IGetComicEpisodeDetailActionError => {
     return {
         type: fromActions.GET_COMIC_EPISODE_DETAIL_BY_ID_ERROR
+    }
+}
+
+export interface ISearchComicAction extends Action {
+    pageSize: number
+    pageIndex: number
+    categoryId?: string
+    keyWord: string
+}
+export const searchComicAction = (keyWord: string, pageIndex: number, pageSize: number, categoryId?: string): ISearchComicAction => {
+    console.log({ categoryId })
+    return {
+        type: fromActions.SEARCH_COMIC,
+        keyWord,
+        pageIndex,
+        pageSize,
+        categoryId
+    }
+}
+
+export interface ISearchComicSuccessAction extends Action {
+    data: Array<IComic>,
+    pageCount: number,
+    pageIndex: number,
+    pageSize: number,
+    totalRows: number
+}
+export const searchComicSuccessAction = (payload: ISearchResponse): ISearchComicSuccessAction => {
+    return {
+        ...payload,
+        type: fromActions.SEARCH_COMIC_SUCCESS
+    }
+}
+
+export interface ISearchComicErrorAction extends Action {}
+export const searchComicErrorAction = (): ISearchComicErrorAction => {
+    return {
+        type: fromActions.SEARCH_COMIC_ERROR
     }
 }

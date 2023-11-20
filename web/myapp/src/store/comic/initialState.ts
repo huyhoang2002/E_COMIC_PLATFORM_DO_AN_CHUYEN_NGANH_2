@@ -3,6 +3,7 @@ import { IComic, IComicEpisodeDetailResponse, TEpisode } from "../../services/mo
 
 export type TComicInitialState = {
     data: Array<IComic>,
+    searchResults: Array<IComic>,
     comic: IComic | undefined,
     pageCount: number,
     pageIndex: number,
@@ -17,6 +18,7 @@ export type TComicInitialState = {
 
 export const initialState : TComicInitialState = {
     data: [] as Array<IComic>,
+    searchResults: [] as Array<IComic>,
     comic: undefined,
     pageCount: 0,
     pageIndex: 0,

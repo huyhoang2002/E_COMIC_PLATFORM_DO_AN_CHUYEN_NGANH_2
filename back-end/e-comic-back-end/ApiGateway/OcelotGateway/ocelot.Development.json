@@ -98,6 +98,18 @@
       "DownstreamScheme": "http",
       "UpstreamPathTemplate": "/api/User",
       "UpstreamHttpMethod": [ "GET", "POST" ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/Comic/query",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 5157
+        }
+      ],
+      "DownstreamScheme": "http",
+      "UpstreamPathTemplate": "/api/Comic/query",
+      "UpstreamHttpMethod": [ "GET", "POST" ]
     }
   ]
 }

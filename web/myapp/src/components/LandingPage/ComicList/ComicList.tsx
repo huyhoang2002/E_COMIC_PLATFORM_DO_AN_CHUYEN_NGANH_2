@@ -18,8 +18,6 @@ const ComicList = () => {
     const isLoading = useSelector(isLoadingSelector)
     const isSuccess = useSelector(isSuccessSelector)
 
-    console.log(isSuccess)
-
     useEffect(() => {
         if (isSuccess === false) {
             AlertError({

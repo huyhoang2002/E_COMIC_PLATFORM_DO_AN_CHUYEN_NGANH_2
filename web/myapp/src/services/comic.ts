@@ -1,5 +1,5 @@
 import { get } from "./base/base-service"
-import { IComicResponse } from "./models/comic";
+import { IComicResponse, ISearchComicRequest } from "./models/comic";
 
 export const getComics = async (isDeleted: boolean, pageSize: number, pageIndex: number) => {
     try {
@@ -41,6 +41,21 @@ export const getComicEpisodeDetailByEpisodeId = async (comicId: string, episodeI
     try {
         const response = await get(`/comic/${comicId}/episode/${episodeId}`)
         return response.data
+    } catch (error) {
+        console.log(error)
+    }
+}
+
+export const searchComic = async ({ keyWord, categoryId, pageIndex, pageSize }: ISearchComicRequest) => {
+    try {
+        if (categoryId === undefined) {
+            const response = await get(`/comic/query?keyWord=${keyWord}&pageSize=${pageSize}&pageIndex=${pageIndex}`)
+            return response.data
+        }
+        else {
+            const response = await get(`/comic/query?keyWord=${keyWord}&categoryId=${categoryId}&pageSize=${pageSize}&pageIndex=${pageIndex}`)
+            return response.data
+        }
     } catch (error) {
         console.log(error)
     }

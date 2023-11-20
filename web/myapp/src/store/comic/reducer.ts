@@ -118,6 +118,28 @@ const reducer = (state = initialState, action: AnyAction) => {
                 isLoading: false,
                 isSuccess: false
             }
+        case fromActionTypes.SEARCH_COMIC:
+            return {
+                ...state,
+                isLoading: true
+            }
+        case fromActionTypes.SEARCH_COMIC_SUCCESS:
+            return {
+                ...state,
+                isLoading: false,
+                isSuccess: true,
+                searchResults: action?.data,
+                pageCount: action?.pageCount,
+                pageIndex: action?.pageIndex,
+                pageSize: action?.pageSize,
+                totalRows: action?.totalRows,
+            }
+        case fromActionTypes.SEARCH_COMIC_ERROR: 
+            return {
+                ...state,
+                isLoading: false,
+                isSuccess: false
+            }
         case fromBaseTypes.RESET_STATE_ACTION:
             return initialState
         default:

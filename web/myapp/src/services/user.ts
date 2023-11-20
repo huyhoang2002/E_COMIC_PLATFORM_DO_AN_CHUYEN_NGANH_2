@@ -5,17 +5,18 @@ import { IAddUser } from "./models/user"
 export const getUserInfo = async () => {
     try {
         const response = await getWithToken("/user/profile")
-        if (response.status === 401) {
+        
+        console.log(response.data)
+        return response.data
+    } catch (error: any) {
+        console.log(error.response.status)
+        if (error.response.status === 401) {
             return { 
                 isSuccess: false,
                 response: null,
                 message: "User session has been expired"
             } as IBaseResponse<any>
         }
-        console.log(response.data)
-        return response.data
-    } catch (error) {
-        console.log(error)
     }
 }
 

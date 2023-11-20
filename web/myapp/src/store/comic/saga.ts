@@ -1,7 +1,7 @@
 import { call, put, takeLatest } from 'redux-saga/effects'
-import { getComicById, getComicEpisode, getComicEpisodeDetail, getComicEpisodeDetailByEpisodeId, getComics } from '../../services/comic'
-import { IComic, IComicEpisodeDetailResponse, IComicResponse, TEpisode } from '../../services/models/comic'
-import { IGetComicAction, IGetComicByIdAction, IGetComicEpisodeDetailAction, IGetComicEpisodeDetailByIdAction, IGetComicEpisodesAction, getCategoriesErrorAction, getCategoriesSuccessAction, getComicActionError, getComicActionSuccess, getComicByActionSuccess, getComicByIdActionError, getComicEpisodeDetailActionError, getComicEpisodeDetailActionSuccess, getComicEpisodeDetailByIdActionError, getComicEpisodeDetailByIdActionSuccess, getComicEpisodesActionError, getComicEpisodesActionSuccess } from './action'
+import { getComicById, getComicEpisode, getComicEpisodeDetail, getComicEpisodeDetailByEpisodeId, getComics, searchComic } from '../../services/comic'
+import { IComic, IComicEpisodeDetailResponse, IComicResponse, ISearchComicRequest, ISearchResponse, TEpisode } from '../../services/models/comic'
+import { IGetComicAction, IGetComicByIdAction, IGetComicEpisodeDetailAction, IGetComicEpisodeDetailByIdAction, IGetComicEpisodesAction, ISearchComicAction, getCategoriesErrorAction, getCategoriesSuccessAction, getComicActionError, getComicActionSuccess, getComicByActionSuccess, getComicByIdActionError, getComicEpisodeDetailActionError, getComicEpisodeDetailActionSuccess, getComicEpisodeDetailByIdActionError, getComicEpisodeDetailByIdActionSuccess, getComicEpisodesActionError, getComicEpisodesActionSuccess, searchComicErrorAction, searchComicSuccessAction } from './action'
 import * as fromActionTypes from './actionType'
 import { getCategories } from '../../services/category'
 import { TCategories } from '../../services/models/category'
@@ -93,13 +93,33 @@ export function* getComicEpisodeDetailByIdSaga(action: IGetComicEpisodeDetailByI
     }
 }
 
+export function* searchComicSaga(action: ISearchComicAction) {
+    try {
+        const result: ISearchResponse = yield call(searchComic, {
+            keyWord: action.keyWord,
+            pageIndex: action.pageIndex,
+            pageSize: action.pageSize,
+            categoryId: action.categoryId
+        })
+        if (result === null) {
+            yield put(searchComicErrorAction())
+        } else {
+            yield put(searchComicSuccessAction(result))
+        }
+    } catch (error) {
+        yield put(searchComicErrorAction())
+        console.log(error)
+    }
+}
+
 const sagas = [
     takeLatest(fromActionTypes.GET_COMICS, getComicsSaga),
     takeLatest(fromActionTypes.GET_CATEGORIES, getCategoriesSaga),
     takeLatest(fromActionTypes.GET_COMIC_BY_ID, getComicByIdSaga),
     takeLatest(fromActionTypes.GET_COMIC_EPISODES, getComicEpisodesSaga),
     takeLatest(fromActionTypes.GET_COMIC_EPISODE_DETAIL, getComicEpisodeDetailSaga),
-    takeLatest(fromActionTypes.GET_COMIC_EPISODE_DETAIL_BY_ID, getComicEpisodeDetailByIdSaga)
+    takeLatest(fromActionTypes.GET_COMIC_EPISODE_DETAIL_BY_ID, getComicEpisodeDetailByIdSaga),
+    takeLatest(fromActionTypes.SEARCH_COMIC, searchComicSaga)
 ]
 
 export default sagas

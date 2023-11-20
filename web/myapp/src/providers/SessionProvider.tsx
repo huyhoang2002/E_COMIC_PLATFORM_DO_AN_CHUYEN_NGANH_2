@@ -1,8 +1,9 @@
 import React, { createContext, useEffect } from 'react'
 import { useSelector } from 'react-redux'
-import { isSuccessSelector } from '../store/user/selector'
+import { isSuccessSelector, messageSelector } from '../store/user/selector'
 import { useDispatch } from 'react-redux'
 import { resetStateAction } from '../store/base/action'
+import { AlertWarning } from '../utils/helpers/alertHelper'
 
 
 interface ISessionContextValue {
@@ -18,6 +19,7 @@ const SessionContext = createContext(sessionContextValue)
 const SessionProvider = ({ children }: { children: React.ReactNode }) => {  
 
     const isSuccess = useSelector(isSuccessSelector)
+    const message = useSelector(messageSelector)
     const dispatch = useDispatch()
     
     useEffect(() => {
@@ -30,7 +32,7 @@ const SessionProvider = ({ children }: { children: React.ReactNode }) => {
             }
        }
     }, [window.location.href, isSuccess])
-
+    
     const values = {}
 
     return (

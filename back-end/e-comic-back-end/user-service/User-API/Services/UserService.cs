@@ -109,12 +109,12 @@ namespace User_API.Services
             var accountId = getAccountIdFromToken(context);
             var role = getUserRoleFromToken(context);
             var user = _userRepository.FirstOrDefault(_ => _.AccountId == accountId);
-            var userResponse = new UserResponse(user);
-            userResponse.SetRole(role);
             if (user is null)
             {
                 return BaseResponse<UserResponse>.Error("No user found");
             }
+            var userResponse = new UserResponse(user);
+            userResponse.SetRole(role);
             return BaseResponse<UserResponse>.Success(userResponse);
         }
     }

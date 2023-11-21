@@ -13,6 +13,7 @@ namespace ComicService.Application.Features.CQRS.Queries.Categories
     public class GetCategoriesQuery : IQuery<IEnumerable<GetCategoriesResponse>>
     {
         public bool IsDeleted { get; set; }
+        public string Keyword { get; set; }
     }
 
     public class GetCategoriesQueryHandler : IQueryHandler<GetCategoriesQuery, IEnumerable<GetCategoriesResponse>>
@@ -27,7 +28,7 @@ namespace ComicService.Application.Features.CQRS.Queries.Categories
         public async Task<IEnumerable<GetCategoriesResponse>> Handle(GetCategoriesQuery request, CancellationToken cancellationToken)
         {
             return _categoryRepository
-                .GetQuery(_ => _.IsDeleted == request.IsDeleted)
+                .GetQuery(_ => _.IsDeleted == request.IsDeleted && (String.IsNullOrEmpty(request.Keyword) || _.CategoryName == request.Keyword))
                 .Select(_ => new GetCategoriesResponse(_));
         }
     }

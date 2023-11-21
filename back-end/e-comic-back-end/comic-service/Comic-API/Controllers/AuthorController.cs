@@ -1,5 +1,6 @@
 ﻿using ComicService.Application.Features.CQRS.Commands.Authors;
 using ComicService.Application.Features.CQRS.Queries.Authors;
+using ComicService.Application.ViewModels.Base.Requests;
 using ComicService.Application.ViewModels.Requests;
 using ComicService.Infrastructure.CQRS.Command;
 using ComicService.Infrastructure.CQRS.Query;
@@ -23,11 +24,12 @@ namespace Comic_API.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> GetAuthors([FromQuery] bool isDeleted)
+        public async Task<IActionResult> GetAuthors([FromQuery] GetAuthorRequest request)
         {
             var query = new GetAuthorsQuery()
             {
-                IsDeleted = isDeleted
+                IsDeleted = request.IsDeleted,
+                Keyword = request.Keyword
             };
             var result = await _queryBus.SendAsync(query);
             return Ok(result);

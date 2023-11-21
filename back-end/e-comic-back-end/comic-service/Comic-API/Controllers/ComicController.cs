@@ -29,8 +29,9 @@ namespace Comic_API.Controllers
             var query = new GetComicsQuery()
             {
                 IsDeleted = request.IsDeleted,
-                pageIndex = request.PageIndex,
+                PageIndex = request.PageIndex,
                 PageSize = request.PageSize,
+                Keyword = request.Keyword
             };
             var result = await _queryBus.SendAsync(query);
             return Ok(result);

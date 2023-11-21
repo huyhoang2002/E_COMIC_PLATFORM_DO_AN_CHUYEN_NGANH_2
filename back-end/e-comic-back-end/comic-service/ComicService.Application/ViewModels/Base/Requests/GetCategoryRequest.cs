@@ -4,13 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ComicService.Application.ViewModels.Requests
+namespace ComicService.Application.ViewModels.Base.Requests
 {
-    public class GetComicRequest
+    public class GetCategoryRequest
     {
         public bool IsDeleted { get; set; }
-        public int PageSize { get; set; }
-        public int PageIndex { get; set; }
         public string Keyword { get; set; }
     }
 }

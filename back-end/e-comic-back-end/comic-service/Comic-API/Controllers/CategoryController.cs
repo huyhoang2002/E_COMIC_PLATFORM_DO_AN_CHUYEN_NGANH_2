@@ -1,5 +1,6 @@
 ﻿using ComicService.Application.Features.CQRS.Commands.Categories;
 using ComicService.Application.Features.CQRS.Queries.Categories;
+using ComicService.Application.ViewModels.Base.Requests;
 using ComicService.Application.ViewModels.Requests;
 using ComicService.Infrastructure.CQRS.Command;
 using ComicService.Infrastructure.CQRS.Query;
@@ -30,9 +31,13 @@ namespace Comic_API.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> GetCategories([FromQuery] bool isDeleted)
+        public async Task<IActionResult> GetCategories([FromQuery] GetCategoryRequest request)
         {
-            var result = await _queryBus.SendAsync(new GetCategoriesQuery() { IsDeleted = isDeleted });
+            var result = await _queryBus.SendAsync(new GetCategoriesQuery() 
+            { 
+                IsDeleted = request.IsDeleted,
+                Keyword = request.Keyword
+            });
             return Ok(result);
         }
 

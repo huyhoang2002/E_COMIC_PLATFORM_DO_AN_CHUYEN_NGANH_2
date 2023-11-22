@@ -6,7 +6,7 @@ const AddNewComic = () => {
   return (
     <div className='flex flex-col gap-3'>
       <h1 className='text-[30px] font-bold text-orange-600'>Create new comic</h1>
-      <div className="grid grid-cols-2 gap-2">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-2">
         <AddComicForm />
         <div className="flex flex-col gap-3">
           <UploadComicEpisode />

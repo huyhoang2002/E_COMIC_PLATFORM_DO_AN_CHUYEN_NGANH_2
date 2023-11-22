@@ -32,7 +32,7 @@ const ComicDetail = () => {
   return (
     <div>
       <img src={comic?.wallPaperUrl} alt="" className="h-[600px] object-cover w-full absolute z-[-1]" />
-      {isSuccess === false ?
+    {isSuccess === false ?
         <ComicDetailSkeleton /> :       
         isSuccess === true ? 
         <ComicInfo /> :

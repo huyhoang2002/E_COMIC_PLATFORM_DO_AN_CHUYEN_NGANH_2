@@ -12,9 +12,25 @@ const AddComicForm = () => {
           <label htmlFor="">Description</label>
           <textarea placeholder="description..." className="h-[300px] resize-none text-black" name="" id="" />
         </div>
-        <div className="flex flex-col gap-3">
+        <div className="flex flex-col gap-3 w-fit">
           <label htmlFor="">Comic image</label>
           <input type="file" name="" id="" />
+        </div>
+        <div className="flex flex-col gap-3">
+          <label>Author</label>
+          <select className="text-black">
+            <option>Author 1</option>
+            <option>Author 2</option>
+            <option>Author 3</option>
+          </select>
+        </div>
+        <div className="flex flex-col gap-3">
+          <label>Category</label>
+          <select className="text-black">
+            <option>Category 1</option>
+            <option>Category 2</option>
+            <option>Category 3</option>
+          </select>
         </div>
         <div>
           <Button>Upload comic</Button>

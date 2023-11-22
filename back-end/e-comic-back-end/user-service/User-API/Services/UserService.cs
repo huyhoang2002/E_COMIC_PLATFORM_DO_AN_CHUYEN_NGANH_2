@@ -58,7 +58,7 @@ namespace User_API.Services
 
         public IQueryable<User> GetUserDatas(bool isDisable)
         {
-            var user = _userRepository.Find(_ => _.IsDisable == isDisable);
+            var user = _userRepository.Find(isDisable != null ? _ => _.IsDisable == isDisable : null);
             return user;
         }
 

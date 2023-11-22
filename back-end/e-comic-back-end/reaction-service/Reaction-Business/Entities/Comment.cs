@@ -17,6 +17,7 @@ namespace Reaction_Business.Entities
             UserId = userId;
             UserAvatar = userAvatar;
             CommicId = commicId;
+            ModifiedDate = DateTime.Now;
         }
 
         public string CommentText { get; set; }

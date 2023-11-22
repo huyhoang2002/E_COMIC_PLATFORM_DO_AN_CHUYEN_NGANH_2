@@ -17,5 +17,12 @@ namespace AuthService.Application.Helpers
             var tokenDecoded = handler.ReadJwtToken(accessToken) as JwtSecurityToken;
             return tokenDecoded;
         }
+
+        public static JwtSecurityToken DecodeToken(string token)
+        {
+            var handler = new JwtSecurityTokenHandler();
+            var tokenDecoded = handler.ReadJwtToken(token) as JwtSecurityToken;
+            return tokenDecoded;
+        }
     }
 }

@@ -1,4 +1,5 @@
-﻿using AuthService.Application.ViewModels.Responses;
+﻿using AuthService.Application.Helpers;
+using AuthService.Application.ViewModels.Responses;
 using AuthService.Domain.Aggregates.Account;
 using AuthService.Infrastructure.CQRS.Command;
 using AuthService.Infrastructure.Persistence.Repositories.interfaces;
@@ -16,13 +17,13 @@ using System.Threading.Tasks;
 
 namespace AuthService.Application.CQRS.Commands
 {
-    public class LoginCommand : ICommand<CommandResult<TokenResponseViewModel>>
+    public class LoginCommand : ICommand<CommandResult<LoginResponseViewModel>>
     {
         public string Email { get; set; }
         public string Password { get; set; }
     }
 
-    public class LoginCommandHandler : ICommandHandler<LoginCommand, CommandResult<TokenResponseViewModel>>
+    public class LoginCommandHandler : ICommandHandler<LoginCommand, CommandResult<LoginResponseViewModel>>
     {
         private readonly IConfiguration _configuration;
         private readonly SignInManager<Account> _signInManager;
@@ -37,18 +38,20 @@ namespace AuthService.Application.CQRS.Commands
             _userManager = userManager;
         }
 
-        public async Task<CommandResult<TokenResponseViewModel>> Handle(LoginCommand request, CancellationToken cancellationToken)
+        public async Task<CommandResult<LoginResponseViewModel>> Handle(LoginCommand request, CancellationToken cancellationToken)
         {
             var account = _accountRepository.FirstOrDefault(_ => _.Email == request.Email);
             var signIn = await _signInManager.PasswordSignInAsync(account, request.Password, false, false);
             if (signIn.Succeeded is false)
-                return CommandResult<TokenResponseViewModel>.Error("Account is not found");
+                return CommandResult<LoginResponseViewModel>.Error("Account is not found");
             account.ModifyBlackFlag(account.Id);
             var claims = await getClaims(await _userManager.FindByEmailAsync(request.Email));
             var accessToken = generateToken(claims);
             var refreshToken = generateRefreshToken();
+            var tokenDecoded = DecodeTokenHelper.DecodeToken(accessToken);
+            var role = getRoleFromToken(tokenDecoded);
             account.SaveToken(accessToken, refreshToken, account.Id);
-            return CommandResult<TokenResponseViewModel>.Success(new TokenResponseViewModel(accessToken, refreshToken));
+            return CommandResult<LoginResponseViewModel>.Success(new LoginResponseViewModel(accessToken, refreshToken, role));
         }
 
         private string generateToken(List<Claim> claims)
@@ -89,6 +92,11 @@ namespace AuthService.Application.CQRS.Commands
                 claims.Add(new Claim(ClaimTypes.Role, role));
             }
             return claims;
+        }
+
+        private string getRoleFromToken(JwtSecurityToken token)
+        {
+            return token.Claims.FirstOrDefault(_ => _.Type == "http://schemas.microsoft.com/ws/2008/06/identity/claims/role").Value;
         }
     }
 }

@@ -110,6 +110,30 @@
       "DownstreamScheme": "http",
       "UpstreamPathTemplate": "/api/Comic/query",
       "UpstreamHttpMethod": [ "GET", "POST" ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/Reaction/{comicId}",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 5023
+        }
+      ],
+      "DownstreamScheme": "http",
+      "UpstreamPathTemplate": "/api/Reaction/{comicId}",
+      "UpstreamHttpMethod": [ "GET" ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/User/comment",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 5157
+        }
+      ],
+      "DownstreamScheme": "http",
+      "UpstreamPathTemplate": "/api/User/comment",
+      "UpstreamHttpMethod": [ "POST" ]
     }
   ]
 }

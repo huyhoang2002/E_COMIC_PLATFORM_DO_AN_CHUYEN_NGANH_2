@@ -17,6 +17,7 @@ namespace EventProcessor.Events
             UserId = userId;
             UserAvatar = userAvatar;
             CommicId = commicId;
+            ModifiedDate = DateTime.Now;
         }
 
         public string CommentText { get; set; }
@@ -25,5 +26,6 @@ namespace EventProcessor.Events
         public Guid UserId { get; set; }
         public string UserAvatar { get; set; }
         public Guid CommicId { get; set; }
+        public DateTime ModifiedDate { get; set; }
     }
 }

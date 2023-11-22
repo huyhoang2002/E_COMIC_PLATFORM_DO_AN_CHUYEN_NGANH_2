@@ -16,14 +16,14 @@ using System.Threading.Tasks;
 
 namespace AuthService.Application.CQRS.Commands
 {
-    public class RefreshTokenCommand : ICommand<CommandResult<TokenResponseViewModel>>
+    public class RefreshTokenCommand : ICommand<CommandResult<LoginResponseViewModel>>
     {
         public string AccessToken { get; set; }
         public string RefreshToken { get; set; }
         public string AccountId { get; set; }
     }
 
-    public class RefreshTokenCommandHandler : ICommandHandler<RefreshTokenCommand, CommandResult<TokenResponseViewModel>>
+    public class RefreshTokenCommandHandler : ICommandHandler<RefreshTokenCommand, CommandResult<LoginResponseViewModel>>
     {
         private readonly IConfiguration _configuration;
         private readonly IAccountRepository _accountRepository;
@@ -32,11 +32,11 @@ namespace AuthService.Application.CQRS.Commands
             _configuration = configuration;
             _accountRepository = accountRepository;
         }
-        public async Task<CommandResult<TokenResponseViewModel>> Handle(RefreshTokenCommand request, CancellationToken cancellationToken)
+        public async Task<CommandResult<LoginResponseViewModel>> Handle(RefreshTokenCommand request, CancellationToken cancellationToken)
         {
             var principal = getClaimsPrincipal(request.AccessToken);
             if (principal == null)
-                return CommandResult<TokenResponseViewModel>.Error("Invalid user credential");
+                return CommandResult<LoginResponseViewModel>.Error("Invalid user credential");
             var account = _accountRepository.FirstOrDefault(_ => _.Id == request.AccountId);
             if (account.ValidateRefreshToken(request.RefreshToken))
             {
@@ -44,9 +44,9 @@ namespace AuthService.Application.CQRS.Commands
                 var newAccessToken = generateAccessToken(principal.Claims.ToList());
                 var newRefreshToken = generateRefreshToken();
                 account.SaveToken(newAccessToken, newRefreshToken, account.Id);
-                return CommandResult<TokenResponseViewModel>.Success(new TokenResponseViewModel(newAccessToken, newRefreshToken));
+                return CommandResult<LoginResponseViewModel>.Success(new LoginResponseViewModel(newAccessToken, newRefreshToken));
             }
-            return CommandResult<TokenResponseViewModel>.Error("failed to verify user credential");
+            return CommandResult<LoginResponseViewModel>.Error("failed to verify user credential");
         }
 
         private string generateAccessToken(List<Claim> claims)

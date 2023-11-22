@@ -21,7 +21,7 @@ namespace Reaction_API.Controllers
         [Route("{comicId}")]
         public Task<IActionResult> GetCommentsByPostId(Guid comicId)
         {
-            var comments = _repository.GetQuery(_ => _.CommicId == comicId);
+            var comments = _repository.GetQuery(_ => _.CommicId == comicId).OrderByDescending(_ => _.ModifiedDate);
             return Task.FromResult<IActionResult>(Ok(comments));
         }
 

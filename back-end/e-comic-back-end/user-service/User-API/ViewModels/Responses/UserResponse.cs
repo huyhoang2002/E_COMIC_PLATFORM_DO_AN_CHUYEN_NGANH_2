@@ -4,6 +4,7 @@ namespace User_API.ViewModels.Responses
 {
     public class UserResponse
     {
+        public Guid Id { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public int Age { get; set; }
@@ -18,6 +19,7 @@ namespace User_API.ViewModels.Responses
 
         public UserResponse(User user)
         {
+            Id = user.Id;
             FirstName = user.FirstName;
             LastName = user.LastName;
             Age = user.Age;

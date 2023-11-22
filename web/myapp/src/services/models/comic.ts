@@ -60,3 +60,17 @@ export interface ISearchComicRequest extends IPaginationRequest {
     categoryId?: string
     keyWord: string
 }
+
+export interface ICommentRequest {
+    commentText: string
+    commentImage: string
+    userName: string
+    userId: string
+    userAvatar: string
+    commicId: string
+}
+
+export interface ICommentResponse extends ICommentRequest {
+    id: string
+    modifiedDate: Date
+}

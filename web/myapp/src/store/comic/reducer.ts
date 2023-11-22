@@ -140,6 +140,19 @@ const reducer = (state = initialState, action: AnyAction) => {
                 isLoading: false,
                 isSuccess: false
             }
+        case fromActionTypes.GET_COMIC_COMMENT:
+            return {
+                ...state,
+                isLoading: true
+            }
+        case fromActionTypes.GET_COMIC_COMMENT_SUCCESS:
+            console.log(action?.comments)
+            return {
+                ...state,
+                isLoading: false,
+                isSuccess: true,
+                comments: action?.comments
+            }
         case fromBaseTypes.RESET_STATE_ACTION:
             return initialState
         default:

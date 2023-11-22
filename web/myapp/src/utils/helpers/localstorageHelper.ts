@@ -14,4 +14,9 @@ export const getRefreshToken = (key: string) => {
 export const removeCredential = () => {
     localStorage.removeItem("accessToken")
     localStorage.removeItem("refreshToken")
+    localStorage.removeItem("role")
+}
+
+export const saveRole = (role: string) => {
+    localStorage.setItem("role", role)
 }

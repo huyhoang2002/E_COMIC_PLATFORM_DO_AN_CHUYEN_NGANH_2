@@ -18,7 +18,8 @@ const reducer = (state: IAuthInitialState = initialState, action: AnyAction) => 
                 isLoading: false,
                 isSuccess: true,
                 accessToken: action?.accessToken,
-                refreshToken: action?.refreshToken
+                refreshToken: action?.refreshToken,
+                role: action?.role
             }
         case fromActions.SIGN_IN_ERROR:
             return {

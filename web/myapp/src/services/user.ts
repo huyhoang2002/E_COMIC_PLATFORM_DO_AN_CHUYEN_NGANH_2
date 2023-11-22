@@ -1,5 +1,6 @@
 import { IBaseResponse } from "./base/base-response"
 import { getWithToken, postWithToken } from "./base/base-service"
+import { ICommentRequest } from "./models/comic"
 import { IAddUser } from "./models/user"
 
 export const getUserInfo = async () => {
@@ -23,6 +24,15 @@ export const getUserInfo = async () => {
 export const createUserProfile = async (user: IAddUser) => {
     try {
         const response = await postWithToken("/user", user)
+        return response.data
+    } catch (error) {
+        console.log(error)
+    }
+}
+
+export const comment = async (comment: ICommentRequest) => {
+    try {
+        const response = await postWithToken("/user/comment", comment)
         return response.data
     } catch (error) {
         console.log(error)

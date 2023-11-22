@@ -2,6 +2,7 @@ import { Action } from 'redux'
 import * as fromActions from './actionType'
 import { IComic, IComicEpisodeDetailResponse, IComicResponse, ISearchResponse, TEpisode } from '../../services/models/comic'
 import { TCategories } from '../../services/models/category'
+import { ICommentResponse } from '../../services/models/comic'
 
 export interface IGetComicAction extends Action {
     isDeleted: boolean,
@@ -213,5 +214,33 @@ export interface ISearchComicErrorAction extends Action {}
 export const searchComicErrorAction = (): ISearchComicErrorAction => {
     return {
         type: fromActions.SEARCH_COMIC_ERROR
+    }
+}
+
+export interface IGetComicComment extends Action {
+    comicId: string
+}
+export const getComicCommentAction = (comicId: string) => {
+    return {
+        type: fromActions.GET_COMIC_COMMENT,
+        comicId
+    }
+} 
+
+export interface IGetComicCommentSuccess extends Action {
+    comments: ICommentResponse[]
+}
+
+export const getComicCommentActionSuccess = (comments: ICommentResponse[]): IGetComicCommentSuccess => {
+    return {
+        type: fromActions.GET_COMIC_COMMENT_SUCCESS,
+        comments
+    }
+}
+
+export interface IGetComicCommentActionError extends Action {}
+export const getComicCommentActionError = (): IGetComicCommentActionError => {
+    return {
+        type: fromActions.GET_COMIC_COMMENT_ERROR
     }
 }

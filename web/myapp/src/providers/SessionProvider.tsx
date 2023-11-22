@@ -1,10 +1,8 @@
 import React, { createContext, useEffect } from 'react'
 import { useSelector } from 'react-redux'
-import { isSuccessSelector, messageSelector } from '../store/user/selector'
+import { isSuccessSelector } from '../store/user/selector'
 import { useDispatch } from 'react-redux'
 import { resetStateAction } from '../store/base/action'
-import { AlertWarning } from '../utils/helpers/alertHelper'
-
 
 interface ISessionContextValue {
 
@@ -17,9 +15,7 @@ const sessionContextValue : ISessionContextValue = {
 const SessionContext = createContext(sessionContextValue)
 
 const SessionProvider = ({ children }: { children: React.ReactNode }) => {  
-
     const isSuccess = useSelector(isSuccessSelector)
-    const message = useSelector(messageSelector)
     const dispatch = useDispatch()
     
     useEffect(() => {
@@ -31,8 +27,14 @@ const SessionProvider = ({ children }: { children: React.ReactNode }) => {
                 dispatch(resetStateAction())
             }
        }
-    }, [window.location.href, isSuccess])
-    
+    }, [window.location.href, window.localStorage])
+
+    // useEffect(() => {
+    //     if (window.localStorage.getItem("role") === "ADMIN") {
+    //         window.location.href = "/a"
+    //     }
+    // }, [window.localStorage])
+
     const values = {}
 
     return (

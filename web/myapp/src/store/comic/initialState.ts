@@ -1,5 +1,6 @@
 import { TCategories } from "../../services/models/category"
 import { IComic, IComicEpisodeDetailResponse, TEpisode } from "../../services/models/comic"
+import { ICommentResponse } from "../../services/models/comic"
 
 export type TComicInitialState = {
     data: Array<IComic>,
@@ -14,6 +15,7 @@ export type TComicInitialState = {
     categories: TCategories
     episodes: Array<TEpisode>
     comicEpisodeDetail: IComicEpisodeDetailResponse | undefined
+    comments: ICommentResponse[]
 }
 
 export const initialState : TComicInitialState = {
@@ -28,5 +30,6 @@ export const initialState : TComicInitialState = {
     isSuccess: undefined,
     categories: [] as TCategories,
     episodes: [] as Array<TEpisode>,
-    comicEpisodeDetail: undefined
+    comicEpisodeDetail: undefined,
+    comments: [] as ICommentResponse[]
 }

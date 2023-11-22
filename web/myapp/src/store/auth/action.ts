@@ -18,13 +18,15 @@ export interface ISignInActionSuccess extends Action {
     accessToken: string
     refreshToken: string
     tokenType: string
+    role: string
 }
-export const signInActionSuccess = (accessToken: string, refreshToken: string, tokenType: string) : ISignInActionSuccess => {
+export const signInActionSuccess = (accessToken: string, refreshToken: string, tokenType: string, role: string) : ISignInActionSuccess => {
     return {
         type: fromActions.SIGN_IN_SUCCESS,
         accessToken,
         refreshToken,
-        tokenType
+        tokenType,
+        role
     }
 }
 

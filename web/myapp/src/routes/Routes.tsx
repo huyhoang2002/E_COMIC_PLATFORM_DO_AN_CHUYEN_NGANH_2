@@ -18,6 +18,7 @@ import UpdateAuthor from '../pages/admin/author/UpdateAuthor'
 import AddNewComic from '../pages/admin/comic/AddNewComic'
 import Comic from '../pages/admin/comic/Comic'
 import ComicDetailPage from '../pages/admin/comic/ComicDetailPage/ComicDetailPage'
+import SessionProvider from '../providers/SessionProvider'
 export const routes = createBrowserRouter([
     {
         path: "/",

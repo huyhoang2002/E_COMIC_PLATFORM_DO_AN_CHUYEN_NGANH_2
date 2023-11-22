@@ -9,7 +9,7 @@ export function* signInSaga(action: ISignInAction) {
     try {
         const result: IBaseResponse<Token> = yield call(signInAsync, { email: action.email, password: action.password })
         if (result.isSuccess === true) {
-            yield put(signInActionSuccess(result.response.accessToken, result.response.refreshToken, result.response.tokenType))
+            yield put(signInActionSuccess(result.response.accessToken, result.response.refreshToken, result.response.tokenType, result.response.role))
         } else if (result.isSuccess === false) {
             yield put(signInActionError())
         }

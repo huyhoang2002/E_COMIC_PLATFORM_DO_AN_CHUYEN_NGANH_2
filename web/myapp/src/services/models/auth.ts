@@ -3,7 +3,11 @@ export interface ISignIn {
     password: string
 }
 
-export interface Token {
+export interface IRole {
+    role: string
+}
+
+export interface Token extends IRole {
     accessToken: string,
     refreshToken: string,
     tokenType: string
@@ -15,3 +19,4 @@ export interface ISignUp {
     password: string
     role: string
 }
+

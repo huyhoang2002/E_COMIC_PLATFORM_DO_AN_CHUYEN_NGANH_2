@@ -42,6 +42,23 @@ const reducer = (state: IUserInitialState = initialState, action: AnyAction) => 
                 isLoading: false,
                 isSuccess: false
             }
+        case fromActions.COMMENT:
+            return {
+                ...state,
+                isCommentLoading: true
+            }
+        case fromActions.COMMENT_SUCCESS:
+            return {
+                ...state,
+                isCommentLoading: false,
+                isCommentSuccess: true
+            }
+        case fromActions.COMMENT_ERROR:
+            return {
+                ...state,
+                isCommentLoading: false,
+                isCommentSuccess: false
+            }
         case fromBaseActions.RESET_STATE_ACTION:
             return initialState
         default:

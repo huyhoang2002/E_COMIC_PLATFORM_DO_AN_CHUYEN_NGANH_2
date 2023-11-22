@@ -1,7 +1,7 @@
 import { call, put, takeLatest } from 'redux-saga/effects'
-import { getComicById, getComicEpisode, getComicEpisodeDetail, getComicEpisodeDetailByEpisodeId, getComics, searchComic } from '../../services/comic'
-import { IComic, IComicEpisodeDetailResponse, IComicResponse, ISearchComicRequest, ISearchResponse, TEpisode } from '../../services/models/comic'
-import { IGetComicAction, IGetComicByIdAction, IGetComicEpisodeDetailAction, IGetComicEpisodeDetailByIdAction, IGetComicEpisodesAction, ISearchComicAction, getCategoriesErrorAction, getCategoriesSuccessAction, getComicActionError, getComicActionSuccess, getComicByActionSuccess, getComicByIdActionError, getComicEpisodeDetailActionError, getComicEpisodeDetailActionSuccess, getComicEpisodeDetailByIdActionError, getComicEpisodeDetailByIdActionSuccess, getComicEpisodesActionError, getComicEpisodesActionSuccess, searchComicErrorAction, searchComicSuccessAction } from './action'
+import { getComicById, getComicComment, getComicEpisode, getComicEpisodeDetail, getComicEpisodeDetailByEpisodeId, getComics, searchComic } from '../../services/comic'
+import { IComic, IComicEpisodeDetailResponse, IComicResponse, ICommentResponse, ISearchComicRequest, ISearchResponse, TEpisode } from '../../services/models/comic'
+import { IGetComicAction, IGetComicByIdAction, IGetComicComment, IGetComicEpisodeDetailAction, IGetComicEpisodeDetailByIdAction, IGetComicEpisodesAction, ISearchComicAction, getCategoriesErrorAction, getCategoriesSuccessAction, getComicActionError, getComicActionSuccess, getComicByActionSuccess, getComicByIdActionError, getComicCommentActionError, getComicCommentActionSuccess, getComicEpisodeDetailActionError, getComicEpisodeDetailActionSuccess, getComicEpisodeDetailByIdActionError, getComicEpisodeDetailByIdActionSuccess, getComicEpisodesActionError, getComicEpisodesActionSuccess, searchComicErrorAction, searchComicSuccessAction } from './action'
 import * as fromActionTypes from './actionType'
 import { getCategories } from '../../services/category'
 import { TCategories } from '../../services/models/category'
@@ -112,6 +112,19 @@ export function* searchComicSaga(action: ISearchComicAction) {
     }
 }
 
+export function* getComicCommentSaga(action: IGetComicComment) {
+    try {
+        const result: ICommentResponse[] = yield call(getComicComment, action.comicId)
+        if (result !== undefined || null) {
+            yield put(getComicCommentActionSuccess(result))
+        } else {
+            yield put(getComicCommentActionError())
+        }
+    } catch (error) {
+        console.log(error)
+    }
+}
+
 const sagas = [
     takeLatest(fromActionTypes.GET_COMICS, getComicsSaga),
     takeLatest(fromActionTypes.GET_CATEGORIES, getCategoriesSaga),
@@ -119,7 +132,8 @@ const sagas = [
     takeLatest(fromActionTypes.GET_COMIC_EPISODES, getComicEpisodesSaga),
     takeLatest(fromActionTypes.GET_COMIC_EPISODE_DETAIL, getComicEpisodeDetailSaga),
     takeLatest(fromActionTypes.GET_COMIC_EPISODE_DETAIL_BY_ID, getComicEpisodeDetailByIdSaga),
-    takeLatest(fromActionTypes.SEARCH_COMIC, searchComicSaga)
+    takeLatest(fromActionTypes.SEARCH_COMIC, searchComicSaga),
+    takeLatest(fromActionTypes.GET_COMIC_COMMENT, getComicCommentSaga)
 ]
 
 export default sagas

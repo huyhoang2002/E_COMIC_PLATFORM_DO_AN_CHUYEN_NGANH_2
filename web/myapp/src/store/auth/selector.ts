@@ -13,3 +13,5 @@ export const accessTokenSelector = createSelector(authReducer, (state: IAuthInit
 export const refreshTokenSelector = createSelector(authReducer, (state: IAuthInitialState) => state.refreshToken)
 
 export const tokenTypeSelector = createSelector(authReducer, (state: IAuthInitialState) => state.tokenType)
+
+export const roleSelector = createSelector(authReducer, (state: IAuthInitialState) => state.role)

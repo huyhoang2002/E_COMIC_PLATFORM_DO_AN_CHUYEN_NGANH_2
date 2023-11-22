@@ -60,3 +60,12 @@ export const searchComic = async ({ keyWord, categoryId, pageIndex, pageSize }: 
         console.log(error)
     }
 }
+
+export const getComicComment = async (comicId: string) => {
+    try {
+        const response = await get(`/reaction/${comicId}`)
+        return response.data
+    } catch (error) {
+        console.log(error)
+    }
+}

@@ -11,3 +11,7 @@ export const isLoadingSelector = createSelector(userReducer, (state: IUserInitia
 export const isSuccessSelector = createSelector(userReducer, (state: IUserInitialState) => state.isSuccess)
 
 export const messageSelector = createSelector(userReducer, (state: IUserInitialState) => state.message)
+
+export const isLoadingCommentSelector = createSelector(userReducer, (state: IUserInitialState) => state.isCommentLoading)
+
+export const isSuccessCommentSelector = createSelector(userReducer, (state: IUserInitialState) => state.isCommentSuccess)

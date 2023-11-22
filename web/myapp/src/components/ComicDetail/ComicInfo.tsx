@@ -33,14 +33,14 @@ const ComicInfo = () => {
           latestEpisodeUpdate={episode.length}
           description={comic?.description as string}
         />
-      </div>
-      <div className="flex flex-col w-[370px] md:w-[700px] lg:w-[1100px] justify-between bg-white">
-        <div className='text-black flex gap-6 m-5 cursor-pointer'>
-          <p className='font-medium hover:text-orange-600' onClick={navigateToVolList.bind(this)}>VOL.</p>
-          <p className='font-medium hover:text-orange-600' onClick={navigateToCommentList.bind(this)}>Comment</p>
-        </div>       
-        <div>
-          <Outlet />
+        <div className="flex flex-col w-[370px] md:w-[700px] lg:w-[1100px] justify-between bg-white">
+          <div className='text-black flex gap-6 m-5 cursor-pointer'>
+            <p className='font-medium hover:text-orange-600' onClick={navigateToVolList.bind(this)}>VOL.</p>
+            <p className='font-medium hover:text-orange-600' onClick={navigateToCommentList.bind(this)}>Comment</p>
+          </div>       
+          <div>
+            <Outlet />
+          </div>
         </div>
       </div>
     </>

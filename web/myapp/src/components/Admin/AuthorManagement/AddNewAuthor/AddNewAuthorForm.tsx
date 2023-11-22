@@ -10,10 +10,17 @@ const AddNewAuthorForm = () => {
     setPreviewImage(preview)
   }
 
-  const handleRevokeImage = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const handleOpenImagePicker = () => {
+
+  }
+
+  const handleRevokeImage = () => {
     URL.revokeObjectURL(previewImage as string)
     setPreviewImage("")
-    event.target.value = ""
+    if (previewImage === "") {
+      const authorImage = document.getElementById("author-image") as HTMLInputElement
+      authorImage.value = ""
+    }
   }
 
   useEffect(() => {
@@ -50,10 +57,15 @@ const AddNewAuthorForm = () => {
           <div className="overflow-hidden h-[150px] w-[150px] rounded-[75px]">
             <img src={previewImage} alt="" className="object-cover h-full"/>
           </div>
-          <input type="file" name="" id="" onChange={handleChangeImagePicker}/>
+          {/* <input type="file" name="" id="author-image" onChange={handleChangeImagePicker}/> */}
+          <div>
+            <Button onClick={handleOpenImagePicker}>Select image
+              <input className="absolute top-0 opacity-0 left-0" type="file" onChange={handleChangeImagePicker}/>
+            </Button>
+          </div>
           {previewImage && <div className="flex gap-1">
               <Button>Upload</Button>
-              <Button className="bg-red-600">Cancel</Button>
+              <Button className="bg-red-600" onClick={handleRevokeImage}>Cancel</Button>
             </div>}
         </form>
       </div>

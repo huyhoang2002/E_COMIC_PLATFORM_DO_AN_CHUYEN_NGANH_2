@@ -1,6 +1,7 @@
 import { Button } from "flowbite-react"
 import AuthorCard from "../../../components/Admin/AuthorManagement/AuthorCard"
 import { useNavigate } from "react-router-dom"
+import FilterAndSearchBar from "../../../components/Admin/FilterAndSearchBar"
 
 const Author = () => {
 
@@ -20,6 +21,15 @@ const Author = () => {
         <h1 className="text-[30px] font-bold text-orange-600">Author Management</h1>
         <Button onClick={handleNavigateToCreateAuthorPage}>Add new author</Button>
       </div>
+      <FilterAndSearchBar 
+        sortElement={
+          <div className="flex gap-2 items-center">
+            <label htmlFor="">Name</label>
+            <input type="checkbox" name="" id="" />
+          </div>
+        }
+        searchDomain="author"
+      />
       <div className="flex flex-row gap-3 flex-wrap">
         <AuthorCard 
           name="Huy"

@@ -17,6 +17,7 @@ import AddNewAuthor from '../pages/admin/author/AddNewAuthor'
 import UpdateAuthor from '../pages/admin/author/UpdateAuthor'
 import AddNewComic from '../pages/admin/comic/AddNewComic'
 import Comic from '../pages/admin/comic/Comic'
+import ComicDetailPage from '../pages/admin/comic/ComicDetailPage/ComicDetailPage'
 export const routes = createBrowserRouter([
     {
         path: "/",
@@ -81,6 +82,10 @@ export const routes = createBrowserRouter([
                     {
                         path: fromRoutes.ADD_NEW_COMIC,
                         element: <AddNewComic />
+                    },
+                    {
+                        path: fromRoutes.COMIC_DETAIL_ADMIN,
+                        element: <ComicDetailPage />
                     }
                 ]
             }

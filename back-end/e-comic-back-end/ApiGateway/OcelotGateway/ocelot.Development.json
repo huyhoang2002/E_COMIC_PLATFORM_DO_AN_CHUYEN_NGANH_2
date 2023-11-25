@@ -134,6 +134,30 @@
       "DownstreamScheme": "http",
       "UpstreamPathTemplate": "/api/User/comment",
       "UpstreamHttpMethod": [ "POST" ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/author",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 5016
+        }
+      ],
+      "DownstreamScheme": "http",
+      "UpstreamPathTemplate": "/api/author",
+      "UpstreamHttpMethod": [ "GET" ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/author/{id}",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 5016
+        }
+      ],
+      "DownstreamScheme": "http",
+      "UpstreamPathTemplate": "/api/author/{id}",
+      "UpstreamHttpMethod": [ "GET" ]
     }
   ]
 }

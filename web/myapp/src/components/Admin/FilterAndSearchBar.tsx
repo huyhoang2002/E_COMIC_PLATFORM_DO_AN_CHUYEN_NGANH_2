@@ -1,9 +1,12 @@
+import { useState } from "react"
+
 type TProps = {
   sortElement: React.ReactNode,
-  searchDomain: string
+  searchDomain: string,
+  handleChangeKeyword: (value: string) => void
 }
 
-const SortAndSearchBar = ({ sortElement, searchDomain }: TProps) => {
+const SortAndSearchBar = ({ sortElement, searchDomain, handleChangeKeyword }: TProps) => {
   return (
     <div className="flex justify-between">
       <div className="flex gap-3 items-center">
@@ -11,7 +14,7 @@ const SortAndSearchBar = ({ sortElement, searchDomain }: TProps) => {
         {sortElement}
       </div>
       <div className="text-white">
-        <input placeholder={`search ${searchDomain}...`} className="rounded-3xl w-[300px] text-black" type="text" name="" id="" />
+        <input onChange={(event) => handleChangeKeyword(event.target.value)} placeholder={`search ${searchDomain}...`} className="rounded-3xl w-[300px] text-black" type="text" name="" id="" />
       </div>
     </div>
   )

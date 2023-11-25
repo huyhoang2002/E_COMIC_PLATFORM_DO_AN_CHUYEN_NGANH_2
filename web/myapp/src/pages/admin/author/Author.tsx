@@ -1,18 +1,44 @@
 import { Button } from "flowbite-react"
 import AuthorCard from "../../../components/Admin/AuthorManagement/AuthorCard"
-import { useNavigate } from "react-router-dom"
+import { useNavigate, useSearchParams } from "react-router-dom"
 import FilterAndSearchBar from "../../../components/Admin/FilterAndSearchBar"
+import { useDispatch } from "react-redux"
+import { useSelector } from "react-redux"
+import { authorSelector } from "../../../store/comic/selector"
+import { useEffect } from "react"
+import { getAuthorAction } from "../../../store/comic/action"
+import { resetStateAction } from "../../../store/base/action"
 
 const Author = () => {
 
   const navigate = useNavigate()
+  const dispatch = useDispatch()
+  const authors = useSelector(authorSelector)
+  const [ searchParams, setSearchParams ] = useSearchParams()
+  const isDeleted = searchParams.get("isDeleted")
+  const keyword = searchParams.get("keyword") as string | undefined 
+
+  useEffect(() => {
+    dispatch(getAuthorAction(Boolean(isDeleted), keyword))
+
+    return () => {
+      dispatch(resetStateAction())
+    }
+  }, [dispatch, searchParams, keyword])
+
+  const handleChangeKeyword = (value: string) => {
+    setSearchParams({
+      ...searchParams,
+      keyword: value
+    })
+  }
 
   const handleNavigateToCreateAuthorPage = () => {
     navigate("new-author")
   }
 
-  const handleNavigateToUpdateAuthorPage = () => {
-    navigate("update-author")
+  const handleNavigateToUpdateAuthorPage = (authorId: string) => {
+    navigate(`update-author/${authorId}`)
   }
 
   return (
@@ -22,6 +48,7 @@ const Author = () => {
         <Button onClick={handleNavigateToCreateAuthorPage}>Add new author</Button>
       </div>
       <FilterAndSearchBar 
+        handleChangeKeyword={handleChangeKeyword}
         sortElement={
           <div className="flex gap-2 items-center">
             <label htmlFor="">Name</label>
@@ -31,17 +58,16 @@ const Author = () => {
         searchDomain="author"
       />
       <div className="flex flex-row gap-3 flex-wrap">
-        <AuthorCard 
-          name="Huy"
-          dateOfBirth={new Date().toDateString()}
-          avatarUrl="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcT5Vy3FsVx6FMWAGbADrJiFA3x0gjnCrPWBi8a7mEAhAL6oObhY"
-          onEdit={handleNavigateToUpdateAuthorPage}
-        />
-        <AuthorCard 
-          name="Huy"
-          dateOfBirth={new Date().toDateString()}
-          avatarUrl="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcT5Vy3FsVx6FMWAGbADrJiFA3x0gjnCrPWBi8a7mEAhAL6oObhY"
-        />
+        {authors.map(author => {
+          return (
+            <AuthorCard 
+              name={author.name}
+              dateOfBirth={new Date(author.dateOfBirth).toDateString()}
+              avatarUrl={author.avatarImage as string}
+              onEdit={handleNavigateToUpdateAuthorPage.bind(this, author.id)}
+            />
+          )
+        })}
       </div>
     </div>
   )

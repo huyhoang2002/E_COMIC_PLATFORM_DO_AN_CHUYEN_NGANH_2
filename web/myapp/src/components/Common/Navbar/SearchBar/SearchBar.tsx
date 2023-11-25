@@ -2,10 +2,11 @@ import { FaSearch } from 'react-icons/fa'
 import { useSelector } from 'react-redux'
 import { useDispatch } from 'react-redux'
 import { searchResultSelector } from '../../../../store/comic/selector'
-import { useEffect, useState } from 'react'
+import { useCallback, useEffect, useState } from 'react'
 import { searchComicAction } from '../../../../store/comic/action'
 import { useNavigate } from 'react-router-dom'
 import UseDisclosure from '../../../../hooks/UseDisclosure'
+import { resetStateAction } from '../../../../store/base/action'
 
 const SearchBar = () => {
 
@@ -19,6 +20,7 @@ const SearchBar = () => {
 
   const handleNavigateToComic = (id: string) => {
     navigate(`detail/${id}`)
+    setKeyword("")
   } 
 
   const searchResults = useSelector(searchResultSelector)
@@ -31,10 +33,10 @@ const SearchBar = () => {
   return (
     <div>
         <div className="relative">
-            <input onChange={handleChangeKeyword} onFocus={onOpen} onBlur={onClose} placeholder="Search..." className="px-2 h-10 w-[310px] sm:w-[550px] md:w-[700px] lg:w-[500px] outline-orange-500 rounded-[20px]" type="text" name="" id="" />
+            <input value={keyword} onChange={handleChangeKeyword} onFocus={onOpen} placeholder="Search..." className="px-2 h-10 w-[310px] sm:w-[550px] md:w-[700px] lg:w-[500px] outline-orange-500 rounded-[20px]" type="text" />
             <div className='absolute right-0 top-3 mr-5'><FaSearch style={{ color: "#f97316"}}/></div>
         </div>
-        {isOpen === true && <div className='absolute bg-gray-800 w-[310px] md:w-[500px] min-h-[60px] mt-5'>
+        {keyword.length > 0 && <div className='absolute bg-gray-800 w-[310px] md:w-[500px] min-h-[60px] mt-5'>
           <div className='w-full p-5 border-b-[1px] border-orange-600'>
             <p className='text-white font-medium'>Search for {keyword}...</p>
           </div>

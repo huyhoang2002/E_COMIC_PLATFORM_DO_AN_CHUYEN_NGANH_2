@@ -1,5 +1,5 @@
 import { TCategories } from "../../services/models/category"
-import { IComic, IComicEpisodeDetailResponse, TEpisode } from "../../services/models/comic"
+import { IAuthorResponse, IComic, IComicEpisodeDetailResponse, TEpisode } from "../../services/models/comic"
 import { ICommentResponse } from "../../services/models/comic"
 
 export type TComicInitialState = {
@@ -16,6 +16,8 @@ export type TComicInitialState = {
     episodes: Array<TEpisode>
     comicEpisodeDetail: IComicEpisodeDetailResponse | undefined
     comments: ICommentResponse[]
+    authors: IAuthorResponse[]
+    author: IAuthorResponse | undefined
 }
 
 export const initialState : TComicInitialState = {
@@ -31,5 +33,7 @@ export const initialState : TComicInitialState = {
     categories: [] as TCategories,
     episodes: [] as Array<TEpisode>,
     comicEpisodeDetail: undefined,
-    comments: [] as ICommentResponse[]
+    comments: [] as ICommentResponse[],
+    authors: [] as IAuthorResponse[], 
+    author: undefined
 }

@@ -23,7 +23,7 @@ const ComicInfo = () => {
 
   return (
     <>
-      <div className="flex h-[120vh] pt-[150px] flex-col gap-3 items-center">
+      <div className="flex pt-[150px] flex-col gap-3 items-center">
         <ComicDetail 
           title={comic?.title as string}
           authorName={comic?.author.name as string}

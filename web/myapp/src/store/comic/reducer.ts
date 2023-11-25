@@ -153,6 +153,59 @@ const reducer = (state = initialState, action: AnyAction) => {
                 isSuccess: true,
                 comments: action?.comments
             }
+        case fromActionTypes.GET_AUTHOR:
+            return {
+                ...state,
+                isLoading: true
+            }
+        case fromActionTypes.GET_AUTHOR_SUCCESS:
+            return {
+                ...state,
+                isLoading: false,
+                isSuccess: true,
+                authors: action?.authors
+            }
+        case fromActionTypes.GET_AUTHOR_ERROR: 
+            return {
+                ...state,
+                isLoading: false,
+                isSuccess: false
+            }
+        case fromActionTypes.GET_AUTHOR_BY_ID:
+            return {
+                ...state,
+                isLoading: true
+            }
+        case fromActionTypes.GET_AUTHOR_BY_ID_SUCCESS:
+            return {
+                ...state,
+                isLoading: false,
+                isSuccess: true,
+                author: action?.author
+            }
+        case fromActionTypes.GET_AUTHOR_BY_ID_ERROR:
+            return {
+                ...state,
+                isLoading: false,
+                isSuccess: false
+            }
+        case fromActionTypes.ADD_COMIC:
+            return {
+                ...state,
+                isLoading: true
+            }
+        case fromActionTypes.ADD_COMIC_SUCCESS:
+            return {
+                ...state,
+                isLoading: false,
+                isSuccess: true
+            }
+        case fromActionTypes.ADD_COMIC_ERROR:
+            return {
+                ...state,
+                isLoading: false,
+                isSuccess: false
+            }
         case fromBaseTypes.RESET_STATE_ACTION:
             return initialState
         default:

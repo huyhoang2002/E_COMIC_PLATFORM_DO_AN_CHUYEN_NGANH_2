@@ -1,9 +1,33 @@
 import { Button } from "flowbite-react"
 import { useEffect, useState } from "react"
+import { useForm } from "react-hook-form"
+import { IAuthorResponse } from "../../../../services/models/comic"
+import { useDispatch } from "react-redux"
+import { useSelector } from "react-redux"
+import { authorByIdSelector, isLoadingSelector, isSuccessSelector } from "../../../../store/comic/selector"
+import { resetStateAction } from "../../../../store/base/action"
+import { getAuthorByIdAction } from "../../../../store/comic/action"
+import { useParams } from "react-router-dom"
 
 const UpdateAuthorForm = () => {
-
+  const dispatch = useDispatch()
+  const author = useSelector(authorByIdSelector)
+  const isSuccess = useSelector(isSuccessSelector)
+  const params = useParams()
+  const isLoading = useSelector(isLoadingSelector)
   const [ previewImage, setPreviewImage ] = useState<string>()
+  const { handleSubmit, getValues, register } = useForm<IAuthorResponse>({
+    values: author
+  })
+
+  useEffect(() => {
+    dispatch(getAuthorByIdAction(params?.authorId as string))
+    return () => {
+      if (isSuccess === true || isSuccess === false) {
+        dispatch(resetStateAction())
+      }
+    }
+  }, [params, isSuccess])
 
   const handleChangeImagePicker = (event: React.ChangeEvent<HTMLInputElement>) => {
     var preview = URL.createObjectURL(event.target.files![0])
@@ -27,15 +51,15 @@ const UpdateAuthorForm = () => {
       <form className="w-full h-fit bg-gray-700 p-5 flex flex-col gap-5">
         <div className="flex flex-col gap-5">
           <label htmlFor="">Author name</label>
-          <input className="text-black" placeholder="name..." type="text" />
+          <input {...register("name")} className="text-black" placeholder="name..." type="text" />
         </div>
         <div className="flex flex-col gap-5">
           <label htmlFor="">Date of birth</label>
-          <input className="text-black" type="date" />
+          <input {...register("dateOfBirth")} className="text-black" type="date" />
         </div>
         <div className="flex flex-col gap-5">
           <label htmlFor="">Description</label>
-          <textarea className="resize-none h-[300px] text-black" placeholder="description..."/>
+          <textarea {...register("description")} className="resize-none h-[300px] text-black" placeholder="description..."/>
         </div>
         <div className="flex gap-2">
           <Button className="bg-orange-600">Submit</Button>

@@ -1,5 +1,23 @@
-import { get } from "./base/base-service"
-import { IComicResponse, ISearchComicRequest } from "./models/comic";
+import { get, postWithToken } from "./base/base-service"
+import { IAddComicRequest, IComicResponse, ISearchComicRequest } from "./models/comic";
+
+export const getAuthor = async (isDeleted: boolean, keyword?: string) => {
+    try {
+        const response = await get(keyword === undefined || keyword === null ? `/author?isDeleted=${isDeleted}` : `/author?keyword=${keyword}&isDeleted=${isDeleted}`)
+        return response.data
+    } catch (error) {
+        console.log(error)
+    }
+}
+
+export const getAuthorById = async (id: string) => {
+    try {
+        const response = await get(`/author/${id}`)
+        return response.data
+    } catch (error) {
+        console.log(error)
+    }
+}
 
 export const getComics = async (isDeleted: boolean, pageSize: number, pageIndex: number) => {
     try {
@@ -64,6 +82,15 @@ export const searchComic = async ({ keyWord, categoryId, pageIndex, pageSize }: 
 export const getComicComment = async (comicId: string) => {
     try {
         const response = await get(`/reaction/${comicId}`)
+        return response.data
+    } catch (error) {
+        console.log(error)
+    }
+}
+
+export const addComic = async (request: IAddComicRequest) => {
+    try {
+        const response = await postWithToken("/comic", request)
         return response.data
     } catch (error) {
         console.log(error)

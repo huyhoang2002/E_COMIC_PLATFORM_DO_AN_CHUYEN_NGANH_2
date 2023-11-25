@@ -74,3 +74,20 @@ export interface ICommentResponse extends ICommentRequest {
     id: string
     modifiedDate: Date
 }
+
+export interface IAuthorResponse {
+    id: string
+    name: string
+    dateOfBirth: string
+    description: string
+    avatarImage: string | null
+    comics: IComic[]
+}
+
+export interface IAddComicRequest {
+    title: string
+    description: string
+    authorId: string
+    categoryId: string
+    file: any
+}

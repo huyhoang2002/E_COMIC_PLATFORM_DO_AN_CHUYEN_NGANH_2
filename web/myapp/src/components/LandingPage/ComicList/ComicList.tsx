@@ -1,4 +1,4 @@
-import { connect, useSelector } from "react-redux"
+import { useSelector } from "react-redux"
 import { categoriesSelector, comicsSelector, isLoadingSelector, isSuccessSelector } from "../../../store/comic/selector"
 import { useEffect } from "react"
 import { getCategoriesAction, getComicAction } from "../../../store/comic/action"
@@ -51,7 +51,7 @@ const ComicList = () => {
                 />
             </div>
         </div>
-        {isLoading === true ? 
+        {isSuccess === false ? 
         <div className="flex w-full justify-center items-center h-[100vh]">
             <Spinner className="text-orange-600 h-[50px] w-[50px]" />
         </div> : 

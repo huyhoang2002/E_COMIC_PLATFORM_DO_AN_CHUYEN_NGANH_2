@@ -1,6 +1,6 @@
 import { Action } from 'redux'
 import * as fromActions from './actionType'
-import { IComic, IComicEpisodeDetailResponse, IComicResponse, ISearchResponse, TEpisode } from '../../services/models/comic'
+import { IAddComicRequest, IAuthorResponse, IComic, IComicEpisodeDetailResponse, IComicResponse, ISearchResponse, TEpisode } from '../../services/models/comic'
 import { TCategories } from '../../services/models/category'
 import { ICommentResponse } from '../../services/models/comic'
 
@@ -242,5 +242,93 @@ export interface IGetComicCommentActionError extends Action {}
 export const getComicCommentActionError = (): IGetComicCommentActionError => {
     return {
         type: fromActions.GET_COMIC_COMMENT_ERROR
+    }
+}
+
+export interface IGetAuthorAction extends Action {
+    isDelete: boolean
+    keyword?: string
+}
+export const getAuthorAction = (isDelete: boolean, keyword?: string): IGetAuthorAction => {
+    return {
+        type: fromActions.GET_AUTHOR,
+        isDelete,
+        keyword
+    }
+} 
+
+export interface IGetAuthorActionSuccess extends Action {
+    authors: IAuthorResponse[]
+}
+export const getAuthorActionSuccess = (authors: IAuthorResponse[]): IGetAuthorActionSuccess => {
+    return {
+        type: fromActions.GET_AUTHOR_SUCCESS,
+        authors
+    }
+}
+
+export interface IGetAuthorActionError extends Action {}
+export const getAuthorActionError = (): IGetAuthorActionError => {
+    return {
+        type: fromActions.GET_AUTHOR_ERROR
+    }
+}
+
+export interface IGetAuthorByIdAction extends Action {
+    authorId: string
+}
+export const getAuthorByIdAction = (authorId: string): IGetAuthorByIdAction => {
+    return {
+        type: fromActions.GET_AUTHOR_BY_ID,
+        authorId
+    }
+}                                         
+
+export interface IGetAuthorByIdActionSuccess extends Action {
+    author: IAuthorResponse
+}
+export const getAuthorByIdActionSuccess = (author: IAuthorResponse) => {
+    return {
+        type: fromActions.GET_AUTHOR_BY_ID_SUCCESS,
+        author
+    }
+}
+
+export interface IGetAuthorByIdActionError extends Action {}
+export const getAuthorByIdActionError = (): IGetAuthorByIdActionError => {
+    return {
+        type: fromActions.GET_AUTHOR_BY_ID_ERROR,
+    }
+}
+
+export interface IAddComicAction extends Action {
+    title: string
+    description: string
+    authorId: string
+    categoryId: string
+    file: any
+}
+export const addComicAction = (title: string, description: string, authorId: string, categoryId: string, file: any): IAddComicAction => {
+    return {
+        type: fromActions.ADD_COMIC,
+        title,
+        description,
+        authorId,
+        categoryId,
+        file
+    }
+}
+
+export interface IAddComicActionSuccess extends Action {}
+export const addComicActionSuccess = (): IAddComicActionSuccess => {
+    return {
+        type: fromActions.ADD_COMIC_SUCCESS,
+    }
+}
+
+export interface IAddComicActionError extends Action {}
+export const addComicActionError = (): IAddComicActionError => {
+    return {
+        type: fromActions.ADD_COMIC_ERROR
     }
 }

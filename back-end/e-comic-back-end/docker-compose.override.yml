@@ -72,3 +72,10 @@ services:
       - e-comic-sql-server
       - rabbitmq
 
+
+  comic-service.signalr:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+    ports:
+      - "5261:80"
+

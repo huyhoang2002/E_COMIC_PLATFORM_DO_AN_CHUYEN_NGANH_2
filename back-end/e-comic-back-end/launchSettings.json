@@ -6,7 +6,8 @@
       "serviceActions": {
         "auth.api": "StartDebugging",
         "comic-api": "StartDebugging",
-        "user-api": "StartDebugging"
+        "user-api": "StartDebugging",
+        "comic-service.signalr": "StartDebugging"
       }
     }
   }

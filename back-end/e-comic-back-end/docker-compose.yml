@@ -32,3 +32,10 @@ services:
       context: .
       dockerfile: reaction-service/Reaction-API/Dockerfile
 
+
+  comic-service.signalr:
+    image: ${DOCKER_REGISTRY-}comicservicesignalr
+    build:
+      context: .
+      dockerfile: comic-service/Comic-service.SignalR/Dockerfile
+

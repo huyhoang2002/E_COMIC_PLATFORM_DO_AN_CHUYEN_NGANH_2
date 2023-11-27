@@ -37,13 +37,27 @@ namespace Favorite.Service
         public Task<IQueryable<GetFavoriteComicResponse>> GetFavoriteComicsByUserId(Guid userId)
         {
             var favoriteComics = _repository.GetQuery(_ => _.UserId == userId);
-            var getFavoriteComicResponse = _mapper.Map<IQueryable<GetFavoriteComicResponse>>(favoriteComics);
-            return Task.FromResult(getFavoriteComicResponse);
-        }
+            var response = favoriteComics.Select(_ => new GetFavoriteComicResponse(
+                _.Id,
+                _.ComicTitle,
+                _.ComicUrl,
+                _.ComicId,
+                _.UserId,
+                _.UserName
+                ));
+            return Task.FromResult(response);
+        } 
 
-        public Task RemoveComicFromFavorite()
+        public Task<Response> RemoveComicFromFavorite(Guid id)
         {
-            throw new NotImplementedException();
+            var favoriteComic = _repository.FirstOrDefault(_ => _.Id == id);
+            if (favoriteComic == null)
+            {
+                return Task.FromResult(new Response(false, "favorite comic not found"));
+            }
+            _repository.Delete(favoriteComic);
+            Task.FromResult(_unitOfWork.SaveChangesAsync());
+            return Task.FromResult(new Response(true, "Remove comic success"));
         }
     }
 }

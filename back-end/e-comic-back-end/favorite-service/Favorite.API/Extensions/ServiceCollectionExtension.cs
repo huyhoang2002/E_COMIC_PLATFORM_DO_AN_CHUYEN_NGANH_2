@@ -11,6 +11,7 @@ namespace Favorite.API.Extensions
             services.AddMassTransit(config =>
             {
                 config.AddConsumer<AddComicToFavoriteConsumer>();
+                config.AddConsumer<RemoveComicFromFavoriteConsumer>(); 
                 config.UsingRabbitMq((ctx, config) =>
                 {
                     config.Host(configuration["EventBusSettings:RabbitMQ"], host =>
@@ -21,6 +22,10 @@ namespace Favorite.API.Extensions
                     config.ReceiveEndpoint(EventBusConstant.ADD_COMIC_TO_FAVORITE_EVENT, config =>
                     {
                         config.ConfigureConsumer<AddComicToFavoriteConsumer>(ctx);
+                    });
+                    config.ReceiveEndpoint(EventBusConstant.REMOVE_COMIC_FROM_FAVORITE_EVENT, config =>
+                    {
+                        config.ConfigureConsumer<RemoveComicFromFavoriteConsumer>(ctx);
                     });
                 });
             });

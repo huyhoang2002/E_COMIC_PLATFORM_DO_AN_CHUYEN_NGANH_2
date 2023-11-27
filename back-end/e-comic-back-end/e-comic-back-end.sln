@@ -61,7 +61,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Comic-service.SignalR", "co
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "bot-service", "bot-service", "{182A7936-3902-46E9-BCE0-AA4ADA9C4E09}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EComic-bot", "bot-service\EComic-bot\EComic-bot.csproj", "{ECDCA63A-8C65-493F-B8CB-B2DDA094CF5E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EComic-bot", "bot-service\EComic-bot\EComic-bot.csproj", "{ECDCA63A-8C65-493F-B8CB-B2DDA094CF5E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Favorite.Business", "favorite-service\Favorite.Business\Favorite.Business\Favorite.Business.csproj", "{9FA00AE0-CB9E-4EFF-A74D-895F925B1E7E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Favorite.Data", "favorite-service\Favorite.Data\Favorite.Data\Favorite.Data.csproj", "{FDD0029B-2CB9-4308-96DF-BC7177BE266E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Favorite.Service", "favorite-service\Favorite.Service\Favorite.Service\Favorite.Service.csproj", "{186887ED-3C4E-4656-8814-8EAD2D73030D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -149,6 +155,18 @@ Global
 		{ECDCA63A-8C65-493F-B8CB-B2DDA094CF5E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{ECDCA63A-8C65-493F-B8CB-B2DDA094CF5E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{ECDCA63A-8C65-493F-B8CB-B2DDA094CF5E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9FA00AE0-CB9E-4EFF-A74D-895F925B1E7E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9FA00AE0-CB9E-4EFF-A74D-895F925B1E7E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9FA00AE0-CB9E-4EFF-A74D-895F925B1E7E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9FA00AE0-CB9E-4EFF-A74D-895F925B1E7E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FDD0029B-2CB9-4308-96DF-BC7177BE266E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FDD0029B-2CB9-4308-96DF-BC7177BE266E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FDD0029B-2CB9-4308-96DF-BC7177BE266E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FDD0029B-2CB9-4308-96DF-BC7177BE266E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{186887ED-3C4E-4656-8814-8EAD2D73030D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{186887ED-3C4E-4656-8814-8EAD2D73030D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{186887ED-3C4E-4656-8814-8EAD2D73030D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{186887ED-3C4E-4656-8814-8EAD2D73030D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -174,6 +192,9 @@ Global
 		{9480B9EA-8D63-446B-BD43-86955C012945} = {224E379D-588F-4D25-A692-C3B17DBF2F86}
 		{331A9BCE-C651-4D2C-94AA-702466CB5163} = {92CEE85C-287C-4F03-8318-D605477EDB5C}
 		{ECDCA63A-8C65-493F-B8CB-B2DDA094CF5E} = {182A7936-3902-46E9-BCE0-AA4ADA9C4E09}
+		{9FA00AE0-CB9E-4EFF-A74D-895F925B1E7E} = {14285D92-0A8B-4418-8A91-1DEBAE200EDC}
+		{FDD0029B-2CB9-4308-96DF-BC7177BE266E} = {14285D92-0A8B-4418-8A91-1DEBAE200EDC}
+		{186887ED-3C4E-4656-8814-8EAD2D73030D} = {14285D92-0A8B-4418-8A91-1DEBAE200EDC}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {5CEDAAB8-D63E-4681-A2F1-858ED1C708D4}

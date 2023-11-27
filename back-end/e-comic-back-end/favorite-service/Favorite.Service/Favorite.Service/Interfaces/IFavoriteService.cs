@@ -12,7 +12,7 @@ namespace Favorite.Service.Interfaces
     public interface IFavoriteService
     {
         Task<Response> AddComicToFavorite(AddComicToFavoriteRequest request);
-        Task RemoveComicFromFavorite();
+        Task<Response> RemoveComicFromFavorite(Guid id);
         Task<IQueryable<GetFavoriteComicResponse>> GetFavoriteComicsByUserId(Guid userId);
     }
 }

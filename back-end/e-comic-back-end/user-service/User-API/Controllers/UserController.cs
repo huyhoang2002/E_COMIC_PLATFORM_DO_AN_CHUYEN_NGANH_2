@@ -94,5 +94,18 @@ namespace User_API.Controllers
             await _publisher.Publish(eventMessage);
             return Ok(BaseResponse.Success());
         }
+
+        [HttpDelete("favorite/{id}")]
+        [Authorize(Roles = "USER", AuthenticationSchemes = "Bearer")]
+        public async Task<IActionResult> RemoveComicFromFavorite(Guid id)
+        {
+            if (id.Equals(Guid.Empty))
+            {
+                return BadRequest(BaseResponse.Error("Favorite comic does not found"));
+            }
+            var eventMessage = new RemoveComicFromFavoriteEvent(id);
+            await _publisher.Publish(eventMessage);
+            return Ok(BaseResponse.Success());
+        }
     }
 }

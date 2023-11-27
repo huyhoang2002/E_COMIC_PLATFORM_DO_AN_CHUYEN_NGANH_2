@@ -8,6 +8,16 @@ namespace Favorite.Data.DTOs.Responses
 {
     public class GetFavoriteComicResponse
     {
+        public GetFavoriteComicResponse(Guid id, string comicTitle, string comicUrl, Guid comicId, Guid userId, string userName)
+        {
+            Id = id;
+            ComicTitle = comicTitle;
+            ComicUrl = comicUrl;
+            ComicId = comicId;
+            UserId = userId;
+            UserName = userName;
+        }
+
         public Guid Id { get; set; }
         public string ComicTitle { get; set; }
         public string ComicUrl { get; set; }

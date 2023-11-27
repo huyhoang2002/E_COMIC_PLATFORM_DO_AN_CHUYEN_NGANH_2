@@ -2,6 +2,7 @@
 using EventProcessor.Events;
 using Favorite.Business.Entities.Favorites;
 using Favorite.Data.DTOs.Requests;
+using Favorite.Data.DTOs.Responses;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,6 +17,7 @@ namespace Favorite.Data.Mappers
         {
             CreateMap<AddComicToFavoriteRequest, FavoriteEntity>().ReverseMap();
             CreateMap<AddComicToFavoriteEvent, AddComicToFavoriteRequest>().ReverseMap();
+            //CreateMap<List<GetFavoriteComicResponse>, List<FavoriteEntity>>().ReverseMap();
         }
     }
 }

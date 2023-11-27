@@ -11,6 +11,7 @@ namespace Favorite.Data.DTOs.Responses
         public Guid Id { get; set; }
         public string ComicTitle { get; set; }
         public string ComicUrl { get; set; }
+        public Guid ComicId { get; set; }
         public Guid UserId { get; set; }
         public string UserName { get; set; }
     }

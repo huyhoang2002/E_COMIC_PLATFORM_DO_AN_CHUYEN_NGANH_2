@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using EventProcessor.Events;
 using Favorite.Business.Entities.Favorites;
 using Favorite.Data.DTOs.Requests;
 using System;
@@ -14,6 +15,7 @@ namespace Favorite.Data.Mappers
         public MapperProfile()
         {
             CreateMap<AddComicToFavoriteRequest, FavoriteEntity>().ReverseMap();
+            CreateMap<AddComicToFavoriteEvent, AddComicToFavoriteRequest>().ReverseMap();
         }
     }
 }

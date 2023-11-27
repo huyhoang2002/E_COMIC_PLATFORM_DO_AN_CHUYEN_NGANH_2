@@ -9,10 +9,11 @@ namespace Favorite.Business.Entities.Favorites
 {
     public class FavoriteEntity : EntityBase<Guid>
     {
-        public FavoriteEntity(string comicTitle, string comicUrl, Guid userId, string userName)
+        public FavoriteEntity(string comicTitle, string comicUrl, Guid comicId, Guid userId, string userName)
         {
             ComicTitle = comicTitle;
             ComicUrl = comicUrl;
+            ComicId = comicId;
             UserId = userId;
             UserName = userName;
             ModifiedDate = DateTime.Now;
@@ -20,6 +21,7 @@ namespace Favorite.Business.Entities.Favorites
 
         public string ComicTitle { get; private set; }
         public string ComicUrl { get; private set; }
+        public Guid ComicId { get; private set; }
         public Guid UserId { get; private set; }
         public string UserName { get; private set; }
     }

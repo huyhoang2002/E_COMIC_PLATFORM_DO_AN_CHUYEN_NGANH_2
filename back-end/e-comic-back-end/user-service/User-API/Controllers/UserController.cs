@@ -85,5 +85,14 @@ namespace User_API.Controllers
             await _publisher.Publish(eventMessage);
             return Ok(BaseResponse.Success());
         }
+
+        [HttpPost("favorite")]
+        [Authorize(Roles = "USER", AuthenticationSchemes = "Bearer")]
+        public async Task<IActionResult> AddComicToFavorite([FromBody] AddComicToFavoriteRequest request)
+        {
+            var eventMessage = new AddComicToFavoriteEvent(request.ComicTitle, request.ComicUrl, request.ComicId, request.UserId, request.UserName);
+            await _publisher.Publish(eventMessage);
+            return Ok(BaseResponse.Success());
+        }
     }
 }

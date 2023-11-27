@@ -13,6 +13,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\..\event-processor\EventProcessor\EventProcessor.csproj" />
     <ProjectReference Include="..\..\Favorite.Business\Favorite.Business\Favorite.Business.csproj" />
   </ItemGroup>
 

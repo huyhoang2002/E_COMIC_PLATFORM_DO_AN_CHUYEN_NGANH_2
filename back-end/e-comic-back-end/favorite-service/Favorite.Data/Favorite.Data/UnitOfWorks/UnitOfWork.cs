@@ -11,6 +11,12 @@ namespace Favorite.Data.UnitOfWorks
     public class UnitOfWork : IUnitOfWork
     {
         protected FavoriteDbContext DbContext;
+
+        public UnitOfWork(FavoriteDbContext dbContext)
+        {
+            DbContext = dbContext;
+        }
+
         public async Task<int> SaveChangesAsync()
         {
             var result = await DbContext.SaveChangesAsync();

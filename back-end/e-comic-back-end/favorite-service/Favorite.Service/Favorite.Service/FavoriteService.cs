@@ -29,14 +29,14 @@ namespace Favorite.Service
             var result = await _unitOfWork.SaveChangesAsync();
             if (result <= 0)
             {
-                return new Response(false, "Create user failed");
+                return new Response(false, "Add comic to favorite failed");
             }
-            return new Response(true, "Create user successfully");
+            return new Response(true, "Add comic to favorite successfully");
         }
 
         public Task<IQueryable<GetFavoriteComicResponse>> GetFavoriteComicsByUserId(Guid userId)
         {
-            var favoriteComics = _repository.GetQuery(_ => _.UserId == userId);
+            var favoriteComics = _repository.GetQuery(_ => _.UserId == userId).OrderByDescending(_ => _.ModifiedDate);
             var response = favoriteComics.Select(_ => new GetFavoriteComicResponse(
                 _.Id,
                 _.ComicTitle,

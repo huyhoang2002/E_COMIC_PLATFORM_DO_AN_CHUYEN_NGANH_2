@@ -39,3 +39,10 @@ services:
       context: .
       dockerfile: comic-service/Comic-service.SignalR/Dockerfile
 
+
+  favorite.api:
+    image: ${DOCKER_REGISTRY-}favoriteapi
+    build:
+      context: .
+      dockerfile: favorite-service/Favorite.API/Dockerfile
+

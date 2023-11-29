@@ -79,3 +79,12 @@ services:
     ports:
       - "5261:80"
 
+
+  favorite.api:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ConnectionStrings:Default=Server=e-comic-sql-server;Database=FavoriteDb;User Id=sa;Password=Huy2002109@;TrustServerCertificate=True
+      - EventBusSettings:RabbitMQ=amqp://guest:guest@rabbitmq:5672
+    ports:
+      - "5177:80"
+

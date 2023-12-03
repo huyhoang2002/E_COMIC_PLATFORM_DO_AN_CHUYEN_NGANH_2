@@ -12,6 +12,8 @@ const SearchBar = () => {
 
   const [ keyword, setKeyword ] = useState("")
   const { isOpen, onOpen, onClose } = UseDisclosure()
+  const searchResults = useSelector(searchResultSelector)
+  const dispatch = useDispatch()
   const navigate = useNavigate()
 
   const handleChangeKeyword = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -23,8 +25,9 @@ const SearchBar = () => {
     setKeyword("")
   } 
 
-  const searchResults = useSelector(searchResultSelector)
-  const dispatch = useDispatch()
+  const handleNavigateToSearchResult = (keyword: string) => {
+    navigate(`search-result?keyword=${keyword}`)
+  }
 
   useEffect(() => {
     dispatch(searchComicAction(keyword, 1, 20))
@@ -37,13 +40,13 @@ const SearchBar = () => {
             <div className='absolute right-0 top-3 mr-5'><FaSearch style={{ color: "#f97316"}}/></div>
         </div>
         {keyword.length > 0 && <div className='absolute bg-gray-800 w-[310px] md:w-[500px] min-h-[60px] mt-5'>
-          <div className='w-full p-5 border-b-[1px] border-orange-600'>
-            <p className='text-white font-medium'>Search for {keyword}...</p>
+          <div className='w-full p-5 border-b-[1px] border-orange-600' onClick={handleNavigateToSearchResult.bind(this, keyword)}>
+            <p className='text-white font-medium cursor-pointer'>Search for {keyword}...</p>
           </div>
           {searchResults.length !== 0 && searchResults.map(result => {
             return (
               <div className='w-full p-5 border-b-[1px] border-orange-600' key={result.id} onClick={handleNavigateToComic.bind(this, result.id)}>
-                <p className='text-white font-medium'>{result.title}</p>
+                <p className='text-white font-medium cursor-pointer'>{result.title}</p>
               </div>
             )
           })}

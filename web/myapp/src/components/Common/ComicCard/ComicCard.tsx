@@ -17,7 +17,7 @@ const ComicCard = ({ id, imageUrl, title, modifiedAt }: Props) => {
 
   return (
     <div 
-      className="w-[250px] max-[500px]:w-[400px] h-[400px] hover:scale-125 transition-all" 
+      className="w-[250px] max-[500px]:w-[400px] h-[400px] hover:scale-110 transition-all" 
       key={id}
       onClick={handleNavigateToComicDetail.bind(this, id as string)}
     >

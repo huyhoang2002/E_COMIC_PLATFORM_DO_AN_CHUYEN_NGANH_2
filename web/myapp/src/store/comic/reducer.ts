@@ -43,6 +43,34 @@ const reducer = (state = initialState, action: AnyAction) => {
                 isSuccess: true,
                 categories: action?.categories as fromActions.IGetCategoriesSuccessAction
             }
+        case fromActionTypes.GET_CATEGORIES_ERROR:
+            return {
+                ...state,
+                isLoading: false,
+                isSuccess: false
+            }
+        case fromActionTypes.GET_CATEGORY_BY_ID:
+            return {
+                ...state,
+                isLoading: true
+            }
+        case fromActionTypes.GET_CATEGORY_BY_ID_SUCCESS:
+            return {
+                ...state,
+                isLoading: false,
+                isSuccess: true,
+                category: {
+                    ...state.category,
+                    comics: action?.comics,
+                    categoryName: action?.categoryName
+                }
+            }
+        case fromActionTypes.GET_CATEGORY_BY_ID_ERROR:
+            return {
+                ...state,
+                isLoading: false,
+                isSuccess: false
+            }
         case fromActionTypes.GET_COMIC_BY_ID: {
             return {
                 ...state,

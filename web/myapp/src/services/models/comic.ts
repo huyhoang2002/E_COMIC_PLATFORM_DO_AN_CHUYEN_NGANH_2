@@ -1,5 +1,6 @@
 import { IPaginationRequest } from "../base/base-request";
 import { IPagingResponse } from "../base/base-response";
+import { ICategory } from "./category";
 
 export interface IAuthor { 
     name: string
@@ -7,12 +8,6 @@ export interface IAuthor {
     description: string
     avatar: string | null
     id: string
-}
-
-export interface ICategory {
-    id: string,
-    categoryName: string
-    modifiedAt: Date
 }
 
 export type TEpisode = {

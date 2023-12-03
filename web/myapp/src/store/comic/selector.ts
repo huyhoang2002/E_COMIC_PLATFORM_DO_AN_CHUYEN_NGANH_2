@@ -29,3 +29,5 @@ export const commentSelector = createSelector(comicReducer, (state: TComicInitia
 export const authorSelector = createSelector(comicReducer, (state: TComicInitialState) => state.authors)
 
 export const authorByIdSelector = createSelector(comicReducer, (state: TComicInitialState) => state.author)
+
+export const categoryDetailSelector = createSelector(comicReducer, (state: TComicInitialState) => state.category)

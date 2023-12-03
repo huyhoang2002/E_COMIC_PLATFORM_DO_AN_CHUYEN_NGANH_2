@@ -1,4 +1,5 @@
 import { Button } from "flowbite-react"
+import { FaHeart } from "react-icons/fa";
 
 type TProps = {
   imageUrl: string
@@ -17,18 +18,28 @@ const ComicDetail = ({ imageUrl, handleReadFirstVolume, title, categoryName, aut
         <img className="h-[500px] object-cover" src={imageUrl} alt="" />
         <Button className="rounded-none bg-orange-600 transition-all" onClick={handleReadFirstVolume}>Read volume 1 now</Button>
       </div>
-      <div className="flex flex-col gap-4 p-5 col-span-2">
-        <h1 className="text-black text-[50px] font-semibold">{title}</h1>
-        <div className="text-black flex flex-col gap-3">
-          <p className="font-medium">Genre: <span className="text-red-600">{categoryName}</span></p>
-          <p className="font-medium">Artist: <span className="text-red-600">{authorName}</span></p>
-          <p className="font-medium">Latest update: <span className="text-red-600">{latestEpisodeUpdate}</span></p>
-        </div>
-        <div className=''>
-          <p className="text-black text-justify">{description}</p>
+        <div className="flex flex-col gap-4 p-5 col-span-2">
+          <div className="flex flex-col gap-4">
+            <h1 className="text-black text-[50px] font-semibold">{title}</h1>
+            <div className="text-black flex flex-col gap-3">
+              <p className="font-medium">Genre: <span className="text-red-600">{categoryName}</span></p>
+              <p className="font-medium">Artist: <span className="text-red-600">{authorName}</span></p>
+              <p className="font-medium">Latest update: <span className="text-red-600">{latestEpisodeUpdate}</span></p>
+            </div>
+            <div className=''>
+              <p className="text-black text-justify">{description}</p>
+            </div>
+          </div>
+          <div className="cursor-pointer bg-pink-600 w-fit p-3 rounded-[50px] flex items-center gap-3 hover:bg-pink-500"> 
+            <div>
+              <FaHeart />
+            </div>
+            <div>
+              <p className="font-bold">Add to favorite</p>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
   )
 }
 

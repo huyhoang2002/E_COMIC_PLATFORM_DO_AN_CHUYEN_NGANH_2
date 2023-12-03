@@ -9,3 +9,12 @@ export const getCategories = async () => {
         console.log(error)
     }
 }
+
+export const getCategoryById = async (id: string) => {
+    try {
+        const response = await get(`/Category/${id}`)
+        return response.data
+    } catch (error) {
+        console.log(error)
+    }
+}

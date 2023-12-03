@@ -10,6 +10,7 @@ import { Spinner } from 'flowbite-react'
 import { useDispatch } from "react-redux"
 import { AnyAction, Dispatch } from "redux"
 import { AlertError } from "../../../utils/helpers/alertHelper"
+import { resetStateAction } from "../../../store/base/action"
 
 const ComicList = () => {
     const dispatch: Dispatch<AnyAction> = useDispatch()
@@ -17,6 +18,8 @@ const ComicList = () => {
     const categories = useSelector(categoriesSelector)
     const isLoading = useSelector(isLoadingSelector)
     const isSuccess = useSelector(isSuccessSelector)
+
+    console.log(isLoading)
 
     useEffect(() => {
         if (isSuccess === false) {
@@ -32,13 +35,18 @@ const ComicList = () => {
             pageIndex: 1,
             pageSize: 20,
         }))
+
+        return () => {
+            if (isSuccess !== undefined) {
+                dispatch(resetStateAction())
+            }
+        }
     }, [isSuccess, dispatch])
 
     useEffect(() => {
-        if (isSuccess === undefined) {
-            dispatch(getCategoriesAction())
-        }
+        dispatch(getCategoriesAction())
     }, [dispatch, isSuccess])
+
   return (
     <Container mt="mt-[10px]">
         <div className="flex max-[768px]:flex-col w-full items-center h-[300px] justify-between">

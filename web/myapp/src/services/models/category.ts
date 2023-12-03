@@ -1,3 +1,5 @@
+import { IComic } from "./comic"
+
 export interface ICategory {
     id: string
     categoryName: string
@@ -5,3 +7,7 @@ export interface ICategory {
 }
 
 export type TCategories = Array<ICategory>
+
+export interface ICategoryDetail extends ICategory {
+    comics: IComic[]
+}

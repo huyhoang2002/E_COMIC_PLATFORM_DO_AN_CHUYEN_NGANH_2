@@ -186,7 +186,6 @@ export interface ISearchComicAction extends Action {
     keyWord: string
 }
 export const searchComicAction = (keyWord: string, pageIndex: number, pageSize: number, categoryId?: string): ISearchComicAction => {
-    console.log({ categoryId })
     return {
         type: fromActions.SEARCH_COMIC,
         keyWord,
@@ -330,5 +329,34 @@ export interface IAddComicActionError extends Action {}
 export const addComicActionError = (): IAddComicActionError => {
     return {
         type: fromActions.ADD_COMIC_ERROR
+    }
+}
+
+export interface IGetCategoryById extends Action {
+    id: string
+}
+export const getCategoryById = (id: string): IGetCategoryById => {
+    return {
+        type: fromActions.GET_CATEGORY_BY_ID,
+        id
+    }
+}
+
+export interface IGetCategoryByIdSuccess extends Action {
+    categoryName: string,
+    comics: IComic[]
+}
+export const getCategoryByIdSuccess = (categoryName: string, comics: IComic[]): IGetCategoryByIdSuccess => {
+    return {
+        type: fromActions.GET_CATEGORY_BY_ID_SUCCESS,
+        categoryName,
+        comics
+    }
+}
+
+export interface IGetCategoryByIdError extends Action {}
+export const getCategoryByIdError = (): IGetCategoryByIdError => {
+    return {
+        type: fromActions.GET_CATEGORY_BY_ID_ERROR
     }
 }

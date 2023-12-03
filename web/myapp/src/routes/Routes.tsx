@@ -19,6 +19,8 @@ import AddNewComic from '../pages/admin/comic/AddNewComic'
 import Comic from '../pages/admin/comic/Comic'
 import ComicDetailPage from '../pages/admin/comic/ComicDetailPage/ComicDetailPage'
 import SessionProvider from '../providers/SessionProvider'
+import CategoryDetail from '../pages/client/Category/CategoryDetail'
+import SearchResult from '../pages/client/SearchResult/SearchResult'
 export const routes = createBrowserRouter([
     {
         path: "/",
@@ -52,6 +54,14 @@ export const routes = createBrowserRouter([
                     {
                         path: fromRoutes.PROFILE,
                         element: <UserProfile />
+                    },
+                    {
+                        path: fromRoutes.CATEGORY_DETAIL,
+                        element: <CategoryDetail />
+                    },
+                    {
+                        path: fromRoutes.SEARCH_RESULT,
+                        element: <SearchResult />
                     }
                 ],
                 // errorElement: <ErrorPage />

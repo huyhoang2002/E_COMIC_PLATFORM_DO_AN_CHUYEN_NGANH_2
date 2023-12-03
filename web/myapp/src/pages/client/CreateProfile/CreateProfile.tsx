@@ -8,18 +8,19 @@ import { useForm } from "react-hook-form"
 import { IAddUser } from "../../../services/models/user"
 import { useEffect } from "react"
 import { isLoadingSelector } from "../../../store/comic/selector"
-import { AlertError, AlertSuccess, AlertWait } from "../../../utils/helpers/alertHelper"
+import { AlertError, AlertSuccess } from "../../../utils/helpers/alertHelper"
 import { resetStateAction } from "../../../store/base/action"
+import { useNavigate } from "react-router-dom"
 
 const CreateProfile = () => {
     const { handleSubmit, register } = useForm<IAddUser>()
     var countries = getCountries()
     const dispatch = useDispatch()
+    const navigate = useNavigate()
     const isSuccess = useSelector(isSuccessSelector)
     const isLoading = useSelector(isLoadingSelector)
 
     const handleCreateProfile = handleSubmit((value) => {
-        console.log(value)
         dispatch(createUserProfile(value))
     })
 
@@ -27,7 +28,8 @@ const CreateProfile = () => {
        if (isSuccess === true) {
             AlertSuccess({
                 title: "Create profile successfully"
-            }) 
+            })
+             navigate("/c")
        } else if (isSuccess === false) {
             AlertError({
                 title: "Create profile failed"

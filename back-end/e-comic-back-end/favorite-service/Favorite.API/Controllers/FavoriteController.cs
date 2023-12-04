@@ -1,5 +1,6 @@
 ﻿using Favorite.Data.DTOs.Requests;
 using Favorite.Service.Interfaces;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -24,6 +25,7 @@ namespace Favorite.API.Controllers
         }
 
         [HttpGet]
+        [Authorize(AuthenticationSchemes = "Bearer", Roles = "USER")]
         [Route("{userId}")]
         public async Task<IActionResult> GetFavoriteComicsByUserId(Guid userId)
         {

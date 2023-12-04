@@ -4,11 +4,14 @@ import SidebarItem from "../../Sidebar/SidebarItem"
 import SidebarItemGroupVertical from "../../Sidebar/SidebarItemGroupVertical"
 import { HiOutlineMenuAlt3 } from "react-icons/hi"
 import UseDisclosure from "../../../../hooks/UseDisclosure"
+import { useContext } from "react"
+import { Web3Context } from "../../../../providers/Web3Provider"
 
 const LayoutAdmin = () => {
 
   const navigate = useNavigate()
   const { isOpen, onToggle } = UseDisclosure()
+  const { account } = useContext(Web3Context)
 
   const handleNavigate = (routeName: string) => {
     navigate(routeName)
@@ -38,6 +41,7 @@ const LayoutAdmin = () => {
         </div>
       </div>
       <div className="p-5 col-span-5 h-[100vh] w-full">
+        <h1>Account that has been login to Metamask wallet {account}</h1>
         <Outlet />
       </div>
     </div>

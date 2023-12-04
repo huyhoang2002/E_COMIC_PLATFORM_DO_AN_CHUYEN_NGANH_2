@@ -1,4 +1,4 @@
-import { createBrowserRouter } from 'react-router-dom'
+import { Navigate, createBrowserRouter } from 'react-router-dom'
 import LandingPage from '../pages/client/LandingPage/LandingPage'
 import LayoutClient from '../components/Common/Layouts/Client/LayoutClient'
 import ComicDetail from '../pages/client/ComicDetail/ComicDetail'
@@ -21,9 +21,11 @@ import ComicDetailPage from '../pages/admin/comic/ComicDetailPage/ComicDetailPag
 import SessionProvider from '../providers/SessionProvider'
 import CategoryDetail from '../pages/client/Category/CategoryDetail'
 import SearchResult from '../pages/client/SearchResult/SearchResult'
+import Web3Provider from '../providers/Web3Provider'
 export const routes = createBrowserRouter([
     {
         path: "/",
+        // element: <Navigate replace to={"c"} />,
         children: [
             {
                 path: fromRoutes.CLIENT,
@@ -68,7 +70,7 @@ export const routes = createBrowserRouter([
             },
             {
                 path: fromRoutes.ADMIN,
-                element: <LayoutAdmin />,
+                element: <Web3Provider><LayoutAdmin /></Web3Provider>,
                 children: [
                     {
                         path: fromRoutes.AUTHOR,

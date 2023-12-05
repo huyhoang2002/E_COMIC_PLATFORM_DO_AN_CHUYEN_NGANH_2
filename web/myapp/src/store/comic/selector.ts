@@ -31,3 +31,7 @@ export const authorSelector = createSelector(comicReducer, (state: TComicInitial
 export const authorByIdSelector = createSelector(comicReducer, (state: TComicInitialState) => state.author)
 
 export const categoryDetailSelector = createSelector(comicReducer, (state: TComicInitialState) => state.category)
+
+export const totalRowSelector = createSelector(comicReducer, (state: TComicInitialState) => state.totalRows)
+
+export const isCreatedSelector = createSelector(comicReducer, (state: TComicInitialState) => state.isCreated)

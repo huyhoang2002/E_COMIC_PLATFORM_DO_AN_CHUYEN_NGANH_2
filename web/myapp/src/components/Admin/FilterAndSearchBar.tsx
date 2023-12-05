@@ -1,8 +1,8 @@
 import { useState } from "react"
 
 type TProps = {
-  sortElement: React.ReactNode,
-  searchDomain: string,
+  sortElement?: React.ReactNode,
+  searchDomain?: string,
   handleChangeKeyword: (value: string) => void
 }
 

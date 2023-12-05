@@ -86,3 +86,21 @@ export interface IAddComicRequest {
     categoryId: string
     file: any
 }
+
+export interface IAddComicToFavorite {
+    comicTitle: string
+    comicUrl: string
+    userId: string
+    userName: string,
+    comicId: string
+}
+
+export interface IFavoriteComic {
+    id: string
+    comicTitle: string
+    comicUrl: string
+    comicId: string
+    userId: string
+    userName: string
+    updateDate: Date
+}

@@ -32,6 +32,7 @@ const ComicInfo = () => {
           imageUrl={comic?.imageUrl as string}
           latestEpisodeUpdate={episode.length}
           description={comic?.description as string}
+          id={comic?.id as string}
         />
         <div className="flex flex-col w-[370px] md:w-[700px] lg:w-[1100px] justify-between bg-white">
           <div className='text-black flex gap-6 m-5 cursor-pointer'>

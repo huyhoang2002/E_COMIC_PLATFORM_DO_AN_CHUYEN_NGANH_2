@@ -17,11 +17,9 @@ const ComicDetail = () => {
   const params = useParams()
   
   useEffect(() => { 
-    if (isSuccess === undefined) {
-      dispatch(getComicByIdAction(params?.id as string))
-    }
+    dispatch(getComicByIdAction(params?.id as string))
     return () => {
-      if (isLoading === false && isSuccess === true || false) {
+      if (isSuccess !== undefined) {
         dispatch(resetStateAction())
       }
     }
@@ -30,11 +28,9 @@ const ComicDetail = () => {
   return (
     <div>
       <img src={comic?.wallPaperUrl !== null ? comic?.wallPaperUrl : "https://getwallpapers.com/wallpaper/full/7/f/4/1168332-best-hd-comic-book-wallpaper-1920x1080.jpg"} alt="" className="h-[600px] object-cover w-full absolute z-[-1]" />
-    {isSuccess === false ?
+      {isSuccess === false ?
         <ComicDetailSkeleton /> :       
-        isSuccess === true ? 
-        <ComicInfo /> :
-        <></>
+        <ComicInfo /> 
       }
     </div>
   )

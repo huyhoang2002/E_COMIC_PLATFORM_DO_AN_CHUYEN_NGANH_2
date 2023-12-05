@@ -1,5 +1,5 @@
 import { get, postWithToken } from "./base/base-service"
-import { IAddComicRequest, IComicResponse, ISearchComicRequest } from "./models/comic";
+import { IAddComicRequest, IAddComicToFavorite, IComicResponse, ISearchComicRequest } from "./models/comic";
 
 export const getAuthor = async (isDeleted: boolean, keyword?: string) => {
     try {
@@ -91,6 +91,15 @@ export const getComicComment = async (comicId: string) => {
 export const addComic = async (request: IAddComicRequest) => {
     try {
         const response = await postWithToken("/comic", request)
+        return response.data
+    } catch (error) {
+        console.log(error)
+    }
+}
+
+export const addComicToFavorite = async (request: IAddComicToFavorite) => {
+    try {
+        const response = await postWithToken("/user/favorite", request)
         return response.data
     } catch (error) {
         console.log(error)

@@ -360,3 +360,64 @@ export const getCategoryByIdError = (): IGetCategoryByIdError => {
         type: fromActions.GET_CATEGORY_BY_ID_ERROR
     }
 }
+
+export interface IAddAuthorAction extends Action {
+    name: string
+    dateOfBirth: Date
+    description: string
+}
+export const addAuthorAction = (name: string, dateOfBirth: Date, description: string) => {
+    return {
+        type: fromActions.ADD_AUTHOR,
+        name,
+        dateOfBirth,
+        description
+    }
+}
+
+export interface IAddAuthorSuccess extends Action {}
+export const addAuthorSuccess = (): IAddAuthorSuccess => {
+    return {
+        type: fromActions.ADD_AUTHOR_SUCCESS
+    }
+}
+
+export interface IAddAuthorError extends Action {}
+export const addAuthorError = (): IAddAuthorError => {
+    return {
+        type: fromActions.ADD_AUTHOR_ERROR
+    }
+}
+
+export interface IAddComicToFavoriteAction extends Action {
+    comicTitle: string
+    comicUrl: string
+    userId: string
+    userName: string
+    comicId: string
+}
+export const addComicToFavoriteAction = (comicTitle: string, comicUrl: string, userId: string, userName: string, comicId: string): IAddComicToFavoriteAction => {
+    return {
+        type: fromActions.ADD_COMIC_TO_FAVORITE,
+        comicTitle,
+        comicUrl,
+        userId,
+        userName,
+        comicId
+    }
+}
+
+export interface IAddComicToFavoriteActionSuccess extends Action {}
+export const addComicToFavoriteActionSuccess = (): IAddComicToFavoriteActionSuccess => {
+    return {
+        type: fromActions.ADD_COMIC_TO_FAVORITE_SUCCESS
+        
+    }
+}
+
+export interface IAddComicToFavoriteActionError extends Action {}
+export const addComicToFavoriteActionError = (): IAddComicToFavoriteActionError => {
+    return {
+        type: fromActions.ADD_COMIC_TO_FAVORITE_ERROR
+    }
+}

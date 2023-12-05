@@ -8,7 +8,7 @@ namespace Favorite.Data.DTOs.Responses
 {
     public class GetFavoriteComicResponse
     {
-        public GetFavoriteComicResponse(Guid id, string comicTitle, string comicUrl, Guid comicId, Guid userId, string userName)
+        public GetFavoriteComicResponse(Guid id, string comicTitle, string comicUrl, Guid comicId, Guid userId, string userName, DateTime updateDate)
         {
             Id = id;
             ComicTitle = comicTitle;
@@ -16,6 +16,7 @@ namespace Favorite.Data.DTOs.Responses
             ComicId = comicId;
             UserId = userId;
             UserName = userName;
+            UpdateDate = updateDate;
         }
 
         public Guid Id { get; set; }
@@ -24,5 +25,6 @@ namespace Favorite.Data.DTOs.Responses
         public Guid ComicId { get; set; }
         public Guid UserId { get; set; }
         public string UserName { get; set; }
+        public DateTime UpdateDate { get; set; }
     }
 }

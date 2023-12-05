@@ -15,6 +15,7 @@ const Category = () => {
         <Button onClick={onOpen}>Add new category</Button>
       </div>
       <FilterAndSearchBar 
+        handleChangeKeyword={(value) => {}}
         sortElement={
           <div className="flex gap-2 items-center">
             <label htmlFor="">Name</label>

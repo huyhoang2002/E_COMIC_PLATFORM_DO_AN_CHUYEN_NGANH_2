@@ -8,13 +8,11 @@ const reducer = (state = initialState, action: AnyAction) => {
     const { type } = action
     switch (type) {
         case fromActionTypes.GET_COMICS:
-            console.log("get comic...")
             return {
                 ...state,
                 isLoading: true
             }
         case fromActionTypes.GET_COMICS_SUCCESS:
-            console.log("get comic success...")
             return {
                 ...state,
                 isLoading: false,
@@ -234,8 +232,46 @@ const reducer = (state = initialState, action: AnyAction) => {
                 isLoading: false,
                 isSuccess: false
             }
+        case fromActionTypes.ADD_AUTHOR:
+            return {
+                ...state,
+                isLoading: true
+            }
+        case fromActionTypes.ADD_AUTHOR_SUCCESS:
+            return {
+                ...state,
+                isLoading: false,
+                isCreated: true
+            }
+        case fromActionTypes.ADD_AUTHOR_ERROR:
+            return {
+                ...state,
+                isLoading: false,
+                isCreated: false
+            }
+        case fromActionTypes.ADD_COMIC_TO_FAVORITE:
+            return {
+                ...state,
+                isLoading: true
+            }
+        case fromActionTypes.ADD_COMIC_TO_FAVORITE_SUCCESS:
+            return {
+                ...state,
+                isCreated: true,
+                isLoading: false
+            }
+        case fromActionTypes.ADD_COMIC_TO_FAVORITE_ERROR:
+            return {
+                ...state,
+                isCreated: false,
+                isLoading: false
+            }
         case fromBaseTypes.RESET_STATE_ACTION:
-            return initialState
+            return {
+                ...state,
+                isSuccess: undefined,
+                isLoading: undefined
+            }
         default:
             return state
     }

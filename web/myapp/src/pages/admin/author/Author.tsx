@@ -4,7 +4,7 @@ import { useNavigate, useSearchParams } from "react-router-dom"
 import FilterAndSearchBar from "../../../components/Admin/FilterAndSearchBar"
 import { useDispatch } from "react-redux"
 import { useSelector } from "react-redux"
-import { authorSelector } from "../../../store/comic/selector"
+import { authorSelector, isSuccessSelector } from "../../../store/comic/selector"
 import { useEffect } from "react"
 import { getAuthorAction } from "../../../store/comic/action"
 import { resetStateAction } from "../../../store/base/action"
@@ -14,17 +14,19 @@ const Author = () => {
   const navigate = useNavigate()
   const dispatch = useDispatch()
   const authors = useSelector(authorSelector)
+  const isSuccess = useSelector(isSuccessSelector)
   const [ searchParams, setSearchParams ] = useSearchParams()
   const isDeleted = searchParams.get("isDeleted")
   const keyword = searchParams.get("keyword") as string | undefined 
 
   useEffect(() => {
     dispatch(getAuthorAction(Boolean(isDeleted), keyword))
-
     return () => {
-      dispatch(resetStateAction())
+      if (isSuccess === true) {
+        dispatch(resetStateAction())
+      }
     }
-  }, [dispatch, searchParams, keyword])
+  }, [dispatch, searchParams, keyword, isSuccess])
 
   const handleChangeKeyword = (value: string) => {
     setSearchParams({

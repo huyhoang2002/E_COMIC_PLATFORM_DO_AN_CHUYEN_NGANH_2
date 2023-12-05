@@ -24,6 +24,11 @@ namespace Favorite.Service
 
         public async Task<Response> AddComicToFavorite(AddComicToFavoriteRequest request)
         {
+            var favoriteComics = _repository.FirstOrDefault(_ => _.ComicId == request.ComicId);
+            if (favoriteComics != null)
+            {
+                return new Response(false, "This comic has been added to your favorite");
+            }
             var favoriteEntityMapper = _mapper.Map<FavoriteEntity>(request);
             await _repository.AddAsync(favoriteEntityMapper);
             var result = await _unitOfWork.SaveChangesAsync();
@@ -43,7 +48,8 @@ namespace Favorite.Service
                 _.ComicUrl,
                 _.ComicId,
                 _.UserId,
-                _.UserName
+                _.UserName,
+                _.ModifiedDate
                 ));
             return Task.FromResult(response);
         } 

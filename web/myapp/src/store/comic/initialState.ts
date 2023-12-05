@@ -11,6 +11,8 @@ export type TComicInitialState = {
     pageSize: number,
     totalRows: number,
     isLoading: boolean | undefined,
+    isCreated: boolean | undefined,
+    isUpdated: boolean | undefined,
     isSuccess: boolean | undefined,
     categories: TCategories
     category: ICategoryDetail | undefined,
@@ -18,7 +20,8 @@ export type TComicInitialState = {
     comicEpisodeDetail: IComicEpisodeDetailResponse | undefined
     comments: ICommentResponse[]
     authors: IAuthorResponse[]
-    author: IAuthorResponse | undefined
+    author: IAuthorResponse | undefined,
+    favoriteComics: []
 }
 
 export const initialState : TComicInitialState = {
@@ -37,5 +40,8 @@ export const initialState : TComicInitialState = {
     comments: [] as ICommentResponse[],
     authors: [] as IAuthorResponse[],
     author: undefined,
-    category: undefined
+    category: undefined,
+    isCreated: undefined,
+    isUpdated: undefined,
+    favoriteComics: []
 }

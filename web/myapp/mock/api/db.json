@@ -1,0 +1,229 @@
+{
+    "Category": [
+        {
+            "id": "3d813914-d357-4029-16d6-08dbe3264d88",
+            "categoryName": "Hành động",
+            "modifiedAt": "2023-11-12T09:23:05.2073259"
+        },
+        {
+            "id": "d6ca2c55-d4d5-487c-7242-08dbe33ed54c",
+            "categoryName": "Thám hiểm",
+        "modifiedAt": "2023-11-12T12:18:40.8497183"
+        },
+        {
+            "id": "d6ca2c55-d4d5-487c-7242-08dbe33ed54c",
+            "categoryName": "Thám hiểm",
+            "modifiedAt": "2023-11-12T12:18:40.8497183"
+        }
+    ],
+    "Comic": [
+            {
+                "id": "207fc28e-9236-465f-dcf4-08dbe33f3289",
+                "title": "One piece",
+                "description": "This is one piece comic",
+                "imageUrl": "http://res.cloudinary.com/justme2002cloud/image/upload/v1699766477/desktop-wallpaper-one-piece-portrait-one-piece-samsung_eedf9c.jpg",
+                "author":  {
+                    "name": "Masashi Kishimoto",
+                    "dateOfBirth": "1977-11-10T00:00:00",
+                    "description": "This is naruto story",
+                    "avatarImage": null,
+                    "comics": [],
+                    "id": "dcab37a0-7d38-41f2-5aba-08dbe1f047a9",
+                    "modifiedAt": "2023-11-10T20:23:51.3716244",
+                    "isDeleted": false
+                  },
+                "category": null,
+                "modifiedAt": "2023-11-12T12:21:17.3374514"
+            },
+            {
+                "id": "b3aadf58-869b-4fc7-ef46-08dbe326a58f",
+                "title": "Naruto",
+                "description": "Thằng Naruto ngu vloz",
+                "imageUrl": "https://upload.wikimedia.org/wikipedia/vi/c/c7/Naruto_Volume_1_manga_cover.jpg",
+                "author":  {
+                    "name": "Masashi Kishimoto",
+                    "dateOfBirth": "1977-11-10T00:00:00",
+                    "description": "This is naruto story",
+                    "avatarImage": null,
+                    "comics": [],
+                    "id": "dcab37a0-7d38-41f2-5aba-08dbe1f047a9",
+                    "modifiedAt": "2023-11-10T20:23:51.3716244",
+                    "isDeleted": false
+                },
+                "category": {
+                    "id": "3d813914-d357-4029-16d6-08dbe3264d88",
+                    "categoryName": "Hành động",
+                    "modifiedAt": "2023-11-12T09:23:05.2073259"
+                },
+                "modifiedAt": "2023-11-12T09:27:03.022741"
+            },
+            {
+                "id": "b3aadf58-869b-4fc7-ef46-08dbe326a58f",
+                "title": "Naruto",
+                "description": "Thằng Naruto ngu vloz",
+                "imageUrl": "https://upload.wikimedia.org/wikipedia/vi/c/c7/Naruto_Volume_1_manga_cover.jpg",
+                "author":  {
+                    "name": "Masashi Kishimoto",
+                    "dateOfBirth": "1977-11-10T00:00:00",
+                    "description": "This is naruto story",
+                    "avatarImage": null,
+                    "comics": [],
+                    "id": "dcab37a0-7d38-41f2-5aba-08dbe1f047a9",
+                    "modifiedAt": "2023-11-10T20:23:51.3716244",
+                    "isDeleted": false
+                  },
+                "category": null,
+                "modifiedAt": "2023-11-12T09:27:03.022741"
+            },
+            {
+                "id": "b3aadf58-869b-4fc7-ef46-08dbe326a58f",
+                "title": "Naruto",
+                "description": "Thằng Naruto ngu vloz",
+                "imageUrl": "https://upload.wikimedia.org/wikipedia/vi/c/c7/Naruto_Volume_1_manga_cover.jpg",
+                "author":  {
+                    "name": "Masashi Kishimoto",
+                    "dateOfBirth": "1977-11-10T00:00:00",
+                    "description": "This is naruto story",
+                    "avatarImage": null,
+                    "comics": [],
+                    "id": "dcab37a0-7d38-41f2-5aba-08dbe1f047a9",
+                    "modifiedAt": "2023-11-10T20:23:51.3716244",
+                    "isDeleted": false
+                  },
+                "category": null,
+                "modifiedAt": "2023-11-12T09:27:03.022741"
+            },
+            {
+                "id": "b3aadf58-869b-4fc7-ef46-08dbe326a58f",
+                "title": "Naruto",
+                "description": "Thằng Naruto ngu vloz",
+                "imageUrl": "https://upload.wikimedia.org/wikipedia/vi/c/c7/Naruto_Volume_1_manga_cover.jpg",
+                "author":  {
+                    "name": "Masashi Kishimoto",
+                    "dateOfBirth": "1977-11-10T00:00:00",
+                    "description": "This is naruto story",
+                    "avatarImage": null,
+                    "comics": [],
+                    "id": "dcab37a0-7d38-41f2-5aba-08dbe1f047a9",
+                    "modifiedAt": "2023-11-10T20:23:51.3716244",
+                    "isDeleted": false
+                  },
+                "category": null,
+                "modifiedAt": "2023-11-12T09:27:03.022741"
+            },
+            {
+                "id": "b3aadf58-869b-4fc7-ef46-08dbe326a58f",
+                "title": "Naruto",
+                "description": "Thằng Naruto ngu vloz",
+                "imageUrl": "https://upload.wikimedia.org/wikipedia/vi/c/c7/Naruto_Volume_1_manga_cover.jpg",
+                "author":  {
+                    "name": "Masashi Kishimoto",
+                    "dateOfBirth": "1977-11-10T00:00:00",
+                    "description": "This is naruto story",
+                    "avatarImage": null,
+                    "comics": [],
+                    "id": "dcab37a0-7d38-41f2-5aba-08dbe1f047a9",
+                    "modifiedAt": "2023-11-10T20:23:51.3716244",
+                    "isDeleted": false
+                  },
+                "category": null,
+                "modifiedAt": "2023-11-12T09:27:03.022741"
+            }
+        ],
+    "Episode": [
+        {
+            "id": "20c5ac08-7ea9-4fc7-f7be-08dbe32714aa",
+            "episode": "1",
+            "comicId": "b3aadf58-869b-4fc7-ef46-08dbe326a58f",
+            "modifiedAt": "2023-11-12T09:28:39.2897957",
+            "comicEpisodeDetailResponses": [
+                {
+                    "id": "2ae4ab26-ba8e-4785-f94a-08dbe3275949",
+                    "imageUrl": "http://res.cloudinary.com/justme2002cloud/image/upload/v1699756233/002-fix-2_fxfulq.jpg",
+                    "modifiedAt": "2023-11-12T09:30:33.3897037",
+                    "comicEpisodeId": "20c5ac08-7ea9-4fc7-f7be-08dbe32714aa"
+                },
+                {
+                    "id": "464f2faf-e6a7-4963-f94b-08dbe3275949",
+                    "imageUrl": "http://res.cloudinary.com/justme2002cloud/image/upload/v1699756234/005-fix-2_j5uvjv.jpg",
+                    "modifiedAt": "2023-11-12T09:30:34.4281664",
+                    "comicEpisodeId": "20c5ac08-7ea9-4fc7-f7be-08dbe32714aa"
+                }
+            ]
+        },
+        {
+            "id": "20c5ac08-7ea9-4fc7-f7be-08dbe32714aa",
+            "episode": "1",
+            "comicId": "b3aadf58-869b-4fc7-ef46-08dbe326a58f",
+            "modifiedAt": "2023-11-12T09:28:39.2897957",
+            "comicEpisodeDetailResponses": [
+                {
+                    "id": "2ae4ab26-ba8e-4785-f94a-08dbe3275949",
+                    "imageUrl": "http://res.cloudinary.com/justme2002cloud/image/upload/v1699756233/002-fix-2_fxfulq.jpg",
+                    "modifiedAt": "2023-11-12T09:30:33.3897037",
+                    "comicEpisodeId": "20c5ac08-7ea9-4fc7-f7be-08dbe32714aa"
+                },
+                {
+                    "id": "464f2faf-e6a7-4963-f94b-08dbe3275949",
+                    "imageUrl": "http://res.cloudinary.com/justme2002cloud/image/upload/v1699756234/005-fix-2_j5uvjv.jpg",
+                    "modifiedAt": "2023-11-12T09:30:34.4281664",
+                    "comicEpisodeId": "20c5ac08-7ea9-4fc7-f7be-08dbe32714aa"
+                }
+            ]
+        },
+        {
+            "id": "20c5ac08-7ea9-4fc7-f7be-08dbe32714aa",
+            "episode": "1",
+            "comicId": "b3aadf58-869b-4fc7-ef46-08dbe326a58f",
+            "modifiedAt": "2023-11-12T09:28:39.2897957",
+            "comicEpisodeDetailResponses": [
+                {
+                    "id": "2ae4ab26-ba8e-4785-f94a-08dbe3275949",
+                    "imageUrl": "http://res.cloudinary.com/justme2002cloud/image/upload/v1699756233/002-fix-2_fxfulq.jpg",
+                    "modifiedAt": "2023-11-12T09:30:33.3897037",
+                    "comicEpisodeId": "20c5ac08-7ea9-4fc7-f7be-08dbe32714aa"
+                },
+                {
+                    "id": "464f2faf-e6a7-4963-f94b-08dbe3275949",
+                    "imageUrl": "http://res.cloudinary.com/justme2002cloud/image/upload/v1699756234/005-fix-2_j5uvjv.jpg",
+                    "modifiedAt": "2023-11-12T09:30:34.4281664",
+                    "comicEpisodeId": "20c5ac08-7ea9-4fc7-f7be-08dbe32714aa"
+                }
+            ]
+        },
+        {
+            "id": "20c5ac08-7ea9-4fc7-f7be-08dbe32714aa",
+            "episode": "1",
+            "comicId": "b3aadf58-869b-4fc7-ef46-08dbe326a58f",
+            "modifiedAt": "2023-11-12T09:28:39.2897957",
+            "comicEpisodeDetailResponses": [
+                {
+                    "id": "2ae4ab26-ba8e-4785-f94a-08dbe3275949",
+                    "imageUrl": "http://res.cloudinary.com/justme2002cloud/image/upload/v1699756233/002-fix-2_fxfulq.jpg",
+                    "modifiedAt": "2023-11-12T09:30:33.3897037",
+                    "comicEpisodeId": "20c5ac08-7ea9-4fc7-f7be-08dbe32714aa"
+                },
+                {
+                    "id": "464f2faf-e6a7-4963-f94b-08dbe3275949",
+                    "imageUrl": "http://res.cloudinary.com/justme2002cloud/image/upload/v1699756234/005-fix-2_j5uvjv.jpg",
+                    "modifiedAt": "2023-11-12T09:30:34.4281664",
+                    "comicEpisodeId": "20c5ac08-7ea9-4fc7-f7be-08dbe32714aa"
+                }
+            ]
+        }
+      ],
+    "episodeDetail": [
+        {
+            "id": "2ae4ab26-ba8e-4785-f94a-08dbe3275949",
+            "imageUrl": "http://res.cloudinary.com/justme2002cloud/image/upload/v1699756233/002-fix-2_fxfulq.jpg",
+            "modifiedAt": "2023-11-12T09:30:33.3897037",
+            "comicEpisodeId": "20c5ac08-7ea9-4fc7-f7be-08dbe32714aa"
+        },
+        {
+            "id": "464f2faf-e6a7-4963-f94b-08dbe3275949",
+            "imageUrl": "http://res.cloudinary.com/justme2002cloud/image/upload/v1699756234/005-fix-2_j5uvjv.jpg",
+            "modifiedAt": "2023-11-12T09:30:34.4281664",
+            "comicEpisodeId": "20c5ac08-7ea9-4fc7-f7be-08dbe32714aa"
+        }
+    ]
+}

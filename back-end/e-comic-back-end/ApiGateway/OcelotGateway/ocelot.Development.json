@@ -1,0 +1,199 @@
+﻿{
+  "GlobalConfiguration": {
+    "BaseUrl":  "http://localhost:5219"
+  },
+  "Routes": [
+    {
+      "DownstreamPathTemplate": "/api/Comic",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 5016
+        }
+      ],
+      "DownstreamScheme": "http",
+      "UpstreamPathTemplate": "/api/comic",
+      "UpstreamHttpMethod": [ "GET", "POST" ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/Comic/{id}",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 5016
+        }
+      ],
+      "DownstreamScheme": "http",
+      "UpstreamPathTemplate": "/api/Comic/{id}",
+      "UpstreamHttpMethod": [ "GET", "PUT" ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/Auth",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 5064
+        }
+      ],
+      "DownstreamScheme": "http",
+      "UpstreamPathTemplate": "/api/register",
+      "UpstreamHttpMethod": [ "POST" ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/Auth/login",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 5064
+        }
+      ],
+      "DownstreamScheme": "http",
+      "UpstreamPathTemplate": "/api/sign-in",
+      "UpstreamHttpMethod": [ "POST" ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/Auth/log-out",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 5064
+        }
+      ],
+      "DownstreamScheme": "http",
+      "UpstreamPathTemplate": "/api/sign-out",
+      "UpstreamHttpMethod": [ "POST" ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/Category",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 5016
+        }
+      ],
+      "DownstreamScheme": "http",
+      "UpstreamPathTemplate": "/api/Category",
+      "UpstreamHttpMethod": [ "GET", "POST" ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/User/profile",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 5157
+        }
+      ],
+      "DownstreamScheme": "http",
+      "UpstreamPathTemplate": "/api/User/profile",
+      "UpstreamHttpMethod": [ "GET" ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/User",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 5157
+        }
+      ],
+      "DownstreamScheme": "http",
+      "UpstreamPathTemplate": "/api/User",
+      "UpstreamHttpMethod": [ "GET", "POST" ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/Comic/query",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 5157
+        }
+      ],
+      "DownstreamScheme": "http",
+      "UpstreamPathTemplate": "/api/Comic/query",
+      "UpstreamHttpMethod": [ "GET", "POST" ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/Reaction/{comicId}",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 5023
+        }
+      ],
+      "DownstreamScheme": "http",
+      "UpstreamPathTemplate": "/api/Reaction/{comicId}",
+      "UpstreamHttpMethod": [ "GET" ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/User/comment",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 5157
+        }
+      ],
+      "DownstreamScheme": "http",
+      "UpstreamPathTemplate": "/api/User/comment",
+      "UpstreamHttpMethod": [ "POST" ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/author",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 5016
+        }
+      ],
+      "DownstreamScheme": "http",
+      "UpstreamPathTemplate": "/api/author",
+      "UpstreamHttpMethod": [ "GET" ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/author/{id}",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 5016
+        }
+      ],
+      "DownstreamScheme": "http",
+      "UpstreamPathTemplate": "/api/author/{id}",
+      "UpstreamHttpMethod": [ "GET" ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/Category/{id}",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 5016
+        }
+      ],
+      "DownstreamScheme": "http",
+      "UpstreamPathTemplate": "/api/Category/{id}",
+      "UpstreamHttpMethod": [ "GET" ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/Author",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 5016
+        }
+      ],
+      "DownstreamScheme": "http",
+      "UpstreamPathTemplate": "/api/Author",
+      "UpstreamHttpMethod": [ "POST" ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/user/favorite",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 5157
+        }
+      ],
+      "DownstreamScheme": "http",
+      "UpstreamPathTemplate": "/api/user/favorite",
+      "UpstreamHttpMethod": [ "POST" ]
+    }
+  ]
+}

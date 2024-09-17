@@ -1,0 +1,48 @@
+version: '3.4'
+
+services:
+  e-comic-sql-server:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+  rabbitmq:
+    image: rabbitmq:3-management
+  auth.api:
+    image: ${DOCKER_REGISTRY-}api
+    build:
+      context: .
+      dockerfile: auth-service/API/Dockerfile
+
+
+  user-api:
+    image: ${DOCKER_REGISTRY-}userapi
+    build:
+      context: .
+      dockerfile: user-service/User-API/Dockerfile
+
+
+  comic-api:
+    image: ${DOCKER_REGISTRY-}comicapi
+    build:
+      context: .
+      dockerfile: comic-service/Comic-API/Dockerfile
+
+
+  reaction-api:
+    image: ${DOCKER_REGISTRY-}reactionapi
+    build:
+      context: .
+      dockerfile: reaction-service/Reaction-API/Dockerfile
+
+
+  comic-service.signalr:
+    image: ${DOCKER_REGISTRY-}comicservicesignalr
+    build:
+      context: .
+      dockerfile: comic-service/Comic-service.SignalR/Dockerfile
+
+
+  favorite.api:
+    image: ${DOCKER_REGISTRY-}favoriteapi
+    build:
+      context: .
+      dockerfile: favorite-service/Favorite.API/Dockerfile
+

@@ -1,0 +1,67 @@
+const Comic = [
+  {
+    title: 'Naruto',
+    description: 'This is naruto comic',
+    imageUrl:
+      'http://res.cloudinary.com/justme2002cloud/image/upload/v1699627664/e507281583e982658bc02858b8060189_prwcpm.jpg',
+    authorId: 'dcab37a0-7d38-41f2-5aba-08dbe1f047a9',
+    author: {
+      name: 'Masashi Kishimoto',
+      dateOfBirth: '1977-11-10T00:00:00',
+      description: 'This is naruto story',
+      avatarImage: null,
+      comics: [],
+      id: 'dcab37a0-7d38-41f2-5aba-08dbe1f047a9',
+      modifiedAt: '2023-11-10T20:23:51.3716244',
+      isDeleted: false,
+    },
+    categoryId: '0d5dedd9-bfd7-48cf-65e5-08dbe1f00be5',
+    category: {
+      categoryName: 'Hành động',
+      comics: [],
+      id: '0d5dedd9-bfd7-48cf-65e5-08dbe1f00be5',
+      modifiedAt: '2023-11-10T20:22:11.063463',
+      isDeleted: false,
+    },
+    comicEpisodes: [
+      {
+        episode: '1',
+        comicId: 'de9717e0-f8ba-4be1-6062-08dbe1f23a9f',
+        episodeImages: [
+          {
+            imageUrl:
+              'http://res.cloudinary.com/justme2002cloud/image/upload/v1699668305/002-fix-2_evmjwy.jpg',
+            comicEpisodeId: '32d37b9f-c81e-4007-2622-08dbe255251b',
+            id: '55b610da-2805-4435-6473-08dbe25aa325',
+            modifiedAt: '2023-11-11T09:05:06.0692919',
+            isDeleted: false,
+          },
+          {
+            imageUrl:
+              'http://res.cloudinary.com/justme2002cloud/image/upload/v1699668310/005-fix-2_y3ph0l.jpg',
+            comicEpisodeId: '32d37b9f-c81e-4007-2622-08dbe255251b',
+            id: '58f1130a-a592-4cc8-6474-08dbe25aa325',
+            modifiedAt: '2023-11-11T09:05:11.2911098',
+            isDeleted: false,
+          },
+        ],
+        id: '32d37b9f-c81e-4007-2622-08dbe255251b',
+        modifiedAt: '2023-11-11T08:25:52.3600981',
+        isDeleted: false,
+      },
+      {
+        episode: '2',
+        comicId: 'de9717e0-f8ba-4be1-6062-08dbe1f23a9f',
+        episodeImages: [],
+        id: '7752a888-9f7e-43c5-23d5-08dbe255701a',
+        modifiedAt: '2023-11-11T08:27:58.2375333',
+        isDeleted: false,
+      },
+    ],
+    id: 'de9717e0-f8ba-4be1-6062-08dbe1f23a9f',
+    modifiedAt: '2023-11-10T20:37:48.4391068',
+    isDeleted: true,
+  },
+];
+
+export default Comic;

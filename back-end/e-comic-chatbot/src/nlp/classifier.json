@@ -1,0 +1,27 @@
+{
+  "classifiers": [
+    {
+      "query": "Hello",
+      "intent": "greeting"
+    },
+    {
+      "query": "How are you",
+      "intent": "health"
+    },
+    {
+      "query": "What is your name",
+      "intent": "name"
+    },
+    {
+      "query": "Good bye",
+      "intent": "farewell"
+    },
+    {
+      "query": "I want to search books",
+      "intent": "comic"
+    },
+    {
+      "query": ""
+    }
+  ]
+}

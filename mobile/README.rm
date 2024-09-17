@@ -1,0 +1,5 @@
+ cd app/mock/ApiAuth/
+ json-server --host 192.168.1.7 --port 5000 Auth.json
+
+ cd app/mock/ApiComic/
+ json-server --host 192.168.1.7 --port 5001 Comic.json
